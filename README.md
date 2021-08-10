@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Zoo Searchについて
 
-Things you may want to cover:
+Zoo Searchは動物園を動物名や展示方法などから検索できるサービスです。
 
-* Ruby version
+# 開発言語
 
-* System dependencies
+*　Ruby 2.6.5
+*　Ruby on Rails 5.2.5
 
-* Configuration
+# 就業Termの技術
 
-* Database creation
+* お気に入り機能
+* devise
 
-* Database initialization
+# カリキュラム外の技術
 
-* How to run the test suite
+*　ransack
 
-* Services (job queues, cache servers, search engines, etc.)
+# カタログ設計・テーブル定義書
 
-* Deployment instructions
+https://docs.google.com/spreadsheets/d/1A1AmtxDWAPhmg6046NJkguwYG7mzrUNKu2tIOt2jys8/edit?usp=sharing
 
-* ...
+# ER図
+
+https://drive.google.com/file/d/17WhxSlqUaO3Pd3CNrk7a3HiQWDRwnwoL/view?usp=sharing
+
+# 画面遷移図
+
+https://drive.google.com/file/d/1KgK0WIw7kP-h9iElr_StXSTjzL_mxZWC/view?usp=sharing
+
+# ワイヤーフレーム
+
+https://docs.google.com/presentation/d/1DgM6UuBH9fhg5TjkTD0GXzpjXIsIc4gkYWAz8XJKgwk/edit?usp=sharing
