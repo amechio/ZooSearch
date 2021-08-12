@@ -39,12 +39,12 @@ https://docs.google.com/spreadsheets/d/1A1AmtxDWAPhmg6046NJkguwYG7mzrUNKu2tIOt2j
 ## ER図
 
 https://drive.google.com/file/d/17WhxSlqUaO3Pd3CNrk7a3HiQWDRwnwoL/view?usp=sharing
-![21 08 13 02](https://user-images.githubusercontent.com/81453562/129227372-aa3d2b80-cf04-40c5-a818-9c299b112f5a.png)
+![21 08 13 02](https://user-images.githubusercontent.com/81453562/129233821-d827b6a5-b8f0-414a-b78a-6036e58b065a.png)
 
 ## 画面遷移図
 
 https://drive.google.com/file/d/1KgK0WIw7kP-h9iElr_StXSTjzL_mxZWC/view?usp=sharing
-![21 08 13 01](https://user-images.githubusercontent.com/81453562/129227470-6d19a409-b37a-483b-bdec-6ad1d71bb29e.png)
+![21 08 13 01](https://user-images.githubusercontent.com/81453562/129233882-0637c277-55c6-4cf3-b811-6dfb120d4cdb.png)
 
 ## ワイヤーフレーム
 
