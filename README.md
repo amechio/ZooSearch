@@ -39,7 +39,7 @@ https://docs.google.com/spreadsheets/d/1A1AmtxDWAPhmg6046NJkguwYG7mzrUNKu2tIOt2j
 ## ER図
 
 https://drive.google.com/file/d/17WhxSlqUaO3Pd3CNrk7a3HiQWDRwnwoL/view?usp=sharing
-![21 08 14 01](https://user-images.githubusercontent.com/81453562/129441929-1a00e854-d811-41bd-a41f-d990c78af606.png)
+![21 08 16 03](https://user-images.githubusercontent.com/81453562/129522252-e3327859-06a5-41eb-99cd-9d6c664da7d0.png)
 
 ## 画面遷移図
 
