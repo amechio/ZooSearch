@@ -1,0 +1,119 @@
+<%= form_with(model: @zoo, local: true ) do |form| %>
+  <% if @zoo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @zoo.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @zoo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="zoo_title">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :photo %>
+    <%= form.text_field :photo %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :summer_workday_open %>
+    <%= form.text_field :summer_workday_open %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :summer_workday_close %>
+    <%= form.text_field :summer_workday_close %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :winter_workday_open %>
+    <%= form.text_field :winter_workday_open %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :winter_workday_close %>
+    <%= form.text_field :winter_workday_close %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :summer_holiday_open %>
+    <%= form.text_field :summer_holiday_open %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :summer_holiday_close %>
+    <%= form.text_field :summer_holiday_close %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :winter_holiday_open %>
+    <%= form.text_field :winter_holiday_open %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :winter_holiday_close %>
+    <%= form.text_field :winter_holiday_close %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :general_price %>
+    <%= form.text_field :general_price %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :high_school_price %>
+    <%= form.text_field :high_school_price %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :junior_high_school_price %>
+    <%= form.text_field :junior_high_school_price %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :primary_price %>
+    <%= form.text_field :primary_price %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :senior_price %>
+    <%= form.text_field :senior_price %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :price_comment %>
+    <%= form.text_field :price_comment %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :holiday %>
+    <%= form.text_field :holiday %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :area %>
+    <%= form.text_field :area %>
+  </div>
+
+  <div class="zoo_title">
+    <%= form.label :prefecture %>
+    <%= form.text_field :prefecture %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+<%= link_to "一覧画面にもどる", zoos_path %>

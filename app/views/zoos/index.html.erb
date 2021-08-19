@@ -1,0 +1,37 @@
+<h1>一覧画面</h1>
+<p><%= notice %></p>
+<%= link_to '新規作成', new_zoo_path %>
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+  </tr>
+<% @zoos.each do |zoo| %>
+  <tr>
+    <td><%= zoo.name %></td>
+    <td><%= zoo.address %></td>
+    <td><%= zoo.content %></td>
+    <td><%= zoo.photo %></td>
+    <td><%= zoo.summer_workday_open %></td>
+    <td><%= zoo.summer_workday_close %></td>
+    <td><%= zoo.winter_workday_open %></td>
+    <td><%= zoo.winter_workday_close %></td>
+    <td><%= zoo.summer_holiday_open %></td>
+    <td><%= zoo.summer_holiday_close %></td>
+    <td><%= zoo.winter_holiday_open %></td>
+    <td><%= zoo.winter_holiday_close %></td>
+    <td><%= zoo.general_price %></td>
+    <td><%= zoo.high_school_price %></td>
+    <td><%= zoo.junior_high_school_price %></td>
+    <td><%= zoo.primary_price %></td>
+    <td><%= zoo.senior_price %></td>
+    <td><%= zoo.price_comment %></td>
+    <td><%= zoo.holiday %></td>
+    <td><%= zoo.area %></td>
+    <td><%= zoo.prefecture %></td>
+    <td><%= link_to '詳細', zoo_path(zoo.id) %></td>
+    <td><%= link_to '編集', edit_zoo_path(zoo.id) %></td>
+    <td><%= link_to '削除', zoo_path(zoo.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+  </tr>
+<% end %>
+</table>
