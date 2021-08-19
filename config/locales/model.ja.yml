@@ -1,0 +1,58 @@
+ja:
+  activerecord:
+    models:
+      zoo: 動物園
+      animal: 動物
+      user: ユーザー
+      post: ニュース
+      tag: タグ
+      character: 特徴
+      event: イベんと
+      contact: お問い合わせ
+    attributes:
+      zoo:
+        name: 施設名
+        address: 住所
+        holiday: 休園日
+        area: 地域
+        prefecture: 県
+
+      animal:
+        name: 名前
+        english_name: 英名
+        scientific_name: 学名
+        distribution: 分布
+        endangered_species: 絶滅危惧種
+        kingdom: 界
+        phylum: 門
+        class: 網
+        order: 目
+        family: 科
+        genus: 属
+        species: 種
+        subspecies: 亜種
+
+      user:
+        name: 名前
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶
+
+      post:
+        title: タイトル
+        content: 内容
+        photo: 写真
+
+      event:
+        name: イベント名
+        schedule: 開催日時
+        location: 場所
+        price: 料金
+        reservation: 予約
+        content: 内容
+
+      contact:
+        title: タイトル
+        content: 内容
