@@ -1,5 +1,6 @@
 class ZoosController < ApplicationController
   before_action :set_zoo, only: [:show, :edit, :update, :destroy]
+
   def index
     @zoos = Zoo.all
   end
@@ -69,7 +70,8 @@ class ZoosController < ApplicationController
       :price_comment,
       :holiday,
       :area,
-      :prefecture
+      :prefecture,
+      :image_cache
     )
   end
 

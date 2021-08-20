@@ -1,4 +1,6 @@
 class Zoo < ApplicationRecord
+  mount_uploader :photo, ImageUploader
+
   validates :name, presence: true, length: {in: 1..50}
   validates :address, presence: true
   validates :summer_workday_open, presence: true

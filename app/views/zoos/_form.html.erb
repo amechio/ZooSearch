@@ -26,6 +26,7 @@
 
   <div class="zoo_column">
     <%= form.label :写真 %>
+    <%= image_tag(@zoo.photo.url) if @zoo.photo && @zoo.photo.url %>
     <%= form.file_field :photo %>
   </div>
 
