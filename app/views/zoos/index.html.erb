@@ -1,0 +1,101 @@
+<h1>動物園一覧画面</h1>
+<p><%= notice %></p>
+<%= link_to '新規作成', new_zoo_path %>
+
+<ul class="row">
+  <% @zoos.each do |zoo| %>
+    <li class="col-md-4 col-lg-3">
+      <div class="chunk">
+        <div class="name">
+          施設名:<%= zoo.name %>
+        </div>
+
+        <div class="address">
+          住所:<%= zoo.address %>
+        </div>
+
+        <div class="content">
+          概要:<%= zoo.content %>
+        </div>
+
+        <div class="photo">
+          写真:<%= image_tag zoo.photo.url, class: "photo" if zoo.photo && zoo.photo.url %>
+        </div>
+
+        <div class="summer_workday_open">
+          開園時間（夏・平日）:<%= zoo.summer_workday_open.strftime( "%H:%M" ) %>
+        </div>
+
+        <div class="summer_workday_close">
+          閉園時間（夏・平日）:<%= zoo.summer_workday_close.strftime( "%H:%M" ) %>
+        </div>
+
+        <div class="winter_workday_open">
+          開園時間（冬・平日）:<%= zoo.winter_workday_open.strftime( "%H:%M" ) %>
+        </div>
+
+        <div class="winter_workday_close">
+          閉園時間（冬・平日）:<%= zoo.winter_workday_close.strftime( "%H:%M" ) %>
+        </div>
+
+        <div class="summer_holiday_open">
+          開園時間（夏・休日）:<%= zoo.summer_holiday_open.strftime( "%H:%M" ) %>
+        </div>
+
+        <div class="summer_holiday_close">
+          閉園時間（夏・休日）:<%= zoo.summer_holiday_close.strftime( "%H:%M" ) %>
+        </div>
+
+        <div class="winter_holiday_open">
+          開園時間（冬・休日）:<%= zoo.winter_holiday_open.strftime( "%H:%M" ) %>
+        </div>
+
+        <div class="winter_holiday_close">
+          閉園時間（冬・休日）:<%= zoo.winter_holiday_close.strftime( "%H:%M" ) %>
+        </div>
+
+        <div class="general_price">
+          入場料（一般）:<%= zoo.general_price %>円
+        </div>
+
+        <div class="high_school_price">
+          入場料（高校生）:<%= zoo.high_school_price %>円
+        </div>
+
+        <div class="junior_high_school_price">
+          入場料（中学生）:<%= zoo.junior_high_school_price %>円
+        </div>
+
+        <div class="primary_price">
+          入場料（小学生）:<%= zoo.primary_price %>円
+        </div>
+
+        <div class="senior_price">
+          入場料（シニア）:<%= zoo.senior_price %>円
+        </div>
+
+        <div class="price_comment">
+          入場料（コメント）:<%= zoo.price_comment %>
+        </div>
+
+        <div class="holiday">
+          休園日:<%= zoo.holiday %>
+        </div>
+
+        <div class="area">
+          地域:<%= zoo.area %>
+        </div>
+
+        <div class="prefecture">
+          県:<%= zoo.prefecture %>
+        </div>
+
+        <div class="option">
+          <%= link_to '詳細', zoo_path(zoo.id), class: "option_btn" %>
+          <%= link_to '編集', edit_zoo_path(zoo.id), class: "option_btn" %>
+          <%= link_to '削除', zoo_path(zoo.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn" %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

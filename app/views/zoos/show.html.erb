@@ -1,0 +1,23 @@
+<h1>詳細画面</h1>
+<p>タイトル: <%= @zoo.name %></p>
+<p>住所: <%= @zoo.address %></p>
+<p>概要: <%= @zoo.content %></p>
+<p>写真: <%= image_tag @zoo.photo.url %></p>
+<p>開園時間(夏・平日): <%= @zoo.summer_workday_open %></p>
+<p>閉園時間(夏・平日): <%= @zoo.summer_workday_close %></p>
+<p>開園時間(冬・平日): <%= @zoo.winter_workday_open %></p>
+<p>閉園時間(冬・平日): <%= @zoo.winter_workday_close %></p>
+<p>開園時間(夏・休日): <%= @zoo.summer_holiday_open %></p>
+<p>閉園時間(夏・休日): <%= @zoo.summer_holiday_close %></p>
+<p>開園時間(冬・休日): <%= @zoo.winter_holiday_open %></p>
+<p>閉園時間(冬・休日): <%= @zoo.winter_holiday_close %></p>
+<p>入場料（一般）: <%= @zoo.general_price %></p>
+<p>入場料（高校生）: <%= @zoo.high_school_price %></p>
+<p>入場料（中学生）: <%= @zoo.junior_high_school_price %></p>
+<p>入場料（小学生）: <%= @zoo.primary_price %></p>
+<p>入場料（シニア）: <%= @zoo.senior_price %></p>
+<p>入場料（コメント）: <%= @zoo.price_comment %></p>
+<p>休園日: <%= @zoo.holiday %></p>
+<p>地域: <%= @zoo.area %></p>
+<p>県: <%= @zoo.prefecture %></p>
+<%= link_to "一覧画面にもどる", zoos_path %>
