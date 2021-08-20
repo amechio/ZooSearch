@@ -10,107 +10,107 @@
     </div>
   <% end %>
   <div class="zoo_column">
-    <%= form.label :name %>
+    *<%= form.label :施設名 %>
     <%= form.text_field :name %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :address %>
+    *<%= form.label :住所 %>
     <%= form.text_field :address %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :content %>
+    <%= form.label :説明 %>
     <%= form.text_area :content %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :photo %>
-    <%= form.text_field :photo %>
+    <%= form.label :写真 %>
+    <%= form.file_field :photo %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :summer_workday_open %>
-    <%= form.time_select :summer_workday_open %>
+    *<%= form.label :開園時間（夏・平日） %>
+    <%= form.time_field :summer_workday_open %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :summer_workday_close %>
-    <%= form.time_select :summer_workday_close %>
+    *<%= form.label :閉園時間（夏・平日） %>
+    <%= form.time_field :summer_workday_close %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :winter_workday_open %>
-    <%= form.time_select :winter_workday_open %>
+    *<%= form.label :開園時間（冬・平日） %>
+    <%= form.time_field :winter_workday_open %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :winter_workday_close %>
-    <%= form.time_select :winter_workday_close %>
+    *<%= form.label :閉園時間（冬・平日） %>
+    <%= form.time_field :winter_workday_close %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :summer_holiday_open %>
-    <%= form.time_select :summer_holiday_open %>
+    *<%= form.label :開園時間（夏・休日） %>
+    <%= form.time_field :summer_holiday_open %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :summer_holiday_close %>
-    <%= form.time_select :summer_holiday_close %>
+    *<%= form.label :閉園時間（夏・休日） %>
+    <%= form.time_field :summer_holiday_close %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :winter_holiday_open %>
-    <%= form.time_select :winter_holiday_open %>
+    *<%= form.label :開園時間（冬・休日） %>
+    <%= form.time_field :winter_holiday_open %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :winter_holiday_close %>
-    <%= form.time_select :winter_holiday_close %>
+    *<%= form.label :閉園時間（冬・休日） %>
+    <%= form.time_field :winter_holiday_close %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :general_price %>
+    *<%= form.label :入場料（一般） %>
     <%= form.number_field :general_price %>円
   </div>
 
   <div class="zoo_column">
-    <%= form.label :high_school_price %>
+    <%= form.label :入場料（高校生） %>
     <%= form.number_field :high_school_price %>円
   </div>
 
   <div class="zoo_column">
-    <%= form.label :junior_high_school_price %>
+    <%= form.label :入場料（中学生） %>
     <%= form.number_field :junior_high_school_price %>円
   </div>
 
   <div class="zoo_column">
-    <%= form.label :primary_price %>
+    <%= form.label :入場料（小学生） %>
     <%= form.number_field :primary_price %>円
   </div>
 
   <div class="zoo_column">
-    <%= form.label :senior_price %>
+    <%= form.label :入場料（シニア） %>
     <%= form.number_field :senior_price %>円
   </div>
 
   <div class="zoo_column">
-    <%= form.label :price_comment %>
+    <%= form.label :入場料（コメント） %>
     <%= form.text_field :price_comment %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :holiday %>
+    <%= form.label :休園日 %>
     <%= form.text_field :holiday %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :area %>
+    *<%= form.label :地域 %>
     <%= form.select :area, Zoo.areas.keys, prompt: "選択してください" %>
   </div>
 
   <div class="zoo_column">
-    <%= form.label :prefecture %>
+    *<%= form.label :県 %>
     <%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>
   </div>
 
