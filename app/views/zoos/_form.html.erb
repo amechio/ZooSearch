@@ -9,109 +9,109 @@
       </ul>
     </div>
   <% end %>
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :address %>
     <%= form.text_field :address %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :photo %>
     <%= form.text_field :photo %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :summer_workday_open %>
     <%= form.text_field :summer_workday_open %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :summer_workday_close %>
     <%= form.text_field :summer_workday_close %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :winter_workday_open %>
     <%= form.text_field :winter_workday_open %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :winter_workday_close %>
     <%= form.text_field :winter_workday_close %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :summer_holiday_open %>
     <%= form.text_field :summer_holiday_open %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :summer_holiday_close %>
     <%= form.text_field :summer_holiday_close %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :winter_holiday_open %>
     <%= form.text_field :winter_holiday_open %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :winter_holiday_close %>
     <%= form.text_field :winter_holiday_close %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :general_price %>
     <%= form.text_field :general_price %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :high_school_price %>
     <%= form.text_field :high_school_price %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :junior_high_school_price %>
     <%= form.text_field :junior_high_school_price %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :primary_price %>
     <%= form.text_field :primary_price %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :senior_price %>
     <%= form.text_field :senior_price %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :price_comment %>
     <%= form.text_field :price_comment %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :holiday %>
     <%= form.text_field :holiday %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :area %>
-    <%= form.text_field :area %>
+    <%= form.select :area, Zoo.areas.keys, prompt: "選択してください" %>
   </div>
 
-  <div class="zoo_title">
+  <div class="zoo_column">
     <%= form.label :prefecture %>
-    <%= form.text_field :prefecture %>
+    <%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>
   </div>
 
   <%= form.submit %>

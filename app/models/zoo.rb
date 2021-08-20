@@ -14,16 +14,14 @@ class Zoo < ApplicationRecord
   validates :prefecture, presence: true
 
   enum area: {
-    北海道:0,
-    東北:1,
+    北海道・東北:1,
     関東:2,
     中部:3,
     東海:4,
     近畿:5,
     中国:6,
     四国:7,
-    九州:8,
-    沖縄:9
+    九州・沖縄:8
   }
   enum prefecture:{
     北海道:1,
