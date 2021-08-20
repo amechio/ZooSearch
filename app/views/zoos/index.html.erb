@@ -2,92 +2,96 @@
 <p><%= notice %></p>
 <%= link_to '新規作成', new_zoo_path %>
 
-<% @zoos.each do |f| %>
-  <div class="chunk">
-    <div class="name">
-      施設名:<%= f.name %>
-    </div>
+<ul class="row">
+  <% @zoos.each do |f| %>
+    <li class="col-md-4 col-lg-3">
+      <div class="chunk">
+        <div class="name">
+          施設名:<%= f.name %>
+        </div>
 
-    <div class="address">
-      住所:<%= f.address %>
-    </div>
+        <div class="address">
+          住所:<%= f.address %>
+        </div>
 
-    <div class="content">
-      概要:<%= f.content %>
-    </div>
+        <div class="content">
+          概要:<%= f.content %>
+        </div>
 
-    <div class="photo">
-      写真:<%= f.photo %>
-    </div>
+        <div class="photo">
+          写真:<%= f.photo %>
+        </div>
 
-    <div class="summer_workday_open">
-      開園時間（夏・平日）:<%= f.summer_workday_open.strftime( "%H:%M" ) %>
-    </div>
+        <div class="summer_workday_open">
+          開園時間（夏・平日）:<%= f.summer_workday_open.strftime( "%H:%M" ) %>
+        </div>
 
-    <div class="summer_workday_close">
-      閉園時間（夏・平日）:<%= f.summer_workday_close.strftime( "%H:%M" ) %>
-    </div>
+        <div class="summer_workday_close">
+          閉園時間（夏・平日）:<%= f.summer_workday_close.strftime( "%H:%M" ) %>
+        </div>
 
-    <div class="winter_workday_open">
-      開園時間（冬・平日）:<%= f.winter_workday_open.strftime( "%H:%M" ) %>
-    </div>
+        <div class="winter_workday_open">
+          開園時間（冬・平日）:<%= f.winter_workday_open.strftime( "%H:%M" ) %>
+        </div>
 
-    <div class="winter_workday_close">
-      閉園時間（冬・平日）:<%= f.winter_workday_close.strftime( "%H:%M" ) %>
-    </div>
+        <div class="winter_workday_close">
+          閉園時間（冬・平日）:<%= f.winter_workday_close.strftime( "%H:%M" ) %>
+        </div>
 
-    <div class="summer_holiday_open">
-      開園時間（夏・休日）:<%= f.summer_holiday_open.strftime( "%H:%M" ) %>
-    </div>
+        <div class="summer_holiday_open">
+          開園時間（夏・休日）:<%= f.summer_holiday_open.strftime( "%H:%M" ) %>
+        </div>
 
-    <div class="summer_holiday_close">
-      閉園時間（夏・休日）:<%= f.summer_holiday_close.strftime( "%H:%M" ) %>
-    </div>
+        <div class="summer_holiday_close">
+          閉園時間（夏・休日）:<%= f.summer_holiday_close.strftime( "%H:%M" ) %>
+        </div>
 
-    <div class="winter_holiday_open">
-      開園時間（冬・休日）:<%= f.winter_holiday_open.strftime( "%H:%M" ) %>
-    </div>
+        <div class="winter_holiday_open">
+          開園時間（冬・休日）:<%= f.winter_holiday_open.strftime( "%H:%M" ) %>
+        </div>
 
-    <div class="winter_holiday_close">
-      閉園時間（冬・休日）:<%= f.winter_holiday_close.strftime( "%H:%M" ) %>
-    </div>
+        <div class="winter_holiday_close">
+          閉園時間（冬・休日）:<%= f.winter_holiday_close.strftime( "%H:%M" ) %>
+        </div>
 
-    <div class="general_price">
-      入場料（一般）:<%= f.general_price %>円
-    </div>
+        <div class="general_price">
+          入場料（一般）:<%= f.general_price %>円
+        </div>
 
-    <div class="high_school_price">
-      入場料（高校生）:<%= f.high_school_price %>円
-    </div>
+        <div class="high_school_price">
+          入場料（高校生）:<%= f.high_school_price %>円
+        </div>
 
-    <div class="junior_high_school_price">
-      入場料（中学生）:<%= f.junior_high_school_price %>円
-    </div>
+        <div class="junior_high_school_price">
+          入場料（中学生）:<%= f.junior_high_school_price %>円
+        </div>
 
-    <div class="primary_price">
-      入場料（小学生）:<%= f.primary_price %>円
-    </div>
+        <div class="primary_price">
+          入場料（小学生）:<%= f.primary_price %>円
+        </div>
 
-    <div class="senior_price">
-      入場料（シニア）:<%= f.senior_price %>円
-    </div>
+        <div class="senior_price">
+          入場料（シニア）:<%= f.senior_price %>円
+        </div>
 
-    <div class="price_comment">
-      入場料（コメント）:<%= f.price_comment %>
-    </div>
+        <div class="price_comment">
+          入場料（コメント）:<%= f.price_comment %>
+        </div>
 
-    <div class="holiday">
-      休園日:<%= f.holiday %>
-    </div>
+        <div class="holiday">
+          休園日:<%= f.holiday %>
+        </div>
 
-    <div class="area">
-      地域:<%= f.area %>
-    </div>
+        <div class="area">
+          地域:<%= f.area %>
+        </div>
 
-    <div class="prefecture">
-      県:<%= f.prefecture %>
-    </div>
+        <div class="prefecture">
+          県:<%= f.prefecture %>
+        </div>
 
 
-  </div>
-<% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>
