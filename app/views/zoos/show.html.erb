@@ -2,7 +2,7 @@
 <p>タイトル: <%= @zoo.name %></p>
 <p>住所: <%= @zoo.address %></p>
 <p>概要: <%= @zoo.content %></p>
-<p>写真: <%= image_tag @zoo.photo.url %></p>
+<p>写真: <%= image_tag @zoo.photo.url if @zoo.photo && @zoo.photo.url %></p>
 <p>開園時間(夏・平日): <%= @zoo.summer_workday_open %></p>
 <p>閉園時間(夏・平日): <%= @zoo.summer_workday_close %></p>
 <p>開園時間(冬・平日): <%= @zoo.winter_workday_open %></p>
