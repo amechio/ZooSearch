@@ -1,0 +1,77 @@
+<h1>動物一覧画面</h1>
+<p><%= notice %></p>
+<%= link_to '新規作成', new_animal_path %>
+
+<ul class="row">
+  <% @animals.each do |animal| %>
+    <li class="col-md-4 col-lg-3">
+      <div class="chunk">
+        <div class="name">
+          動物名:<%= animal.name %>
+        </div>
+
+        <div class="english_name">
+          英名:<%= animal.english_name %>
+        </div>
+
+        <div class="scientific_name">
+          学名:<%= animal.scientific_name %>
+        </div>
+
+        <div class="distribution">
+          分布:<%= animal.distribution %>
+        </div>
+
+        <div class="endangered_species">
+          絶滅危惧種:<%= animal.endangered_species %>
+        </div>
+
+        <div class="content">
+          説明:<%= animal.content %>
+        </div>
+
+        <div class="photo">
+          写真:<%= image_tag animal.photo.url, class: "photo" if animal.photo && animal.photo.url %>
+        </div>
+
+        <div class="kingdom">
+          界:<%= animal.kingdom %>
+        </div>
+
+        <div class="phylum">
+          門:<%= animal.phylum %>
+        </div>
+
+        <div class="class">
+          網:<%= animal.animal_class %>
+        </div>
+
+        <div class="order">
+          目:<%= animal.order %>
+        </div>
+
+        <div class="family">
+          科:<%= animal.family %>
+        </div>
+
+        <div class="genus">
+          属:<%= animal.genus %>
+        </div>
+
+        <div class="species">
+          種:<%= animal.species %>
+        </div>
+
+        <div class="subspecies">
+          亜種:<%= animal.subspecies %>
+        </div>
+
+        <div class="option">
+          <%= link_to '詳細', animal_path(animal.id), class: "option_btn" %>
+          <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn" %>
+          <%= link_to '削除', animal_path(animal.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn" %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
