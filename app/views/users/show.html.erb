@@ -1,0 +1,12 @@
+<h1>プロフィール画面</h1>
+<p>名前: <%= @user.name %></p>
+<p>メールアドレス: <%= @user.email %></p>
+<p>パスワード: <%= @user.password %></p>
+<p>確認用パスワード: <%= @user.password_confirmation %></p>
+<p>住んでいる県: <%= @user.live_prefecture %></p>
+<p>よく行く県: <%= @user.favorite_prefecture %></p>
+<p>自己紹介: <%= @user.content %></p>
+<p>アイコン: <%= image_tag @user.icon.url if @user.icon && @user.icon.url %></p>
+<p>オーナー権限: <%= @user.owner %></p>
+<p>管理者権限: <%= @user.admin %></p>
+<%= link_to "一覧画面にもどる", users_path %>
