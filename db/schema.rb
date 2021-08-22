@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_22_091007) do
+ActiveRecord::Schema.define(version: 2021_08_22_125246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "affiliations", force: :cascade do |t|
+    t.bigint "zoo_id"
+    t.bigint "animal_id"
+    t.text "feature"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["animal_id"], name: "index_affiliations_on_animal_id"
+    t.index ["zoo_id"], name: "index_affiliations_on_zoo_id"
+  end
 
   create_table "animals", force: :cascade do |t|
     t.string "name"
@@ -77,5 +87,7 @@ ActiveRecord::Schema.define(version: 2021_08_22_091007) do
     t.index ["user_id"], name: "index_zoos_on_user_id"
   end
 
+  add_foreign_key "affiliations", "animals"
+  add_foreign_key "affiliations", "zoos"
   add_foreign_key "zoos", "users"
 end

@@ -1,4 +1,7 @@
 class Animal < ApplicationRecord
+  has_many :affiliations, dependent: :destroy
+  has_many :affiliation_zoos, through: :affiliations, source: :zoo
+
   mount_uploader :photo, ImageUploader
 
   validates :name, presence: true
