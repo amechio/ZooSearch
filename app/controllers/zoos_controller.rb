@@ -1,5 +1,6 @@
 class ZoosController < ApplicationController
   before_action :set_zoo, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user, only: [:index, :new, :create, :edit, :update, :destroy]
 
   def index
     @zoos = Zoo.all
@@ -10,7 +11,7 @@ class ZoosController < ApplicationController
   end
 
   def create
-    @zoo = Zoo.new(zoo_params)
+    @zoo = current_user.zoos.build(zoo_params)
     if params[:back]
       render :new
     else
@@ -26,6 +27,9 @@ class ZoosController < ApplicationController
   end
 
   def edit
+    unless current_user.id == @zoo.user_id || current_user.admin == true
+      redirect_to zoos_path, notice: "権限がありません！"
+    end
   end
 
   def update
@@ -37,8 +41,12 @@ class ZoosController < ApplicationController
   end
 
   def destroy
-    @zoo.destroy
-    redirect_to zoos_path, notice:"動物園を削除しました！"
+    unless current_user.id == @zoo.user_id || current_user.admin == true
+      redirect_to zoos_path, notice: "権限がありません！"
+    else
+      @zoo.destroy
+      redirect_to zoos_path, notice:"動物園を削除しました！"
+    end
   end
 
   def confirm
@@ -77,5 +85,11 @@ class ZoosController < ApplicationController
 
   def set_zoo
     @zoo = Zoo.find(params[:id])
+  end
+
+  def admin_user
+    if current_user.admin != true
+      redirect_to new_session_path, notice: "権限がありません！"
+    end
   end
 end

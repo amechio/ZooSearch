@@ -1,4 +1,6 @@
 class Zoo < ApplicationRecord
+  belongs_to :user
+
   mount_uploader :photo, ImageUploader
 
   validates :name, presence: true, length: {in: 1..50}
