@@ -1,2 +1,45 @@
 <h1>ユーザ新規作成</h1>
-<%= render 'form' %>
+<%= form_with(model: @user, local: true ) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @user.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="user_column">
+    *<%= form.label :名前 %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="user_column">
+    *<%= form.label :メールアドレス %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div class="user_column">
+    *<%= form.label :パスワード %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="user_column">
+    *<%= form.label :確認用パスワード %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div class="user_column">
+    *<%= form.label :オーナー権限 %>
+    <%= form.check_box :owner, {}, true, false %>
+  </div>
+
+  <div class="user_column">
+    *<%= form.label :管理者権限 %>
+    <%= form.check_box :admin, {}, true, false %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+<%= link_to "一覧画面にもどる", users_path %>
