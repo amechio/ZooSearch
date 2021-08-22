@@ -31,13 +31,13 @@
   </div>
 
   <div class="user_column">
-    *<%= form.label :住んでいる県 %>
-    <%# <%= form.select :prefecture, User.prefectures.keys.to_a, prompt: "選択してください" %> %>
+    <%= form.label :住んでいる県 %>
+    <%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>
   </div>
 
   <div class="user_column">
-    *<%= form.label :よく行く県 %>
-    <%# <%= form.select :prefecture, User.prefectures.keys.to_a, prompt: "選択してください" %> %>
+    <%= form.label :よく行く県 %>
+    <%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>
   </div>
 
   <div class="user_column">
