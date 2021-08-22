@@ -1,11 +1,13 @@
 class User < ApplicationRecord
   mount_uploader :icon, ImageUploader
 
-  validates :name, presence: true
-  validates :email, presence: true
-  validates :password, presence: true
-  validates :password_confirmation, presence: true
+  before_validation { email.downcase! }
+  validates :name, presence: true, length: { maximum: 30 }
+  validates :email, presence: true, length: { maximum: 30 }, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :password, presence: true, length: { minimum: 6 }
   validates :owner, presence: true
   validates :admin, presence: true
+
+  has_secure_password
 
 end

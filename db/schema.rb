@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 2021_08_21_173420) do
     t.integer "favorite_prefecture"
     t.text "content"
     t.string "icon"
-    t.boolean "owner"
-    t.boolean "admin"
+    t.boolean "owner", default: false
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

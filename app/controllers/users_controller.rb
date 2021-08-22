@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :login_required, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
       render :new
     else
       if @user.save
-        redirect_to users_path, notice: "新しい動物園を登録しました！"
+        redirect_to user_path(@user.id), notice: "ユーザ登録しました！"
       else
         render :new
       end
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to users_path, notice: "動物園を編集しました！"
+      redirect_to users_path, notice: "プロフィールを編集しました！"
     else
       render :edit
     end
