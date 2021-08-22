@@ -10,7 +10,7 @@ class ZoosController < ApplicationController
   end
 
   def create
-    @zoo = Zoo.new(zoo_params)
+    @zoo = current_user.zoos.build(zoo_params)
     if params[:back]
       render :new
     else

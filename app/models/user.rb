@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :zoos
+
   mount_uploader :icon, ImageUploader
 
   before_validation { email.downcase! }
