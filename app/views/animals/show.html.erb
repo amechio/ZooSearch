@@ -15,11 +15,3 @@
 <p>種: <%= @animal.species %></p>
 <p>亜種: <%= @animal.subspecies %></p>
 <%= link_to "一覧画面にもどる", animals_path %>
-
-<%# <% unless @animal.zoo_id == current_zoo.id %> %>
-  <% if @affiliation.present? %>
-    <%= link_to '登録を解除する', affiliations_path(id: @affiliation.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to '動物園に登録する', affiliations_path(blog_id: @animal.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
-<%# <% end %> %>

@@ -23,9 +23,7 @@
 
 <p>動物:
   <%= @zoo.animals.each do |animal| %>
-    <%= animal.name %>
-    <%# <%= link_to animal.name, show_animal_path(animal.id) %> %>
-    <%# <%= link_to animal.name, animals_path %> %>
+    <%= link_to animal.name, animal_path(animal.id) %>
   <% end %>
 </p>
 
