@@ -23,6 +23,7 @@ class AnimalsController < ApplicationController
   end
 
   def show
+    # @affiliation = current_zoo.affiliations.find_by(animal_id: @animal.id)
   end
 
   def edit

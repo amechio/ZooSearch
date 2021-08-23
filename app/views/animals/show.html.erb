@@ -14,4 +14,15 @@
 <p>属: <%= @animal.genus %></p>
 <p>種: <%= @animal.species %></p>
 <p>亜種: <%= @animal.subspecies %></p>
+
+<p>動物園:
+  <ul class="row">
+    <% @animal.zoos.each do |zoo| %>
+      <li class="col-sm-3">
+        <%= link_to zoo.name, zoo_path(zoo.id) %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to "一覧画面にもどる", animals_path %>

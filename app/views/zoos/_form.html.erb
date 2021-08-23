@@ -115,6 +115,11 @@
     <%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>
   </div>
 
+  <div class="animal_column">
+    <%= form.label :動物 %>
+    <%= form.collection_check_boxes(:animal_ids, Animal.all, :id, :name) %>
+  </div>
+
   <%= form.submit %>
 <% end %>
 <%= link_to "一覧画面にもどる", zoos_path %>
