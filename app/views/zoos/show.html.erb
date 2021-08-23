@@ -22,9 +22,13 @@
 <p>県: <%= @zoo.prefecture %></p>
 
 <p>動物:
-  <%= @zoo.animals.each do |animal| %>
-    <%= link_to animal.name, animal_path(animal.id) %>
-  <% end %>
+  <ul class="row">
+    <% @zoo.animals.each do |animal| %>
+      <li class="col-sm-3">
+        <%= link_to animal.name, animal_path(animal.id) %>
+      </li>
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to "一覧画面にもどる", zoos_path %>
