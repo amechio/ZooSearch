@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'tops#index'
   resources :zoos
   resources :animals
   resources :users
