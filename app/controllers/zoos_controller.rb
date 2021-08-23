@@ -83,6 +83,7 @@ class ZoosController < ApplicationController
       :holiday,
       :area,
       :prefecture,
+      :home_page,
       :image_cache,
       { animal_ids: [] }
     )
