@@ -26,6 +26,7 @@ class ZoosController < ApplicationController
   end
 
   def show
+    @favorite_zoo = current_user.favorite_zoos.find_by(zoo_id: @zoo.id)
   end
 
   def edit

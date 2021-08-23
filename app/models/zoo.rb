@@ -2,6 +2,7 @@ class Zoo < ApplicationRecord
   belongs_to :user
   has_many :affiliations, dependent: :destroy
   has_many :animals, through: :affiliations
+  has_many :favorite_zoos, dependent: :destroy
 
   mount_uploader :photo, ImageUploader
 
