@@ -11,20 +11,35 @@
 
   <body>
     <header>
+      <%= link_to "トップページ", root_path, class: "logo" %>
+
       <% if logged_in? %>
         ようこそ <%= current_user.name %> さん
-        [<%= link_to "Profile", user_path(current_user.id), class: "header_btn" %>/
-        <%= link_to "Logout", session_path(current_user.id), method: :delete, class: "header_btn" %>]
+        <%= link_to "プロフィール", user_path(current_user.id), class: "header_btn" %>
+        <%= link_to "ログアウト", session_path(current_user.id), method: :delete, class: "header_btn" %>
+        <%= link_to "動物園一覧", zoos_path, class: "admin_btn" %>
+        <%= link_to "動物一覧", animals_path, class: "admin_btn" %>
+        <%= link_to "ユーザ一覧", zoos_path, class: "admin_btn" %>
+
       <% else %>
         ログインしてください
-        [<%= link_to "Sign up", new_user_path, class: "header_btn" %>/
-        <%= link_to "Login", new_session_path, class: "header_btn" %>]
+        <%= link_to "ログイン", new_session_path, class: "header_btn" %>
+        <%= link_to "アカウントをつくる", new_user_path, class: "header_btn" %>
       <% end %>
-      お知らせ：
-      『<% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "#{key}") %>
-      <% end %>』
+
+      <div class="information">
+        お知らせ：
+        『<% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>』
+
+      </div>
+
     </header>
+
     <%= yield %>
+
+    <footer>
+    </footer>
   </body>
 </html>
