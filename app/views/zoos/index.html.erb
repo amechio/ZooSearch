@@ -90,6 +90,10 @@
           県:<%= zoo.prefecture %>
         </div>
 
+        <div class="prefecture">
+          ホームページ:<%= link_to zoo.home_page, zoo.home_page %>
+        </div>
+
         <div class="option">
           <%= link_to '詳細', zoo_path(zoo.id), class: "option_btn" %>
           <%= link_to '編集', edit_zoo_path(zoo.id), class: "option_btn" %>
