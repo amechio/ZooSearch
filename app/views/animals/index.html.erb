@@ -66,6 +66,10 @@
           亜種:<%= animal.subspecies %>
         </div>
 
+        <div class="wikipedia">
+          Wikipedia:<%= link_to animal.wikipedia, animal.wikipedia %>
+        </div>
+
         <div class="option">
           <%= link_to '詳細', animal_path(animal.id), class: "option_btn" %>
           <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn" %>

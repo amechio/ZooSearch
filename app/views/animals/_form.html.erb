@@ -85,6 +85,11 @@
     <%= form.text_field :subspecies %>
   </div>
 
+  <div class="animal_column">
+    <%= form.label :Wikipedia %>
+    <%= form.text_field :wikipedia %>
+  </div>
+
   <%= form.submit %>
 <% end %>
 <%= link_to "一覧画面にもどる", animals_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_072050) do
+ActiveRecord::Schema.define(version: 2021_08_23_094622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_072050) do
     t.string "subspecies"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "wikipedia"
   end
 
   create_table "favorite_animals", force: :cascade do |t|
@@ -102,6 +103,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_072050) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "home_page"
     t.index ["user_id"], name: "index_zoos_on_user_id"
   end
 

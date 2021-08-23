@@ -66,6 +66,7 @@ class AnimalsController < ApplicationController
       :genus,
       :species,
       :subspecies,
+      :wikipedia,
       :image_cache
     )
   end
