@@ -1,6 +1,6 @@
 class Animal < ApplicationRecord
   has_many :affiliations, dependent: :destroy
-  has_many :affiliation_zoos, through: :affiliations, source: :zoo
+  has_many :zoos, through: :affiliations
 
   mount_uploader :photo, ImageUploader
 
