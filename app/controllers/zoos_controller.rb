@@ -1,12 +1,14 @@
 class ZoosController < ApplicationController
   before_action :set_zoo, only: [:show, :edit, :update, :destroy]
   before_action :admin_user, only: [:index, :new, :create, :edit, :update, :destroy]
+  # before_action :affiliation, only: [:new, :create, :show, :edit, :update]
 
   def index
     @zoos = Zoo.all
   end
 
   def new
+  # binding.irb
     @zoo = Zoo.new
   end
 
@@ -30,6 +32,7 @@ class ZoosController < ApplicationController
     unless current_user.id == @zoo.user_id || current_user.admin == true
       redirect_to zoos_path, notice: "権限がありません！"
     end
+
   end
 
   def update
@@ -79,7 +82,8 @@ class ZoosController < ApplicationController
       :holiday,
       :area,
       :prefecture,
-      :image_cache
+      :image_cache,
+      { animal_ids: [] }
     )
   end
 
@@ -92,4 +96,10 @@ class ZoosController < ApplicationController
       redirect_to new_session_path, notice: "権限がありません！"
     end
   end
+
+  # def affiliation
+  #   @animals = Animal.all
+  #   # @affiliation = @animal.affiliations.find_by(zoo_id: @zoo.id)
+  #   # @affiliations = Affiliation.where(id: @animal.shut_affiliations_ids.split(','))
+  # end
 end

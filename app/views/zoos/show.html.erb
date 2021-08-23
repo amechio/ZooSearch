@@ -1,5 +1,5 @@
 <h1>詳細画面</h1>
-<p>タイトル: <%= @zoo.name %></p>
+<p>施設名: <%= @zoo.name %></p>
 <p>住所: <%= @zoo.address %></p>
 <p>概要: <%= @zoo.content %></p>
 <p>写真: <%= image_tag @zoo.photo.url if @zoo.photo && @zoo.photo.url %></p>
@@ -20,5 +20,14 @@
 <p>休園日: <%= @zoo.holiday %></p>
 <p>地域: <%= @zoo.area %></p>
 <p>県: <%= @zoo.prefecture %></p>
+
+<p>動物:
+  <%= @zoo.animals.each do |animal| %>
+    <%= animal.name %>
+    <%# <%= link_to animal.name, show_animal_path(animal.id) %> %>
+    <%# <%= link_to animal.name, animals_path %> %>
+  <% end %>
+</p>
+
 <%= link_to "一覧画面にもどる", zoos_path %>
 <%= link_to '編集', edit_zoo_path(@zoo.id), class: "option_btn" %>

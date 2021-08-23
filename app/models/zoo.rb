@@ -1,7 +1,7 @@
 class Zoo < ApplicationRecord
   belongs_to :user
   has_many :affiliations, dependent: :destroy
-  has_many :affiliation_animals, through: :affiliations, source: :animal
+  has_many :animals, through: :affiliations
 
   mount_uploader :photo, ImageUploader
 
