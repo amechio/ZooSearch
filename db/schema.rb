@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_22_125246) do
+ActiveRecord::Schema.define(version: 2021_08_23_063650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2021_08_22_125246) do
     t.string "subspecies"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "favorite_zoos", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "zoo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_favorite_zoos_on_user_id"
+    t.index ["zoo_id"], name: "index_favorite_zoos_on_zoo_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -89,5 +98,7 @@ ActiveRecord::Schema.define(version: 2021_08_22_125246) do
 
   add_foreign_key "affiliations", "animals"
   add_foreign_key "affiliations", "zoos"
+  add_foreign_key "favorite_zoos", "users"
+  add_foreign_key "favorite_zoos", "zoos"
   add_foreign_key "zoos", "users"
 end

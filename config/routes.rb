@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :affiliations
+  resources :favorite_zoos, only: [:create, :destroy]
 end

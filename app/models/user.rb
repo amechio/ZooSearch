@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :zoos
+  has_many :favorite_zoos, dependent: :destroy
 
   mount_uploader :icon, ImageUploader
 
