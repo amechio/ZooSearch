@@ -1,18 +1,11 @@
 class TopsController < ApplicationController
-  before_action :set_q, only: [:index, :search]
+  before_action :set_q
 
   def index
     @zoos = Zoo.all
     @animals = Animal.all
-
-  end
-
-  def search
-    @results = @q.result
   end
 
   private
-  def set_q
-    @q = Zoo.ransack(params[:q])
-  end
+  
 end

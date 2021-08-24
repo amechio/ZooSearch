@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   root to: 'tops#index'
-  resources :tops do
+  resources :tops
+  resources :zoos do
     collection do
-      get 'search'
+      match 'search' => 'zoos#search', via: [:get, :post], as: :search
     end
   end
-  resources :zoos
+  # resources :zoos
   resources :animals
   resources :users
   resources :sessions
