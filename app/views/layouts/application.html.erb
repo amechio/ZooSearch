@@ -11,20 +11,33 @@
 
   <body>
     <header>
-      <%= link_to "トップページ", root_path, class: "logo" %>
+      <div class="logo">
+        <%= link_to "トップページ", root_path %>
+      </div>
 
       <% if logged_in? %>
-        ようこそ <%= current_user.name %> さん
-        <%= link_to "プロフィール", user_path(current_user.id), class: "header_btn" %>
-        <%= link_to "ログアウト", session_path(current_user.id), method: :delete, class: "header_btn" %>
-        <%= link_to "動物園一覧", zoos_path, class: "admin_btn" %>
-        <%= link_to "動物一覧", animals_path, class: "admin_btn" %>
-        <%= link_to "ユーザ一覧", zoos_path, class: "admin_btn" %>
+        <div class="menu">
+          <%= link_to "プロフィール", user_path(current_user.id), class: "header_btn" %>
+          <%= link_to "ログアウト", session_path(current_user.id), method: :delete, class: "header_btn" %>
+        </div>
+        <div class="admin_menu">
+          <%= link_to "動物園一覧", zoos_path, class: "admin_btn" %>
+          <%= link_to "動物一覧", animals_path, class: "admin_btn" %>
+          <%= link_to "ユーザ一覧", zoos_path, class: "admin_btn" %>
+        </div>
+        <div class="greet">
+          ようこそ <%= current_user.name %> さん
+        </div>
 
       <% else %>
-        ログインしてください
-        <%= link_to "ログイン", new_session_path, class: "header_btn" %>
-        <%= link_to "アカウントをつくる", new_user_path, class: "header_btn" %>
+
+        <div class="menu">
+          <%= link_to "ログイン", new_session_path, class: "header_btn" %>
+          <%= link_to "アカウントをつくる", new_user_path, class: "header_btn" %>
+        </div>
+        <div class="greet">
+          ログインしてください
+        </div>
       <% end %>
 
       <div class="information">
@@ -32,7 +45,6 @@
         『<% flash.each do |key, value| %>
           <%= content_tag(:div, value, class: "#{key}") %>
         <% end %>』
-
       </div>
 
     </header>
