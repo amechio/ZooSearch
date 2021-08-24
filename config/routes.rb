@@ -6,8 +6,11 @@ Rails.application.routes.draw do
       match 'search' => 'zoos#search', via: [:get, :post], as: :search
     end
   end
-  # resources :zoos
-  resources :animals
+  resources :animals do
+    collection do
+      match 'search' => 'animals#search', via: [:get, :post], as: :search
+    end
+  end
   resources :users
   resources :sessions
   resources :affiliations
