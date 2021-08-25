@@ -15,10 +15,10 @@
         <%= link_to "トップページ", root_path %>
       </div>
 
-      <% if logged_in? %>
+      <% if user_signed_in? %>
         <div class="menu">
           <%= link_to "プロフィール", user_path(current_user.id), class: "header_btn" %>
-          <%= link_to "ログアウト", session_path(current_user.id), method: :delete, class: "header_btn" %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header_btn" %>
         </div>
         <div class="admin_menu">
           <%= link_to "動物園一覧", zoos_path, class: "admin_btn" %>
@@ -32,11 +32,13 @@
       <% else %>
 
         <div class="menu">
-          <%= link_to "ログイン", new_session_path, class: "header_btn" %>
-          <%= link_to "アカウントをつくる", new_user_path, class: "header_btn" %>
+          <%= link_to "ログイン", new_user_session_path, class: "header_btn" %>
+          <%= link_to "アカウントをつくる", new_user_registration_path, class: "header_btn" %>
+          <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path, method: :post %>
+          <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %>
         </div>
         <div class="greet">
-          ログインしてください
+          ログインしていません
         </div>
       <% end %>
 
@@ -45,6 +47,12 @@
         『<% flash.each do |key, value| %>
           <%= content_tag(:div, value, class: "#{key}") %>
         <% end %>』
+        <% if notice %>
+          <p class="alert alert-notice"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-error"><%= alert %></p>
+        <% end %>
       </div>
 
     </header>

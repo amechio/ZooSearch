@@ -98,7 +98,7 @@ class ZoosController < ApplicationController
 
   def admin_user
     if current_user.admin != true
-      redirect_to new_session_path, notice: "権限がありません！"
+      redirect_to new_user_session_path, notice: "権限がありません！"
     end
   end
 
