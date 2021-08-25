@@ -1,17 +1,12 @@
 class ZoosController < ApplicationController
   before_action :set_zoo, only: [:show, :edit, :update, :destroy]
   before_action :admin_user, only: [:index, :new, :create, :edit, :update, :destroy]
-  # before_action :affiliation, only: [:new, :create, :show, :edit, :update]
-  # before_action :set_q, only: [:index, :search]
 
   def index
     @zoos = Zoo.all
-    # @q = Zoo.ransack(params[:q])
-    # @zoos = @q.result
   end
 
   def new
-  # binding.irb
     @zoo = Zoo.new
   end
 
@@ -56,12 +51,6 @@ class ZoosController < ApplicationController
     end
   end
 
-  # def search
-  #   index
-  #   render :index
-  # end
-
-
   private
   def zoo_params
     params.require(:zoo).permit(
@@ -101,14 +90,4 @@ class ZoosController < ApplicationController
       redirect_to new_user_session_path, notice: "権限がありません！"
     end
   end
-
-  # def set_q
-  #   @q = Zoo.ransack(params[:q])
-  # end
-
-  # def affiliation
-  #   @animals = Animal.all
-  #   # @affiliation = @animal.affiliations.find_by(zoo_id: @zoo.id)
-  #   # @affiliations = Affiliation.where(id: @animal.shut_affiliations_ids.split(','))
-  # end
 end
