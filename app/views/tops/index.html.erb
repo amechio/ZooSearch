@@ -1,0 +1,161 @@
+<h1>トップページ</h1>
+
+<div class="zoos_search">
+  <ul class="row">
+    <h3>動物園検索</h3>
+
+    <%= search_form_for @q, url: tops_path do |f| %>
+      <li class="col-md-10">
+        <div class="search_column">
+          <%= f.label :施設名 %>
+          <%= f.search_field :name_cont %>
+        </div>
+        <div class="search_column">
+          <%= f.label :地域 %>
+          <%= f.select :area, Zoo.areas.keys, prompt: "選択してください" %>
+        <!-- </div>
+        <div class="search_column"> -->
+          <%= f.label :県 %>
+          <%= f.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>
+        </div>
+        <div class="search_column">
+          <%= f.label :入場料（一般） %>
+          <%= f.number_field :general_price_lteq %>円以下
+        </div>
+        <div class="search_column">
+          <%= f.label :動物 %>
+          <%= f.search_field :animals_name_cont %>
+        </div>
+      </li>
+
+      <li class="col-md-2">
+        <div class="search_btn">
+          <%= f.submit "動物園を検索" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="animals_search">
+  <ul class="row">
+    <h3>動物検索</h3>
+    <%= search_form_for @p, url: tops_path do |f| %>
+      <li class="col-md-10">
+        <div class="search_column">
+          <%= f.label :動物名 %>
+          <%= f.search_field :name_cont %>
+        <!-- </div>
+        <div class="search_column"> -->
+          <%= f.label :英名 %>
+          <%= f.search_field :english_name_cont %>
+        </div>
+        <div class="search_column">
+          <%= f.label :絶滅危惧種 %>
+          <%= f.select :endangered_species, Animal.endangered_species.keys, prompt: "選択してください" %>
+        </div>
+        <div class="search_column">
+          <%= f.label :門 %>
+          <%= f.search_field :phylum_lteq %>
+        <!-- </div>
+        <div class="search_column"> -->
+          <%= f.label :網 %>
+          <%= f.search_field :animal_class_cont %>
+        <!-- </div>
+        <div class="search_column"> -->
+          <%= f.label :目 %>
+          <%= f.search_field :order_cont %>
+        <!-- </div>
+        <div class="search_column"> -->
+          <%= f.label :科 %>
+          <%= f.search_field :family_cont %>
+        <!-- </div>
+        <div class="search_column"> -->
+          <%= f.label :属 %>
+          <%= f.search_field :genus_cont %>
+        <!-- </div>
+        <div class="search_column"> -->
+          <%= f.label :種 %>
+          <%= f.search_field :species_cont %>
+        <!-- </div>
+        <div class="search_column"> -->
+          <%= f.label :亜種 %>
+          <%= f.search_field :subspecies_cont %>
+        </div>
+      </li>
+
+      <li class="col-md-2">
+        <div class="search_btn">
+          <%= f.submit "動物を検索" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+
+<h2>動物園の検索結果</h2>
+<div class="search_result">
+  <ul class="row">
+    <% @zoos.each do |zoo| %>
+      <li class="col-sm-4 col-md-3">
+        <div class="chunk">
+          <div class="name">
+            施設名:<%= zoo.name %>
+          </div>
+          <div class="address">
+            住所:<%= zoo.address %>
+          </div>
+          <div class="content">
+            概要:<%= zoo.content %>
+          </div>
+          <div class="photo">
+            写真:<%= image_tag zoo.photo.url, class: "photo" if zoo.photo && zoo.photo.url %>
+          </div>
+          <div class="area">
+            地域:<%= zoo.area %>
+          </div>
+          <div class="prefecture">
+            県:<%= zoo.prefecture %>
+          </div>
+          <div class="prefecture">
+            ホームページ:<%= link_to zoo.home_page, zoo.home_page %>
+          </div>
+          <div class="option">
+            <%= link_to '詳細', zoo_path(zoo.id), class: "option_btn" %>
+            <%= link_to '編集', edit_zoo_path(zoo.id), class: "option_btn" %>
+            <%= link_to '削除', zoo_path(zoo.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn" %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<h2>動物の検索結果</h2>
+<ul class="row">
+  <% @animals.each do |animal| %>
+    <li class="col-sm-4 col-md-3">
+      <div class="chunk">
+        <div class="name">
+          動物名:<%= animal.name %>
+        </div>
+        <div class="content">
+          説明:<%= animal.content %>
+        </div>
+        <div class="photo">
+          写真:<%= image_tag animal.photo.url, class: "photo" if animal.photo && animal.photo.url %>
+        </div>
+        <div class="wikipedia">
+          Wikipedia:<%= link_to animal.wikipedia, animal.wikipedia %>
+        </div>
+        <div class="option">
+          <%= link_to '詳細', animal_path(animal.id), class: "option_btn" %>
+          <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn" %>
+          <%= link_to '削除', animal_path(animal.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn" %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

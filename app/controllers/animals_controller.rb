@@ -1,8 +1,11 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  before_action :set_q, only: [:index, :search]
 
   def index
     @animals = Animal.all
+    # @p = Animal.ransack(params[:q])
+    # @animals = @p.result
   end
 
   def new
@@ -47,6 +50,11 @@ class AnimalsController < ApplicationController
     render :new if @animal.invalid?
   end
 
+  # def search
+  #   index
+  #   render :index
+  # end
+
 
   private
   def animal_params
@@ -74,4 +82,9 @@ class AnimalsController < ApplicationController
   def set_animal
     @animal = Animal.find(params[:id])
   end
+
+  # def set_q
+  #   @p = Zoo.ransack(params[:p])
+  # end
+
 end

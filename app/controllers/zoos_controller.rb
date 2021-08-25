@@ -2,9 +2,12 @@ class ZoosController < ApplicationController
   before_action :set_zoo, only: [:show, :edit, :update, :destroy]
   before_action :admin_user, only: [:index, :new, :create, :edit, :update, :destroy]
   # before_action :affiliation, only: [:new, :create, :show, :edit, :update]
+  before_action :set_q, only: [:index, :search]
 
   def index
     @zoos = Zoo.all
+    # @q = Zoo.ransack(params[:q])
+    # @zoos = @q.result
   end
 
   def new
@@ -53,10 +56,10 @@ class ZoosController < ApplicationController
     end
   end
 
-  def confirm
-    @zoo = Zoo.new(zoo_params)
-    render :new if @zoo.invalid?
-  end
+  # def search
+  #   index
+  #   render :index
+  # end
 
 
   private
@@ -89,15 +92,19 @@ class ZoosController < ApplicationController
     )
   end
 
-  def set_zoo
-    @zoo = Zoo.find(params[:id])
-  end
+  # def set_zoo
+  #   @zoo = Zoo.find(params[:id])
+  # end
 
   def admin_user
     if current_user.admin != true
       redirect_to new_session_path, notice: "権限がありません！"
     end
   end
+
+  # def set_q
+  #   @q = Zoo.ransack(params[:q])
+  # end
 
   # def affiliation
   #   @animals = Animal.all

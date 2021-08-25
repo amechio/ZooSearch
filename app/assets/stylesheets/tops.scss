@@ -1,0 +1,41 @@
+// Place all the styles related to the zoos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.zoos_search {
+  background-color: #B4E28E;
+}
+
+.animals_search {
+  background-color: #EFC7AA;
+}
+
+.search_result {
+  padding: 0;
+  margin: 0;
+}
+.chunk {
+  // list-style: none;
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none;
+  // color: #4FD0FF;
+  background-color: #FFE882;
+  text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF,
+               -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+               0px 1px 0 #FFF,  0-1px 0 #FFF,
+               -1px 0 0 #FFF, 1px 0 0 #FFF;  // border: 1px solid;
+  border-radius: 30px;
+}
+
+.option_btn {
+  text-decoration: none;
+  // color: #4FD0FF;
+  background-color: #B4E28E;
+  // text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  //              -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  //              0px 1px 0 #FFF,  0-1px 0 #FFF,
+  //              -1px 0 0 #FFF, 1px 0 0 #FFF;  // border: 1px solid;
+  border-radius: 10px;
+  padding: 5px;
+}
