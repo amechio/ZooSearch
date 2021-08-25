@@ -4,8 +4,8 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all
-    @p = Animal.ransack(params[:q])
-    @animals = @p.result
+    # @p = Animal.ransack(params[:q])
+    # @animals = @p.result
   end
 
   def new
@@ -50,10 +50,10 @@ class AnimalsController < ApplicationController
     render :new if @animal.invalid?
   end
 
-  def search
-    index
-    render :index
-  end
+  # def search
+  #   index
+  #   render :index
+  # end
 
 
   private
@@ -83,8 +83,8 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
   end
 
-  def set_q
-    @p = Zoo.ransack(params[:p])
-  end
+  # def set_q
+  #   @p = Zoo.ransack(params[:p])
+  # end
 
 end

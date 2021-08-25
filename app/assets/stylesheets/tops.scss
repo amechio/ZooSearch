@@ -2,12 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.row {
+.zoos_search {
+  background-color: #B4E28E;
+}
+
+.animals_search {
+  background-color: #EFC7AA;
+}
+
+.search_result {
   padding: 0;
   margin: 0;
 }
-li {
-  list-style: none;
+.chunk {
+  // list-style: none;
   padding: 5px;
   margin: 5px;
   text-decoration: none;
@@ -18,11 +26,6 @@ li {
                0px 1px 0 #FFF,  0-1px 0 #FFF,
                -1px 0 0 #FFF, 1px 0 0 #FFF;  // border: 1px solid;
   border-radius: 30px;
-
-}
-.chunk {
-  // width: 200px;
-  // margin: 5px;
 }
 
 .option_btn {
