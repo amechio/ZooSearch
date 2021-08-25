@@ -32,8 +32,8 @@ Rails.application.routes.draw do
   resources :users
   # resources :sessions
   resources :affiliations
-  resources :favorite_zoos, only: [:create, :destroy]
-  resources :favorite_animals, only: [:create, :destroy]
+  resources :favorite_zoos
+  resources :favorite_animals
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
