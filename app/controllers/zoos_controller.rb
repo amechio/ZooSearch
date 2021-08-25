@@ -1,6 +1,6 @@
 class ZoosController < ApplicationController
-  before_action :set_zoo, only: [:show, :edit, :update, :destroy]
-  before_action :admin_user, only: [:index, :new, :create, :edit, :update, :destroy]
+  # before_action :set_zoo, only: [:show, :edit, :update, :destroy]
+  # before_action :admin_user, only: [:index, :new, :create, :edit, :update, :destroy]
   # before_action :affiliation, only: [:new, :create, :show, :edit, :update]
   before_action :set_q, only: [:index, :search]
 

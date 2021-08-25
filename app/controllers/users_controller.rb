@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :login_required, only: [:new, :create]
+  # skip_before_action :login_required, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -52,9 +52,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(
       :name,
-      :email,
-      :password,
-      :password_confirmation,
+      # :email,
+      # :password,
+      # :password_confirmation,
       :live_prefecture,
       :favorite_prefecture,
       :content,

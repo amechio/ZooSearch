@@ -18,6 +18,7 @@ gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
 
 # gem 'bcrypt'
+gem 'devise'
 gem 'ransack'
 
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -36,6 +37,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 
+  gem 'letter_opener_web'
 end
 
 group :test do
