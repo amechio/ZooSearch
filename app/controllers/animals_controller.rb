@@ -1,12 +1,9 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
   before_action :admin_user, only: [:index, :new, :create, :edit, :update, :destroy]
-  # before_action :set_q, only: [:index, :search]
 
   def index
     @animals = Animal.all
-    # @p = Animal.ransack(params[:q])
-    # @animals = @p.result
   end
 
   def new
@@ -51,12 +48,6 @@ class AnimalsController < ApplicationController
     render :new if @animal.invalid?
   end
 
-  # def search
-  #   index
-  #   render :index
-  # end
-
-
   private
   def animal_params
     params.require(:animal).permit(
@@ -89,9 +80,4 @@ class AnimalsController < ApplicationController
       redirect_to new_user_session_path, notice: "権限がありません！"
     end
   end
-
-  # def set_q
-  #   @p = Zoo.ransack(params[:p])
-  # end
-
 end

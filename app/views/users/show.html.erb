@@ -11,9 +11,9 @@
 <p>管理者権限: <%= @user.admin %></p>
 
 
-<%# if current_user.admin == true || current_user.id == @user.id %>
-  <%#= link_to '編集', edit_user_path(@user.id), class: "option_btn" %>
-<%# end %>
+<% if current_user.admin == true || current_user.id == @user.id %>
+  <%= link_to '編集', edit_user_path(@user.id), class: "option_btn" %>
+<% end %>
 
 <% if current_user.admin == true %>
   <%= link_to "一覧画面にもどる", users_path %>

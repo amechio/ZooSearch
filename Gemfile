@@ -17,7 +17,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
 
-# gem 'bcrypt'
 gem 'devise'
 gem 'devise-i18n'
 gem 'ransack'

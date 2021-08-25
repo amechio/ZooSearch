@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # skip_before_action :login_required, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :admin_user, only: [:index, :destroy]
 
@@ -55,19 +54,10 @@ class UsersController < ApplicationController
     redirect_to users_path, notice:"動物園を削除しました！"
   end
 
-  # def confirm
-  #   @user = User.new(user_params)
-  #   render :new if @user.invalid?
-  # end
-
-
   private
   def user_params
     params.require(:user).permit(
       :name,
-      # :email,
-      # :password,
-      # :password_confirmation,
       :live_prefecture,
       :favorite_prefecture,
       :content,
