@@ -33,4 +33,7 @@
   </ul>
 </p>
 
-<%= link_to "一覧画面にもどる", animals_path %>
+<% if current_user.admin == true %>
+  <%= link_to "一覧画面にもどる", animals_path %>
+  <%= link_to '編集', edit_animal_path(@animal.id), class: "option_btn" %>
+<% end %>
