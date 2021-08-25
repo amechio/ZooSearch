@@ -1,7 +1,7 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
   before_action :admin_user, only: [:index, :new, :create, :edit, :update, :destroy]
-  before_action :set_q, only: [:index, :search]
+  # before_action :set_q, only: [:index, :search]
 
   def index
     @animals = Animal.all

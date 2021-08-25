@@ -9,6 +9,12 @@
 <p>アイコン: <%= image_tag @user.icon.url if @user.icon && @user.icon.url %></p>
 <p>オーナー権限: <%= @user.owner %></p>
 <p>管理者権限: <%= @user.admin %></p>
-<%= link_to "一覧画面にもどる", users_path %>
-<%= link_to "動物園を登録する", new_zoo_path %>
-<%= link_to "動物を登録する", new_animal_path %>
+
+
+<% if current_user.admin == true || current_user.id == @user.id %>
+<%= link_to '編集', edit_user_path(@user.id), class: "option_btn" %>
+<% end %>
+
+<% if current_user.admin == true %>
+  <%= link_to "一覧画面にもどる", users_path %>
+<% end %>

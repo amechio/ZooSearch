@@ -51,16 +51,21 @@
     <%= form.file_field :icon %>
   </div>
 
-  <div class="user_column">
-    *<%= form.label :オーナー権限 %>
-    <%= form.check_box :owner, {}, true, false %>
-  </div>
+  <% if current_user.admin == true %>
+    <div class="user_column">
+      *<%= form.label :オーナー権限 %>
+      <%= form.check_box :owner, {}, true, false %>
+    </div>
 
-  <div class="user_column">
-    *<%= form.label :管理者権限 %>
-    <%= form.check_box :admin, {}, true, false %>
-  </div>
+    <div class="user_column">
+      *<%= form.label :管理者権限 %>
+      <%= form.check_box :admin, {}, true, false %>
+    </div>
+  <% end %>
 
   <%= form.submit %>
 <% end %>
-<%= link_to "一覧画面にもどる", users_path %>
+
+<% if current_user.admin == true %>
+  <%= link_to "一覧画面にもどる", users_path %>
+<% end %>
