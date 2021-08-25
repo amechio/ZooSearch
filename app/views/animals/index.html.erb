@@ -1,51 +1,6 @@
 <h1>動物一覧画面</h1>
 <p><%= notice %></p>
 
-<h3>動物検索</h3>
-<%= search_form_for @q do |f| %>
-  <div class="search_column">
-    <%= f.label :動物名 %>
-    <%= f.search_field :name_cont %>
-  </div>
-  <div class="search_column">
-    <%= f.label :英名 %>
-    <%= f.search_field :english_name_cont %>
-  </div>
-  <div class="search_column">
-    <%= f.label :絶滅危惧種 %>
-    <%= f.search_field :endangered_species_cont %>
-  </div>
-  <div class="search_column">
-    <%= f.label :門 %>
-    <%= f.search_field :phylum_lteq %>
-  </div>
-  <div class="search_column">
-    <%= f.label :網 %>
-    <%= f.search_field :animal_class_cont %>
-  </div>
-  <div class="search_column">
-    <%= f.label :目 %>
-    <%= f.search_field :order_cont %>
-  </div>
-  <div class="search_column">
-    <%= f.label :科 %>
-    <%= f.search_field :family_cont %>
-  </div>
-  <div class="search_column">
-    <%= f.label :属 %>
-    <%= f.search_field :genus_cont %>
-  </div>
-  <div class="search_column">
-    <%= f.label :種 %>
-    <%= f.search_field :species_cont %>
-  </div>
-  <div class="search_column">
-    <%= f.label :亜種 %>
-    <%= f.search_field :subspecies_cont %>
-  </div>
-
-  <%= f.submit "検索" %>
-<% end %>
 
 
 <%= link_to '新規作成', new_animal_path %>

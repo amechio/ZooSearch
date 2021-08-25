@@ -1,22 +1,22 @@
 <h1>トップページ</h1>
 
 <h3>動物園検索</h3>
-<%= search_form_for @q do |f| %>
+<%= search_form_for @q, url: tops_path do |f| %>
   <div class="search_column">
     <%= f.label :施設名 %>
     <%= f.search_field :name_cont %>
   </div>
   <div class="search_column">
     <%= f.label :地域 %>
-    <%= f.search_field :area_cont %>
+    <%= f.select :area, Zoo.areas.keys, prompt: "選択してください" %>
   </div>
   <div class="search_column">
     <%= f.label :県 %>
-    <%= f.search_field :prefecture_cont %>
+    <%= f.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>
   </div>
   <div class="search_column">
     <%= f.label :入場料（一般） %>
-    <%= f.search_field :general_price_lteq %>円以下
+    <%= f.number_field :general_price_lteq %>円以下
   </div>
   <div class="search_column">
     <%= f.label :動物 %>
@@ -26,8 +26,9 @@
   <%= f.submit "検索" %>
 <% end %>
 
+
 <h3>動物検索</h3>
-<%= search_form_for @p do |f| %>
+<%= search_form_for @p, url: tops_path do |f| %>
   <div class="search_column">
     <%= f.label :動物名 %>
     <%= f.search_field :name_cont %>
@@ -38,7 +39,7 @@
   </div>
   <div class="search_column">
     <%= f.label :絶滅危惧種 %>
-    <%= f.search_field :endangered_species_cont %>
+    <%= f.select :endangered_species, Animal.endangered_species.keys, prompt: "選択してください" %>
   </div>
   <div class="search_column">
     <%= f.label :門 %>

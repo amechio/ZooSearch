@@ -1,31 +1,6 @@
 <h1>動物園一覧画面</h1>
 <p><%= notice %></p>
 
-<h3>動物園検索</h3>
-<%= search_form_for @q do |f| %>
-  <div class="search_column">
-    <%= f.label :施設名 %>
-    <%= f.search_field :name_cont %>
-  </div>
-  <div class="search_column">
-    <%= f.label :地域 %>
-    <%= f.search_field :area_cont %>
-  </div>
-  <div class="search_column">
-    <%= f.label :県 %>
-    <%= f.search_field :prefecture_cont %>
-  </div>
-  <div class="search_column">
-    <%= f.label :入場料（一般） %>
-    <%= f.search_field :general_price_lteq %>円以下
-  </div>
-  <div class="search_column">
-    <%= f.label :動物 %>
-    <%= f.search_field :animals_name_cont %>
-  </div>
-
-  <%= f.submit "検索" %>
-<% end %>
 
 
 <%= link_to '新規作成', new_zoo_path %>

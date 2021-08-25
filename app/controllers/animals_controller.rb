@@ -4,8 +4,8 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all
-    @q = Animal.ransack(params[:q])
-    @animals = @q.result
+    @p = Animal.ransack(params[:q])
+    @animals = @p.result
   end
 
   def new
@@ -84,7 +84,7 @@ class AnimalsController < ApplicationController
   end
 
   def set_q
-    @q = Zoo.ransack(params[:q])
+    @p = Zoo.ransack(params[:p])
   end
 
 end
