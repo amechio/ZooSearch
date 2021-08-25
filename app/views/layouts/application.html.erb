@@ -34,7 +34,8 @@
         <div class="menu">
           <%= link_to "ログイン", new_user_session_path, class: "header_btn" %>
           <%= link_to "アカウントをつくる", new_user_registration_path, class: "header_btn" %>
-          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+          <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path, method: :post %>
+          <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %>
         </div>
         <div class="greet">
           ログインしていません
