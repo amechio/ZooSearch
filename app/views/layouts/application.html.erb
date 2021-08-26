@@ -18,7 +18,7 @@
 
       <% if user_signed_in? %>
         <div class="menu">
-          <%= link_to "プロフィール", user_path(current_user.id), class: "header_btn" %>
+          <%= link_to "マイページ", user_path(current_user.id), class: "header_btn" %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header_btn" %>
         </div>
         <div class="admin_menu">

@@ -125,7 +125,7 @@
     <%= form.collection_check_boxes(:animal_ids, Animal.all, :id, :name) %>
   </div>
 
-  <%= form.submit %>
+  <%= form.submit "登録", class: "btn" %>
 <% end %>
 
 <%= link_to "一覧画面にもどる", zoos_path %>

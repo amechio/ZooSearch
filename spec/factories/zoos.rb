@@ -33,7 +33,7 @@ FactoryBot.define do
     prefecture { '2' }
     user_id { User.first.id }
   end
-  factory :zoo2, class: Zoo do
+  factory :zoo3, class: Zoo do
     name { 'テスト動物園3' }
     address { 'テスト住所3' }
     content { 'テスト動物園説明3' }

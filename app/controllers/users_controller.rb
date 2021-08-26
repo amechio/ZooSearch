@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    binding.irb
     @user = User.new(user_params)
     if params[:back]
       render :new
