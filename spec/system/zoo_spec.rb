@@ -72,7 +72,7 @@ RSpec.describe '動物園機能', type: :system do
       it '検索キーワードを施設名に含む動物園で絞り込まれる' do
         # binding.irb
         # fill_in 'q[name_cont]', with: 'テスト動物園1' # 動物名もqになってる(´-ω-`)
-        find(".zoo_name").set("テスト動物園1")
+        find('.zoo_name').set('テスト動物園1')
         click_on '動物園を検索'
         # zoo_list = all('.zoo_name')
         # expect(zoo_list[0].text).to eq @zoo.name

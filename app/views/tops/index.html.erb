@@ -55,7 +55,8 @@
         </div>
         <div class="search_column">
           <%= f.label :絶滅危惧種 %>
-          <%= f.select :endangered_species, Animal.endangered_species.keys, prompt: "選択してください", class: "animal_endangered_species" %>
+          <%# <%= f.select :endangered_species, Animal.endangered_species.keys, prompt: "選択してください", class: "animal_endangered_species" %> %>
+          <%= f.select :endangered_species_eq, options_from_collection_for_select(Animal.all, :id, :endangered_species), prompt: "選択してください" %>
         </div>
         <div class="search_column">
           <%= f.label :門 %>
@@ -126,9 +127,9 @@
             ホームページ:<%= link_to zoo.home_page, zoo.home_page %>
           </div>
           <div class="option">
-            <%= link_to '詳細', zoo_path(zoo.id), class: "option_btn" %>
-            <%= link_to '編集', edit_zoo_path(zoo.id), class: "option_btn" %>
-            <%= link_to '削除', zoo_path(zoo.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn" %>
+            <%= link_to '詳細', zoo_path(zoo.id), class: "option_btn", id: "show_btn" %>
+            <%= link_to '編集', edit_zoo_path(zoo.id), class: "option_btn", id: "edit_btn" %>
+            <%= link_to '削除', zoo_path(zoo.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
           </div>
         </div>
       </li>
@@ -154,9 +155,9 @@
           Wikipedia:<%= link_to animal.wikipedia, animal.wikipedia %>
         </div>
         <div class="option">
-          <%= link_to '詳細', animal_path(animal.id), class: "option_btn" %>
-          <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn" %>
-          <%= link_to '削除', animal_path(animal.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn" %>
+          <%= link_to '詳細', animal_path(animal.id), class: "option_btn", id: "show_btn" %>
+          <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn", id: "edit_btn" %>
+          <%= link_to '削除', animal_path(animal.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
         </div>
       </div>
     </li>

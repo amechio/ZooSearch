@@ -4,6 +4,7 @@ FactoryBot.define do
     english_name { 'テスト英名1' }
     scientific_name { 'テスト学名1' }
     distribution { 'テスト生息地1' }
+    endangered_species { '絶滅危惧Ｉ類 (CR+EN)  : 絶滅の危機に瀕している種' }
     content { 'テスト動物説明1' }
     kingdom { 'テスト界1' }
     phylum { 'テスト門1' }
@@ -12,13 +13,14 @@ FactoryBot.define do
     family { 'テスト科1' }
     genus { 'テスト属1' }
     species { 'テスト種1' }
-    association :zoo
+    # association :zoo
   end
   factory :animal2, class: Animal do
     name { 'テスト動物2' }
     english_name { 'テスト英名2' }
     scientific_name { 'テスト学名2' }
     distribution { 'テスト生息地2' }
+    endangered_species { '絶滅危惧II類 (VU) : 絶滅の危険が増大している種' }
     content { 'テスト動物説明2' }
     kingdom { 'テスト界2' }
     phylum { 'テスト門2' }
@@ -27,13 +29,14 @@ FactoryBot.define do
     family { 'テスト科2' }
     genus { 'テスト属2' }
     species { 'テスト種2' }
-    zoo_id { Zoo.first.id }
+    # zoo_id { Zoo.first.id }
   end
   factory :animal3, class: Animal do
     name { 'テスト動物3' }
     english_name { 'テスト英名3' }
     scientific_name { 'テスト学名3' }
     distribution { 'テスト生息地3' }
+    endangered_species { '' }
     content { 'テスト動物説明3' }
     kingdom { 'テスト界3' }
     phylum { 'テスト門3' }
@@ -42,6 +45,6 @@ FactoryBot.define do
     family { 'テスト科3' }
     genus { 'テスト属3' }
     species { 'テスト種3' }
-    zoo_id { Zoo.first.id }
+    # zoo_id { Zoo.first.id }
   end
 end

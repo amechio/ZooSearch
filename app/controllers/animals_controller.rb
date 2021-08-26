@@ -16,7 +16,7 @@ class AnimalsController < ApplicationController
       render :new
     else
       if @animal.save
-        redirect_to animals_path, notice: "新しい動物を登録しました！"
+        redirect_to animal_path(id: @animal.id), notice: "新しい動物を登録しました！"
       else
         render :new
       end
@@ -28,24 +28,26 @@ class AnimalsController < ApplicationController
   end
 
   def edit
+    unless current_user.admin == true
+      redirect_to animals_path, notice: "権限がありません！"
+    end
   end
 
   def update
     if @animal.update(animal_params)
-      redirect_to animals_path, notice: "動物を編集しました！"
+      redirect_to animal_path(id: @animal.id), notice: "動物を編集しました！"
     else
       render :edit
     end
   end
 
   def destroy
-    @animal.destroy
-    redirect_to animals_path, notice:"動物を削除しました！"
-  end
-
-  def confirm
-    @animal = Animal.new(animal_params)
-    render :new if @animal.invalid?
+    unless current_user.admin == true
+      redirect_to zoos_path, notice: "権限がありません！"
+    else
+      @animal.destroy
+      redirect_to animals_path, notice:"動物を削除しました！"
+    end
   end
 
   private
