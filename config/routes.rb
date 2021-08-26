@@ -22,6 +22,9 @@ Rails.application.routes.draw do
     end
   end
   resources :users
+  namespace :admin do
+    resources :users
+  end
   resources :affiliations
   resources :favorite_zoos
   resources :favorite_animals

@@ -1,0 +1,84 @@
+<h1><%= @user.name %> さんのページ</h1>
+
+<p>名前: <%= @user.name %></p>
+<p>メールアドレス: <%= @user.email %></p>
+<p>パスワード: <%= @user.password %></p>
+<p>確認用パスワード: <%= @user.password_confirmation %></p>
+<p>住んでいる県: <%= @user.live_prefecture %></p>
+<p>よく行く県: <%= @user.favorite_prefecture %></p>
+<p>自己紹介: <%= @user.content %></p>
+<p>アイコン: <%= image_tag @user.icon.url if @user.icon && @user.icon.url %></p>
+<p>オーナー権限: <%= @user.owner %></p>
+<p>管理者権限: <%= @user.admin %></p>
+
+
+<% if current_user.admin == true || current_user.id == @user.id %>
+  <%= link_to '編集', edit_admin_user_path(@user.id), class: "option_btn" %>
+<% end %>
+
+<% if current_user.admin == true %>
+  <%= link_to "一覧画面にもどる", admin_users_path %>
+<% end %>
+
+<h3 class="title">お気に入りの動物園</h3>
+<ul class="row">
+  <% @favorite_zoo_list.each do |zoo| %>
+    <li class="col-sm-4 col-md-3">
+      <div class="chunk">
+        <div class="name">
+          施設名:<%= zoo.name %>
+        </div>
+        <div class="address">
+          住所:<%= zoo.address %>
+        </div>
+        <div class="content">
+          概要:<%= zoo.content %>
+        </div>
+        <div class="photo">
+          写真:<%= image_tag zoo.photo.url, class: "photo" if zoo.photo && zoo.photo.url %>
+        </div>
+        <div class="area">
+          地域:<%= zoo.area %>
+        </div>
+        <div class="prefecture">
+          県:<%= zoo.prefecture %>
+        </div>
+        <div class="prefecture">
+          ホームページ:<%= link_to zoo.home_page, zoo.home_page %>
+        </div>
+        <div class="option">
+          <%= link_to '詳細', zoo_path(zoo.id), class: "option_btn" %>
+          <%= link_to '編集', edit_zoo_path(zoo.id), class: "option_btn" %>
+          <%= link_to '削除', zoo_path(zoo.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn" %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<h3 class="title">お気に入りの動物</h3>
+<ul class="row">
+  <% @favorite_animal_list.each do |animal| %>
+    <li class="col-sm-4 col-md-3">
+      <div class="chunk">
+        <div class="name">
+          動物名:<%= animal.name %>
+        </div>
+        <div class="content">
+          説明:<%= animal.content %>
+        </div>
+        <div class="photo">
+          写真:<%= image_tag animal.photo.url, class: "photo" if animal.photo && animal.photo.url %>
+        </div>
+        <div class="wikipedia">
+          Wikipedia:<%= link_to animal.wikipedia, animal.wikipedia %>
+        </div>
+        <div class="option">
+          <%= link_to '詳細', animal_path(animal.id), class: "option_btn" %>
+          <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn" %>
+          <%= link_to '削除', animal_path(animal.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn" %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

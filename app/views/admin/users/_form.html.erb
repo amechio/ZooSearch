@@ -1,5 +1,4 @@
-<h1>マイページ編集</h1>
-<%= form_with(model: @user, local: true ) do |form| %>
+<%= form_with model: [:admin, @user], local: true do |form| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= @user.errors.count %>件のエラーがあります。</h2>
@@ -17,17 +16,17 @@
 
   <div class="user_column">
     *<%= form.label :メールアドレス %>
-    <%= form.email_field :email %>
+    <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="user_column">
     *<%= form.label :パスワード %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="user_column">
     *<%= form.label :確認用パスワード %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="user_column">
@@ -66,4 +65,4 @@
   <%= form.submit %>
 <% end %>
 
-<%= link_to "一覧画面にもどる", show_user_path %>
+<%= link_to "一覧画面にもどる", admin_users_path %>

@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   before_validation { email.downcase! }
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :validatable
-  
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.name = "ゲスト"
@@ -22,5 +22,4 @@ class User < ApplicationRecord
       user.admin = true
     end
   end
-
 end
