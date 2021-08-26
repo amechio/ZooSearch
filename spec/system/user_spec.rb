@@ -63,7 +63,7 @@ RSpec.describe 'ユーザ機能', type: :system do
         fill_in 'user[email]', with: 'test2@mail.com'
         fill_in 'user[password]', with: 'password2'
         find('.btn').click
-        visit users_path
+        visit admin_users_path
         expect(page).to have_content 'トップページ'
       end
 
@@ -75,11 +75,30 @@ RSpec.describe 'ユーザ機能', type: :system do
       it '管理者ユーザはユーザの新規登録ができる' do
         click_on 'ユーザ一覧'
         click_on '新規作成'
-        
+        fill_in 'user[name]', with: '名前'
+        fill_in 'user[email]', with: 'email@mail.com'
+        fill_in 'user[password]', with: 'password'
+        fill_in 'user[password_confirmation]', with: 'password'
+        click_on '登録'
+        expect(page).to have_content '名前 さんのページ'
       end
+
       it '管理者ユーザはユーザの編集画面からユーザを編集できる' do
+        click_on 'ユーザ一覧'
+        all('#edit')[2].click  #user3の編集ボタン
+        fill_in 'user[name]', with: '新しい名前'
+        fill_in 'user[password]', with: 'password'
+        fill_in 'user[password_confirmation]', with: 'password'
+        click_on '更新する'
+        expect(page).to have_content '新しい名前 さんのページ'
       end
+
       it '管理者ユーザはユーザの削除をできる' do
+        click_on 'ユーザ一覧'
+        page.accept_confirm do
+          all('#delete')[2].click  #user3の削除ボタン
+        end
+        expect(page).to have_content '削除しました！'
       end
     end
   end
