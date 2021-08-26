@@ -12,8 +12,8 @@ FactoryBot.define do
     winter_holiday_open { '10:00' }
     winter_holiday_close { '17:00' }
     general_price { '100' }
-    area { '1' }
-    prefecture { '1' }
+    area { '北海道・東北' }
+    prefecture { '北海道' }
     association :user
   end
   factory :zoo2, class: Zoo do
@@ -29,8 +29,8 @@ FactoryBot.define do
     winter_holiday_open { '10:00' }
     winter_holiday_close { '17:00' }
     general_price { '200' }
-    area { '2' }
-    prefecture { '2' }
+    area { '九州・沖縄' }
+    prefecture { '沖縄県' }
     user_id { User.first.id }
   end
   factory :zoo3, class: Zoo do
@@ -46,8 +46,8 @@ FactoryBot.define do
     winter_holiday_open { '10:00' }
     winter_holiday_close { '17:00' }
     general_price { '300' }
-    area { '2' }
-    prefecture { '3' }
+    area { '関東' }
+    prefecture { '神奈川県' }
     user_id { User.first.id }
   end
 end

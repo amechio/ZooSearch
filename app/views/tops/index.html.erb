@@ -8,23 +8,26 @@
       <li class="col-md-10">
         <div class="search_column">
           <%= f.label :施設名 %>
-          <%= f.search_field :name_cont %>
+          <%= f.search_field :name_cont, class: "zoo_name" %>
         </div>
         <div class="search_column">
           <%= f.label :地域 %>
-          <%= f.select :area, Zoo.areas.keys, prompt: "選択してください" %>
+          <%# <%= f.select :area_eq, Zoo.areas.keys, prompt: "選択してください", class: "zoo_area" %> %>
+          <%= f.select :area_eq, options_from_collection_for_select(Zoo.all, :id, :area), prompt: "選択してください" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= f.label :県 %>
-          <%= f.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>
+          <%# <%= f.select :prefecture_eq, Zoo.prefectures.keys, prompt: "選択してください", class: "zoo_prefecture" %> %>
+          <%= f.select :prefecture_eq, options_from_collection_for_select(Zoo.all, :id, :prefecture), prompt: "選択してください" %>
+          <%# <%= f.select :priority, Task.priorities.keys, prompt: "全て" %> %>
         </div>
         <div class="search_column">
           <%= f.label :入場料（一般） %>
-          <%= f.number_field :general_price_lteq %>円以下
+          <%= f.number_field :general_price_lteq, class: "zoo_general_price" %>円以下
         </div>
         <div class="search_column">
           <%= f.label :動物 %>
-          <%= f.search_field :animals_name_cont %>
+          <%= f.search_field :animals_name_cont, class: "zoo_animals_name" %>
         </div>
       </li>
 
@@ -44,43 +47,43 @@
       <li class="col-md-10">
         <div class="search_column">
           <%= f.label :動物名 %>
-          <%= f.search_field :name_cont %>
+          <%= f.search_field :name_cont, class: "animal_name" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= f.label :英名 %>
-          <%= f.search_field :english_name_cont %>
+          <%= f.search_field :english_name_cont, class: "animal_english_name" %>
         </div>
         <div class="search_column">
           <%= f.label :絶滅危惧種 %>
-          <%= f.select :endangered_species, Animal.endangered_species.keys, prompt: "選択してください" %>
+          <%= f.select :endangered_species, Animal.endangered_species.keys, prompt: "選択してください", class: "animal_endangered_species" %>
         </div>
         <div class="search_column">
           <%= f.label :門 %>
-          <%= f.search_field :phylum_lteq %>
+          <%= f.search_field :phylum_lteq, class: "animal_phylum" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= f.label :網 %>
-          <%= f.search_field :animal_class_cont %>
+          <%= f.search_field :animal_class_cont, class: "animal_class" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= f.label :目 %>
-          <%= f.search_field :order_cont %>
+          <%= f.search_field :order_cont, class: "animal_order" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= f.label :科 %>
-          <%= f.search_field :family_cont %>
+          <%= f.search_field :family_cont, class: "animal_family" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= f.label :属 %>
-          <%= f.search_field :genus_cont %>
+          <%= f.search_field :genus_cont, class: "animal_genus" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= f.label :種 %>
-          <%= f.search_field :species_cont %>
+          <%= f.search_field :species_cont, class: "animal_species" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= f.label :亜種 %>
-          <%= f.search_field :subspecies_cont %>
+          <%= f.search_field :subspecies_cont, class: "animal_subspecies" %>
         </div>
       </li>
 
