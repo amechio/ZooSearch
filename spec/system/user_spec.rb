@@ -102,4 +102,18 @@ RSpec.describe 'ユーザ機能', type: :system do
       end
     end
   end
+  describe 'ゲストログイン機能' do
+    context 'ゲストユーザでログインした場合' do
+      it 'ようこそと表示される' do
+        click_on 'ゲストログイン(一般)'
+        expect(page).to have_content 'ようこそ ゲスト さん'
+      end
+    end
+    context 'ゲスト管理者でログインした場合' do
+      it 'ようこそと表示される' do
+        click_on 'ゲストログイン(管理者)'
+        expect(page).to have_content 'ようこそ ゲスト管理者 さん'
+      end
+    end
+  end
 end
