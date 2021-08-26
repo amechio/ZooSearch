@@ -53,7 +53,7 @@ describe 'ユーザモデル機能', type: :model do
       end
     end
 
-    context 'ユーザの名前、メールアドレス、パスワードが正しい場合' do
+    context 'ユーザの全ての内容が正しい場合' do
       it 'バリデーションが通る' do
         user = User.new( name: '名前', email: 'model@mail.com', password: 'password', password_confirmation: 'password' )
         expect(user).to be_valid
