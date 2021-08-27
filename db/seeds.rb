@@ -1,26 +1,26 @@
 User.create!([
-  { name: 'だいず', email: 'daizu@email.com', password: 'password', password_confirmation: 'password', live_prefecture: '神奈川県', favorite_prefecture: '神奈川県', content: 'デフォルトの管理者ユーザーです！', icon: '', owner: true, admin: true },
+  user1 = { name: 'だいず', email: 'daizu@email.com', password: 'password', password_confirmation: 'password', live_prefecture: '神奈川県', favorite_prefecture: '神奈川県', content: 'デフォルトの管理者ユーザーです！', icon: '', owner: true, admin: true },
 
-  { name: 'とまと', email: 'tomato@email.com', password: 'password', password_confirmation: 'password', live_prefecture: '東京都', favorite_prefecture: '東京都', content: 'デフォルトのユーザーです！', icon: '', owner: false, admin: false },
+  user2 = { name: 'とまと', email: 'tomato@email.com', password: 'password', password_confirmation: 'password', live_prefecture: '東京都', favorite_prefecture: '東京都', content: 'デフォルトのユーザーです！', icon: '', owner: false, admin: false },
 
-  { name: 'いちご', email: 'ichigo@email.com', password: 'password', password_confirmation: 'password', live_prefecture: '東京都', favorite_prefecture: '東京都', content: 'デフォルトのユーザーです！', icon: '', owner: false, admin: false },
+  user3 = { name: 'いちご', email: 'ichigo@email.com', password: 'password', password_confirmation: 'password', live_prefecture: '東京都', favorite_prefecture: '東京都', content: 'デフォルトのユーザーです！', icon: '', owner: false, admin: false },
 
-  { name: 'しめじ', email: 'shimeji@email.com', password: 'password', password_confirmation: 'password', live_prefecture: '東京都', favorite_prefecture: '東京都', content: 'デフォルトのユーザーです！', icon: '', owner: false, admin: false },
+  user4 = { name: 'しめじ', email: 'shimeji@email.com', password: 'password', password_confirmation: 'password', live_prefecture: '東京都', favorite_prefecture: '東京都', content: 'デフォルトのユーザーです！', icon: '', owner: false, admin: false },
 
-  { name: 'ひじき', email: 'hijiki@email.com', password: 'password', password_confirmation: 'password', live_prefecture: '東京都', favorite_prefecture: '東京都', content: 'デフォルトのユーザーです！', icon: '', owner: false, admin: false }
+  user5 = { name: 'ひじき', email: 'hijiki@email.com', password: 'password', password_confirmation: 'password', live_prefecture: '東京都', favorite_prefecture: '東京都', content: 'デフォルトのユーザーです！', icon: '', owner: false, admin: false }
 ])
 
 
 Zoo.create!([
-  { name: 'はこべ動物園', address: '北海道', content: 'デフォルトの動物園です！', photo: '', summer_workday_open: '10:00', summer_workday_close: '17:00', winter_workday_open: '10:00', winter_workday_close: '17:00', summer_holiday_open: '10:00', summer_holiday_close: '17:00', winter_holiday_open: '10:00', winter_holiday_close: '17:00', general_price: '100', area: '北海道・東北', prefecture: '北海道' },
+  { name: 'はこべ動物園', address: '北海道', content: 'デフォルトの動物園です！', photo: '', summer_workday_open: '10:00', summer_workday_close: '17:00', winter_workday_open: '10:00', winter_workday_close: '17:00', summer_holiday_open: '10:00', summer_holiday_close: '17:00', winter_holiday_open: '10:00', winter_holiday_close: '17:00', general_price: '100', area: '北海道・東北', prefecture: '北海道', user_id: User.first.id },
 
-  { name: 'しろつめくさ動物園', address: '青森県', content: 'デフォルトの動物園です！', photo: '', summer_workday_open: '10:00', summer_workday_close: '17:00', winter_workday_open: '10:00', winter_workday_close: '17:00', summer_holiday_open: '10:00', summer_holiday_close: '17:00', winter_holiday_open: '10:00', winter_holiday_close: '17:00', general_price: '100', area: '北海道・東北', prefecture: '青森県' },
+  { name: 'しろつめくさ動物園', address: '青森県', content: 'デフォルトの動物園です！', photo: '', summer_workday_open: '10:00', summer_workday_close: '17:00', winter_workday_open: '10:00', winter_workday_close: '17:00', summer_holiday_open: '10:00', summer_holiday_close: '17:00', winter_holiday_open: '10:00', winter_holiday_close: '17:00', general_price: '100', area: '北海道・東北', prefecture: '青森県', user_id: User.first.id },
 
-  { name: 'かたばみ動物園', address: '千葉県', content: 'デフォルトの動物園です！', photo: '', summer_workday_open: '10:00', summer_workday_close: '17:00', winter_workday_open: '10:00', winter_workday_close: '17:00', summer_holiday_open: '10:00', summer_holiday_close: '17:00', winter_holiday_open: '10:00', winter_holiday_close: '17:00', general_price: '100', area: '関東', prefecture: '千葉県' },
+  { name: 'かたばみ動物園', address: '千葉県', content: 'デフォルトの動物園です！', photo: '', summer_workday_open: '10:00', summer_workday_close: '17:00', winter_workday_open: '10:00', winter_workday_close: '17:00', summer_holiday_open: '10:00', summer_holiday_close: '17:00', winter_holiday_open: '10:00', winter_holiday_close: '17:00', general_price: '100', area: '関東', prefecture: '千葉県', user_id: User.first.id },
 
-  { name: 'えのころぐさ動物園', address: '京都府', content: 'デフォルトの動物園です！', photo: '', summer_workday_open: '10:00', summer_workday_close: '17:00', winter_workday_open: '10:00', winter_workday_close: '17:00', summer_holiday_open: '10:00', summer_holiday_close: '17:00', winter_holiday_open: '10:00', winter_holiday_close: '17:00', general_price: '100', area: '近畿', prefecture: '京都府' },
+  { name: 'えのころぐさ動物園', address: '京都府', content: 'デフォルトの動物園です！', photo: '', summer_workday_open: '10:00', summer_workday_close: '17:00', winter_workday_open: '10:00', winter_workday_close: '17:00', summer_holiday_open: '10:00', summer_holiday_close: '17:00', winter_holiday_open: '10:00', winter_holiday_close: '17:00', general_price: '100', area: '近畿', prefecture: '京都府', user_id: User.first.id },
 
-  { name: 'おおばこ動物園', address: '熊本県', content: 'デフォルトの動物園です！', photo: '', summer_workday_open: '10:00', summer_workday_close: '17:00', winter_workday_open: '10:00', winter_workday_close: '17:00', summer_holiday_open: '10:00', summer_holiday_close: '17:00', winter_holiday_open: '10:00', winter_holiday_close: '17:00', general_price: '100', area: '九州・沖縄', prefecture: '熊本県' },
+  { name: 'おおばこ動物園', address: '熊本県', content: 'デフォルトの動物園です！', photo: '', summer_workday_open: '10:00', summer_workday_close: '17:00', winter_workday_open: '10:00', winter_workday_close: '17:00', summer_holiday_open: '10:00', summer_holiday_close: '17:00', winter_holiday_open: '10:00', winter_holiday_close: '17:00', general_price: '100', area: '九州・沖縄', prefecture: '熊本県', user_id: User.first.id },
 ])
 
 
