@@ -9,6 +9,7 @@ class TopsController < ApplicationController
 
     @animals = Animal.all
     @p = Animal.ransack(params[:p])
+    # binding.irb
     @animals = @p.result
   end
 
