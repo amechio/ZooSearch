@@ -83,9 +83,10 @@ RSpec.describe '動物機能', type: :system do
 
     context '絶滅危惧種検索をした場合' do # 検索できない(T_T)
       it '絶滅危惧種に完全一致する動物が絞り込まれる' do
-        binding.irb
-        # select '絶滅危惧Ｉ類 (CR+EN)  : 絶滅の危機に瀕している種', from: 'p[endangered_specy_eq]'
-        select '絶滅危惧Ｉ類 (CR+EN)  : 絶滅の危機に瀕している種', from: 'p_endangered_specy_eq'
+        # binding.irb
+        # select "絶滅危惧Ｉ類 (CR+EN) : 絶滅の危機に瀕している種", from: 'p[endangered_specy_eq]'
+        select '絶滅危惧Ｉ類(CR+EN) : 絶滅の危機に瀕している種', from: 'p_endangered_specy_eq'
+        # select '北海道', from: 'p_endangered_specy_eq'
         click_on '動物を検索'
         expect(page).to have_content 'テスト動物1'
         expect(page).to_not have_content 'テスト動物2'

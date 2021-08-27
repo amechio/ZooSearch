@@ -4,7 +4,7 @@ FactoryBot.define do
     english_name { 'テスト英名1' }
     scientific_name { 'テスト学名1' }
     distribution { 'テスト生息地1' }
-    endangered_specy { '絶滅危惧Ｉ類 (CR+EN)  : 絶滅の危機に瀕している種' }
+    endangered_specy { '絶滅危惧Ｉ類(CR+EN) : 絶滅の危機に瀕している種' }
     content { 'テスト動物説明1' }
     kingdom { 'テスト界1' }
     phylum { 'テスト門1' }
@@ -20,7 +20,7 @@ FactoryBot.define do
     english_name { 'テスト英名2' }
     scientific_name { 'テスト学名2' }
     distribution { 'テスト生息地2' }
-    endangered_specy { '絶滅危惧II類 (VU) : 絶滅の危険が増大している種' }
+    endangered_specy { '絶滅危惧II類(VU) : 絶滅の危険が増大している種' }
     content { 'テスト動物説明2' }
     kingdom { 'テスト界2' }
     phylum { 'テスト門2' }
