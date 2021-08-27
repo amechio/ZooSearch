@@ -13,11 +13,11 @@
 
 
 <% if current_user.admin == true || current_user.id == @user.id %>
-  <%= link_to '編集', edit_user_path(@user.id), class: "option_btn" %>
+  <%= link_to '編集', edit_admin_user_path(@user.id), class: "option_btn" %>
 <% end %>
 
 <% if current_user.admin == true %>
-  <%= link_to "一覧画面にもどる", users_path %>
+  <%= link_to "一覧画面にもどる", admin_users_path %>
 <% end %>
 
 <h3 class="title">お気に入りの動物園</h3>

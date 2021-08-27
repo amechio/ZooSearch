@@ -6,9 +6,10 @@ class TopsController < ApplicationController
     @zoos = Zoo.all
     @q = Zoo.ransack(params[:q])
     @zoos = @q.result
-    
+
     @animals = Animal.all
-    @p = Animal.ransack(params[:q])
+    @p = Animal.ransack(params[:p])
+    # binding.irb
     @animals = @p.result
   end
 
@@ -24,6 +25,6 @@ class TopsController < ApplicationController
   end
 
   def set_p
-    @p = Animal.ransack(params[:q])
+    @p = Animal.ransack(params[:p])
   end
 end

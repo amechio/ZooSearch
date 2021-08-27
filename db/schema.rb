@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_103348) do
+ActiveRecord::Schema.define(version: 2021_08_27_072746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_08_25_103348) do
     t.string "english_name"
     t.string "scientific_name"
     t.string "distribution"
-    t.integer "endangered_species"
+    t.integer "endangered_specy"
     t.text "content"
     t.string "photo"
     t.string "kingdom"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2021_08_25_103348) do
     t.string "order"
     t.string "family"
     t.string "genus"
-    t.string "species"
-    t.string "subspecies"
+    t.string "specy"
+    t.string "subspecy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "wikipedia"

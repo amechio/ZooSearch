@@ -16,7 +16,7 @@ class ZoosController < ApplicationController
       render :new
     else
       if @zoo.save
-        redirect_to zoos_path, notice: "新しい動物園を登録しました！"
+        redirect_to zoo_path(id: @zoo.id), notice: "新しい動物園を登録しました！"
       else
         render :new
       end
@@ -36,7 +36,7 @@ class ZoosController < ApplicationController
 
   def update
     if @zoo.update(zoo_params)
-      redirect_to zoos_path, notice: "動物園を編集しました！"
+      redirect_to zoo_path(id: @zoo.id), notice: "動物園を編集しました！"
     else
       render :edit
     end
