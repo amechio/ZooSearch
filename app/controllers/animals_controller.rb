@@ -57,7 +57,7 @@ class AnimalsController < ApplicationController
       :english_name,
       :scientific_name,
       :distribution,
-      :endangered_species,
+      :endangered_specy,
       :content,
       :photo,
       :kingdom,
@@ -66,8 +66,8 @@ class AnimalsController < ApplicationController
       :order,
       :family,
       :genus,
-      :species,
-      :subspecies,
+      :specy,
+      :subspecy,
       :wikipedia,
       :image_cache
     )

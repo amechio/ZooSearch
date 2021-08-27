@@ -31,7 +31,7 @@
 
   <div class="animal_column">
     <%= form.label :絶滅危惧種 %>
-    <%= form.select :endangered_species, Animal.endangered_species.keys, prompt: "選択してください" %>
+    <%= form.select :endangered_specy, Animal.endangered_species.keys, prompt: "選択してください" %>
   </div>
 
   <div class="animal_column">
@@ -77,12 +77,12 @@
 
   <div class="animal_column">
     *<%= form.label :種 %>
-    <%= form.text_field :species %>
+    <%= form.text_field :specy %>
   </div>
 
   <div class="animal_column">
     <%= form.label :亜種 %>
-    <%= form.text_field :subspecies %>
+    <%= form.text_field :subspecy %>
   </div>
 
   <div class="animal_column">

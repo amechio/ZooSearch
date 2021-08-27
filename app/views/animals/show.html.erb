@@ -10,7 +10,7 @@
 <p>英名: <%= @animal.english_name %></p>
 <p>学名: <%= @animal.scientific_name %></p>
 <p>分布: <%= @animal.distribution %></p>
-<p>絶滅危惧種: <%= @animal.endangered_species %></p>
+<p>絶滅危惧種: <%= @animal.endangered_specy %></p>
 <p>説明: <%= @animal.content %></p>
 <p>写真: <%= image_tag @animal.photo.url if @animal.photo && @animal.photo.url %></p>
 <p>界: <%= @animal.kingdom %></p>
@@ -19,8 +19,8 @@
 <p>目: <%= @animal.order %></p>
 <p>科: <%= @animal.family %></p>
 <p>属: <%= @animal.genus %></p>
-<p>種: <%= @animal.species %></p>
-<p>亜種: <%= @animal.subspecies %></p>
+<p>種: <%= @animal.specy %></p>
+<p>亜種: <%= @animal.subspecy %></p>
 <p>Wikipedia: <%= link_to @animal.wikipedia, @animal.wikipedia %></p>
 
 <p>動物園:

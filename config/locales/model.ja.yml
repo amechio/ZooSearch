@@ -22,15 +22,15 @@ ja:
         english_name: 英名
         scientific_name: 学名
         distribution: 分布
-        endangered_species: 絶滅危惧種
+        endangered_specy: 絶滅危惧種
         kingdom: 界
         phylum: 門
         class: 網
         order: 目
         family: 科
         genus: 属
-        species: 種
-        subspecies: 亜種
+        specy: 種
+        subspecy: 亜種
 
       user:
         name: 名前

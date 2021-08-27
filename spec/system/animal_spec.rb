@@ -32,7 +32,7 @@ RSpec.describe '動物機能', type: :system do
         fill_in 'animal[order]', with: '目'
         fill_in 'animal[family]', with: '科'
         fill_in 'animal[genus]', with: '属'
-        fill_in 'animal[species]', with: '種'
+        fill_in 'animal[specy]', with: '種'
         click_on '登録' # ボタンがない
         expect(page).to have_content '新しい動物を登録しました！'
         expect(page).to have_content '詳細画面'
@@ -83,8 +83,9 @@ RSpec.describe '動物機能', type: :system do
 
     context '絶滅危惧種検索をした場合' do # 検索できない(T_T)
       it '絶滅危惧種に完全一致する動物が絞り込まれる' do
-        # binding.irb
-        select '絶滅危惧Ｉ類 (CR+EN)  : 絶滅の危機に瀕している種', from: 'p[endangered_species_eq]'
+        binding.irb
+        # select '絶滅危惧Ｉ類 (CR+EN)  : 絶滅の危機に瀕している種', from: 'p[endangered_specy_eq]'
+        select '絶滅危惧Ｉ類 (CR+EN)  : 絶滅の危機に瀕している種', from: 'p_endangered_specy_eq'
         click_on '動物を検索'
         expect(page).to have_content 'テスト動物1'
         expect(page).to_not have_content 'テスト動物2'

@@ -16,9 +16,9 @@ class Animal < ApplicationRecord
   validates :order, presence: true
   validates :family, presence: true
   validates :genus, presence: true
-  validates :species, presence: true
+  validates :specy, presence: true
 
-  enum endangered_species: {
+  enum endangered_specy: {
     "絶滅(EX) : 我が国ではすでに絶滅したと考えられる種":1,
     "野生絶滅 (EW) : 飼育・栽培下あるいは自然分布域の明らかに外側で野生化した状態でのみ 存続している種":2,
     "絶滅危惧Ｉ類 (CR+EN)  : 絶滅の危機に瀕している種":3,
