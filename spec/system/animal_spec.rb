@@ -71,7 +71,7 @@ RSpec.describe '動物機能', type: :system do
         # binding.irb
         # fill_in 'q[name_cont]', with: 'テスト動物園1' # 動物名もqになってる(´-ω-`)
         # find(".animal_name").set("テスト動物1")
-        find('.zoo_name').set('テスト動物1')
+        find('.animal_name').set('テスト動物1')
         click_on '動物を検索'
         # zoo_list = all('.zoo_name')
         # expect(zoo_list[0].text).to eq @zoo.name
@@ -84,7 +84,7 @@ RSpec.describe '動物機能', type: :system do
     context '絶滅危惧種検索をした場合' do # 検索できない(T_T)
       it '絶滅危惧種に完全一致する動物が絞り込まれる' do
         # binding.irb
-        select '絶滅危惧Ｉ類 (CR+EN)  : 絶滅の危機に瀕している種', from: 'q[endangered_species_eq]'
+        select '絶滅危惧Ｉ類 (CR+EN)  : 絶滅の危機に瀕している種', from: 'p[endangered_species_eq]'
         click_on '動物を検索'
         expect(page).to have_content 'テスト動物1'
         expect(page).to_not have_content 'テスト動物2'
