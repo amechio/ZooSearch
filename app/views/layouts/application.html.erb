@@ -13,7 +13,7 @@
   <body>
     <header>
       <div class="logo">
-        <%= link_to "トップページ", root_path %>
+        <%= link_to "Zoo Search", root_path %>
       </div>
 
       <% if user_signed_in? %>
@@ -45,16 +45,19 @@
         </div>
       <% end %>
 
+      <% if notice %>
       <div class="information">
         お知らせ：
         『<% flash.each do |key, value| %>
           <%= content_tag(:div, value, class: "#{key}") %>
         <% end %>』
       </div>
-
+      <% end %>
     </header>
 
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
 
     <footer>
       <p class="copyright">&copy; 2021 amechio</p>
