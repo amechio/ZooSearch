@@ -8,7 +8,7 @@ class Animal < ApplicationRecord
   validates :name, presence: true
   validates :english_name, presence: true
   validates :scientific_name, presence: true
-  validates :distribution, presence: true
+  # validates :distribution, presence: true
   validates :content, presence: true
   validates :kingdom, presence: true
   validates :phylum, presence: true
