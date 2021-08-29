@@ -13,11 +13,14 @@
       <div class="name">
         <%= link_to animal.name, animal_path(animal.id), id: "show_btn" %>
       </div>
+      <div class="english_name">
+        <%= animal.english_name %>
+      </div>
       <div class="content">
         <%= animal.content %>
       </div>
       <div class="option">
-        <%= link_to "wikipediaで見る", animal.wikipedia, class: "wikipedia" %>
+        <%= link_to "wikipediaをみる", animal.wikipedia, class: "wikipedia" %>
         <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn", id: "edit_btn" %>
         <%= link_to '削除', animal_path(animal.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
       </div>

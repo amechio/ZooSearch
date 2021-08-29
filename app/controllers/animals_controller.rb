@@ -24,7 +24,9 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    @favorite_animal = current_user.favorite_animals.find_by(animal_id: @animal.id)
+    if signed_in?
+      @favorite_animal = current_user.favorite_animals.find_by(animal_id: @animal.id)
+    end
   end
 
   def edit

@@ -6,7 +6,7 @@
   <div class="name_area">
     <h2><%= @animal.name %></h2>
     <div class="option_area">
-      <% if current_user.admin == true %>
+      <% if signed_in? && current_user.admin == true %>
         <%= link_to "一覧画面にもどる", animals_path, class: "back_btn" %>
         <%= link_to '編集', edit_animal_path(@animal.id), class: "edit_btn" %>
       <% end %>
