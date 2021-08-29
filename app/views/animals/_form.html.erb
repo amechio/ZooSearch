@@ -9,87 +9,89 @@
       </ul>
     </div>
   <% end %>
-  <div class="animal_column">
-    *<%= form.label :動物名 %>
-    <%= form.text_field :name %>
+
+  <div class="edit_photo_area">
+    <%= form.label :写真, class: "photo_label" %>
+    <%= image_tag @animal.photo.url, class: "show_photo" if @animal.photo && @animal.photo.url %>
+    <%= form.file_field :photo, class: "edit_photo" %>
   </div>
 
-  <div class="animal_column">
-    *<%= form.label :英名 %>
-    <%= form.text_field :english_name %>
+
+  <div class="edit_name_area">
+    <h2>動物名<%= form.text_field :name %></h2>
+    <div class="option_area">
+      <% if current_user.admin == true %>
+        <%= link_to "一覧画面にもどる", zoos_path, class: "back_btn" %>
+      <% end %>
+    </div>
   </div>
 
-  <div class="animal_column">
-    *<%= form.label :学名 %>
-    <%= form.text_field :scientific_name %>
-  </div>
 
-  <div class="animal_column">
-    *<%= form.label :分布 %>
-    <%= form.text_field :distribution %>
-  </div>
+  <table class="data_space">
+    <tr class="english_name_area">
+      <th>英名</th>
+      <td><%= form.text_field :english_name %></td>
+    </tr>
+    <tr class="scientific_name_area">
+      <th>学名</th>
+      <td><%= form.text_field :scientific_name %></td>
+    </tr>
 
-  <div class="animal_column">
-    <%= form.label :絶滅危惧種 %>
-    <%= form.select :endangered_specy, Animal.endangered_species.keys, prompt: "選択してください" %>
-  </div>
+    <tr class="scientific_name_area">
+      <th>絶滅危惧種</th>
+      <td><%= form.select :endangered_specy, Animal.endangered_species.keys, prompt: "選択してください" %></td>
+    </tr>
 
-  <div class="animal_column">
-    *<%= form.label :説明 %>
-    <%= form.text_area :content %>
-  </div>
+    <tr class="content_area">
+      <th>この動物について</th>
+      <td><%= form.text_area :content %></td>
+    </tr>
 
-  <div class="animal_column">
-    <%= form.label :写真 %>
-    <%= image_tag(@animal.photo.url) if @animal.photo && @animal.photo.url %>
-    <%= form.file_field :photo %>
-  </div>
+    <tr class="english_name_area">
+      <th>生息地</th>
+      <td><%= form.text_field :distribution %></td>
+    </tr>
 
-  <div class="animal_column">
-    *<%= form.label :界 %>
-    <%= form.text_field :kingdom %>
-  </div>
+    <tr class="grouping_area">
+      <th>分類</th>
+      <td>
+        <table class="grouping_table">
+          <tr>
+            <th>階級</th><th></th>
+          </tr>
+          <tr>
+            <th>界</th><td><%= form.text_field :kingdom %></td>
+          </tr>
+          <tr>
+            <th>門</th><td><%= form.text_field :phylum %></td>
+          </tr>
+          <tr>
+            <th>網</th><td><%= form.text_field :animal_class %></td>
+          </tr>
+          <tr>
+            <th>目</th><td><%= form.text_field :order %></td>
+          </tr>
+          <tr>
+            <th>科</th><td><%= form.text_field :family %></td>
+          </tr>
+          <tr>
+            <th>属</th><td><%= form.text_field :genus %></td>
+          </tr>
+          <tr>
+            <th>種</th><td><%= form.text_field :specy %></td>
+          </tr>
+          <tr>
+            <th>亜種</th><td><%= form.text_field :subspecy %></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
 
-  <div class="animal_column">
-    *<%= form.label :門 %>
-    <%= form.text_field :phylum %>
-  </div>
+    <tr class="wikipedia_area">
+      <th>Wikipedia</th>
+      <td><%= form.text_field :wikipedia %></td>
+    </tr>
+  </table>
 
-  <div class="animal_column">
-    *<%= form.label :網 %>
-    <%= form.text_field :animal_class %>
-  </div>
-
-  <div class="animal_column">
-    *<%= form.label :目 %>
-    <%= form.text_field :order %>
-  </div>
-
-  <div class="animal_column">
-    *<%= form.label :科 %>
-    <%= form.text_field :family %>
-  </div>
-
-  <div class="animal_column">
-    *<%= form.label :属 %>
-    <%= form.text_field :genus %>
-  </div>
-
-  <div class="animal_column">
-    *<%= form.label :種 %>
-    <%= form.text_field :specy %>
-  </div>
-
-  <div class="animal_column">
-    <%= form.label :亜種 %>
-    <%= form.text_field :subspecy %>
-  </div>
-
-  <div class="animal_column">
-    <%= form.label :Wikipedia %>
-    <%= form.text_field :wikipedia %>
-  </div>
-
-  <%= form.submit "登録", class: "btn" %>
+  <%= form.submit "登録", class: "submit_btn" %>
 <% end %>
-<%= link_to "一覧画面にもどる", animals_path %>

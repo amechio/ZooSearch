@@ -1,84 +1,27 @@
-<h1>動物一覧画面</h1>
-<p><%= notice %></p>
+<h1>動物一覧</h1>
 
+<div class="new">
+  <%= link_to '新規作成', new_animal_path, class: "new_btn" %>
+</div>
 
-
-<%= link_to '新規作成', new_animal_path %>
-
-<ul class="row">
+<div class="search_result">
   <% @animals.each do |animal| %>
-    <li class="col-sm-4 col-md-3">
-      <div class="chunk">
-        <div class="name">
-          動物名:<%= animal.name %>
-        </div>
-
-        <div class="english_name">
-          英名:<%= animal.english_name %>
-        </div>
-
-        <div class="scientific_name">
-          学名:<%= animal.scientific_name %>
-        </div>
-
-        <div class="distribution">
-          分布:<%= animal.distribution %>
-        </div>
-
-        <div class="endangered_specy">
-          絶滅危惧種:<%= animal.endangered_specy %>
-        </div>
-
-        <div class="content">
-          説明:<%= animal.content %>
-        </div>
-
-        <div class="photo">
-          写真:<%= image_tag animal.photo.url, class: "photo" if animal.photo && animal.photo.url %>
-        </div>
-
-        <div class="kingdom">
-          界:<%= animal.kingdom %>
-        </div>
-
-        <div class="phylum">
-          門:<%= animal.phylum %>
-        </div>
-
-        <div class="class">
-          網:<%= animal.animal_class %>
-        </div>
-
-        <div class="order">
-          目:<%= animal.order %>
-        </div>
-
-        <div class="family">
-          科:<%= animal.family %>
-        </div>
-
-        <div class="genus">
-          属:<%= animal.genus %>
-        </div>
-
-        <div class="specy">
-          種:<%= animal.specy %>
-        </div>
-
-        <div class="subspecy">
-          亜種:<%= animal.subspecy %>
-        </div>
-
-        <div class="wikipedia">
-          Wikipedia:<%= link_to animal.wikipedia, animal.wikipedia %>
-        </div>
-
-        <div class="option">
-          <%= link_to '詳細', animal_path(animal.id), class: "option_btn" %>
-          <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn" %>
-          <%= link_to '削除', animal_path(animal.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn" %>
-        </div>
+    <div class="chunk">
+      <div class="photo_area">
+        <%= image_tag animal.photo.url, class: "photo" if animal.photo && animal.photo.url %>
       </div>
-    </li>
+      <div class="name">
+        <%= link_to animal.name, animal_path(animal.id), id: "show_btn" %>
+      </div>
+      <div class="content">
+        <%= animal.content %>
+      </div>
+      <div class="option">
+        <%= link_to "wikipediaで見る", animal.wikipedia, class: "wikipedia" %>
+        <%= link_to '詳細', animal_path(animal.id), class: "option_btn", id: "show_btn" %>
+        <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn", id: "edit_btn" %>
+        <%= link_to '削除', animal_path(animal.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>

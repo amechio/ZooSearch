@@ -26,92 +26,91 @@
     </div>
   </div>
 
-<table class="data_space">
-  <tr class="address_area">
-    <th>住所:</th>
-    <td>
-      <%= form.text_field :address %>
-      (地域: <%= form.select :area, Zoo.areas.keys, prompt: "選択してください" %>,
-      県: <%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>)
-    </td>
-  </tr>
+  <table class="data_space">
+    <tr class="address_area">
+      <th>住所:</th>
+      <td>
+        <%= form.text_field :address %>
+        (地域: <%= form.select :area, Zoo.areas.keys, prompt: "選択してください" %>,
+        県: <%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>)
+      </td>
+    </tr>
 
-  <tr class="content_area">
-    <th>この施設について</th>
-    <td><%= form.text_area :content %></td>
-  </tr>
+    <tr class="content_area">
+      <th>この施設について</th>
+      <td><%= form.text_area :content %></td>
+    </tr>
 
-  <tr class="time_area">
-    <th>時間</th>
-    <td>
-    <table class="open_close">
-      <tr>
-        <th></th><th>開園時間</th><th>閉園時間</th>
-      </tr>
-      <tr>
-        <th>夏(平日):</th>
-        <td><%= form.time_select :summer_workday_open %></td>
-        <td><%= form.time_select :summer_workday_close %></td>
-      </tr>
-      <tr>
-        <th>夏(休日):</th>
-        <td><%= form.time_select :summer_holiday_open %></td>
-        <td><%= form.time_select :summer_holiday_close %></td>
-      </tr>
-      <tr>
-        <th>冬(平日):</th>
-        <td><%= form.time_select :winter_workday_open %></td>
-        <td><%= form.time_select :winter_workday_close %></td>
-      </tr>
-      <tr>
-        <th>冬(休日):</th>
-        <td><%= form.time_select :winter_holiday_open %></td>
-        <td><%= form.time_select :winter_holiday_close %></td>
-      </tr>
-    </table>
-    </td>
-  </tr>
-
-  <tr class="price_area">
-    <th>入場料</th>
-    <td>
-      <table class="price_table">
+    <tr class="time_area">
+      <th>時間</th>
+      <td>
+      <table class="open_close">
         <tr>
-          <th></th><th>入場料</th>
+          <th></th><th>開園時間</th><th>閉園時間</th>
         </tr>
         <tr>
-          <th>一般</th><td><%= form.number_field :general_price %>円</td>
+          <th>夏(平日):</th>
+          <td><%= form.time_select :summer_workday_open %></td>
+          <td><%= form.time_select :summer_workday_close %></td>
         </tr>
         <tr>
-          <th>高校生</th><td><%= form.number_field :high_school_price %>円</td>
+          <th>夏(休日):</th>
+          <td><%= form.time_select :summer_holiday_open %></td>
+          <td><%= form.time_select :summer_holiday_close %></td>
         </tr>
         <tr>
-          <th>中学生</th><td><%= form.number_field :junior_high_school_price %>円</td>
+          <th>冬(平日):</th>
+          <td><%= form.time_select :winter_workday_open %></td>
+          <td><%= form.time_select :winter_workday_close %></td>
         </tr>
         <tr>
-          <th>小学生</th><td><%= form.number_field :primary_price %>円</td>
-        </tr>
-        <tr>
-          <th>シニア</th><td><%= form.number_field :senior_price %>円</td>
-        </tr>
-        <tr>
-          <td colspan="2">コメント<%= form.text_field :price_comment %></td>
+          <th>冬(休日):</th>
+          <td><%= form.time_select :winter_holiday_open %></td>
+          <td><%= form.time_select :winter_holiday_close %></td>
         </tr>
       </table>
-    </td>
-  </tr>
+      </td>
+    </tr>
 
-  <tr class="holiday_area">
-    <th>休園日: </th>
-    <td><%= form.text_field :holiday %></td>
-  </tr>
+    <tr class="price_area">
+      <th>入場料</th>
+      <td>
+        <table class="price_table">
+          <tr>
+            <th></th><th>入場料</th>
+          </tr>
+          <tr>
+            <th>一般</th><td><%= form.number_field :general_price %>円</td>
+          </tr>
+          <tr>
+            <th>高校生</th><td><%= form.number_field :high_school_price %>円</td>
+          </tr>
+          <tr>
+            <th>中学生</th><td><%= form.number_field :junior_high_school_price %>円</td>
+          </tr>
+          <tr>
+            <th>小学生</th><td><%= form.number_field :primary_price %>円</td>
+          </tr>
+          <tr>
+            <th>シニア</th><td><%= form.number_field :senior_price %>円</td>
+          </tr>
+          <tr>
+            <td colspan="2">コメント<%= form.text_field :price_comment %></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
 
-  <tr class="home_page_area">
-    <th>ホームページ: </th>
-    <td><%= form.text_field :home_page %></td>
-  </tr>
-</table>
+    <tr class="holiday_area">
+      <th>休園日: </th>
+      <td><%= form.text_field :holiday %></td>
+    </tr>
 
+    <tr class="home_page_area">
+      <th>ホームページ: </th>
+      <td><%= form.text_field :home_page %></td>
+    </tr>
+  </table>
 
   <%= form.submit "登録", class: "submit_btn" %>
 <% end %>

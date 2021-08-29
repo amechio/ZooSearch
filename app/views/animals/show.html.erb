@@ -1,39 +1,112 @@
-<h1>詳細画面</h1>
+<div class="show_area">
+  <div class="photo_area">
+    <%= image_tag @animal.photo.url, class: "show_photo" if @animal.photo && @animal.photo.url %>
+  </div>
 
-<% if @favorite_animal.present? %>
-  <%= link_to 'お気に入り解除する', favorite_animal_path(id: @favorite_animal.id), method: :delete, class: 'btn btn-danger' %>
-<% else %>
-  <%= link_to 'お気に入りする', favorite_animals_path(animal_id: @animal.id), method: :post, class: 'btn btn-primary' %>
-<% end %>
+  <div class="name_area">
+    <h2><%= @animal.name %></h2>
+    <div class="option_area">
+      <% if current_user.admin == true %>
+        <%= link_to "一覧画面にもどる", zoos_path, class: "back_btn" %>
+        <%= link_to '編集', edit_zoo_path(@zoo.id), class: "edit_btn" %>
+      <% end %>
+      <% if @favorite_animal.present? %>
+        <%= link_to 'お気に入り解除する', favorite_animal_path(id: @favorite_animal.id), method: :delete, class: 'no_favorite_btn' %>
+      <% else %>
+        <%= link_to 'お気に入りする', favorite_animals_path(animal_id: @animal.id), method: :post, class: 'favorite_btn' %>
+      <% end %>
+    </div>
+  </div>
 
-<p>動物名: <%= @animal.name %></p>
-<p>英名: <%= @animal.english_name %></p>
-<p>学名: <%= @animal.scientific_name %></p>
-<p>分布: <%= @animal.distribution %></p>
-<p>絶滅危惧種: <%= @animal.endangered_specy %></p>
-<p>説明: <%= @animal.content %></p>
-<p>写真: <%= image_tag @animal.photo.url if @animal.photo && @animal.photo.url %></p>
-<p>界: <%= @animal.kingdom %></p>
-<p>門: <%= @animal.phylum %></p>
-<p>網: <%= @animal.animal_class %></p>
-<p>目: <%= @animal.order %></p>
-<p>科: <%= @animal.family %></p>
-<p>属: <%= @animal.genus %></p>
-<p>種: <%= @animal.specy %></p>
-<p>亜種: <%= @animal.subspecy %></p>
-<p>Wikipedia: <%= link_to @animal.wikipedia, @animal.wikipedia %></p>
+  <table class="data_space">
+    <tr class="english_name_area">
+      <th>英名</th>
+      <td><%= @animal.english_name %></td>
+    </tr>
+    <tr class="scientific_name_area">
+      <th>学名</th>
+      <td><%= @animal.scientific_name %></td>
+    </tr>
 
-<p>動物園:
-  <ul class="row">
+    <tr class="scientific_name_area">
+      <th>絶滅危惧種</th>
+      <td><%= @animal.endangered_specy %></td>
+    </tr>
+
+    <tr class="content_area">
+      <th>この動物について</th>
+      <td><%= @animal.content %></td>
+    </tr>
+
+    <tr class="english_name_area">
+      <th>生息地</th>
+      <td><%= @animal.distribution %></td>
+    </tr>
+
+    <tr class="grouping_area">
+      <th>分類</th>
+      <td>
+        <table class="grouping_table">
+          <tr>
+            <th>階級</th><th></th>
+          </tr>
+          <tr>
+            <th>界</th><td><%= @animal.kingdom %></td>
+          </tr>
+          <tr>
+            <th>門</th><td><%= @animal.phylum %></td>
+          </tr>
+          <tr>
+            <th>網</th><td><%= @animal.animal_class %></td>
+          </tr>
+          <tr>
+            <th>目</th><td><%= @animal.order %></td>
+          </tr>
+          <tr>
+            <th>科</th><td><%= @animal.family %></td>
+          </tr>
+          <tr>
+            <th>属</th><td><%= @animal.genus %></td>
+          </tr>
+          <tr>
+            <th>種</th><td><%= @animal.specy %></td>
+          </tr>
+          <tr>
+            <th>亜種</th><td><%= @animal.subspecy %></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr class="wikipedia_area">
+      <th>Wikipedia</th>
+      <td><%= link_to @animal.wikipedia, @animal.wikipedia %></td>
+    </tr>
+  </table>
+
+  <h3>この動物に会える動物園</h3>
+  <div class="search_result">
     <% @animal.zoos.each do |zoo| %>
-      <li class="col-sm-3">
-        <%= link_to zoo.name, zoo_path(zoo.id) %>
-      </li>
+      <div class="chunk">
+        <%= image_tag zoo.photo.url, class: "photo" if zoo.photo && zoo.photo.url %>
+        <div class="name">
+          <%= link_to "#{zoo.name}", zoo_path(zoo.id), id: "show_btn" %>
+        </div>
+        <div class="address">
+          住所:<%= zoo.address %>
+        </div>
+        <div class="content">
+          概要:<%= zoo.content %>
+        </div>
+        <div class="option">
+          <%= link_to "ホームページをみる", zoo.home_page, class: "home_page" %>
+        <% if signed_in? && current_user.admin == true %>
+            <%= link_to '編集', edit_zoo_path(zoo.id), class: "option_btn", id: "edit_btn" %>
+            <%= link_to '削除', zoo_path(zoo.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-  </ul>
-</p>
+  </div>
 
-<% if current_user.admin == true %>
-  <%= link_to "一覧画面にもどる", animals_path %>
-  <%= link_to '編集', edit_animal_path(@animal.id), class: "option_btn" %>
-<% end %>
+</div>
