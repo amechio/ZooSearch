@@ -2,10 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// .row {
-//   padding: 0;
-//   margin: 0;
-// }
+
+.information {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+}
+p {
+  margin: auto;
+  font-size: 12px;
+}
 
 .search_space {
   float: left;
