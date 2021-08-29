@@ -22,12 +22,12 @@ describe '動物モデル機能', type: :model do
       end
     end
 
-    context '動物の分布が空の場合' do
-      it 'バリデーションにひっかる' do
-        animal = Animal.new( name: '名前', english_name: '英名', scientific_name: '学名', distribution: '', content: '説明', kingdom: '界', phylum: '門', animal_class: '網', order: '目', family: '科', genus: '属', specy: '種' )
-        expect(animal).not_to be_valid
-      end
-    end
+    # context '動物の分布が空の場合' do
+    #   it 'バリデーションにひっかる' do
+    #     animal = Animal.new( name: '名前', english_name: '英名', scientific_name: '学名', distribution: '', content: '説明', kingdom: '界', phylum: '門', animal_class: '網', order: '目', family: '科', genus: '属', specy: '種' )
+    #     expect(animal).not_to be_valid
+    #   end
+    # end
 
     context '動物の説明が空の場合' do
       it 'バリデーションにひっかる' do
