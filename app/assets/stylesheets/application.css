@@ -21,7 +21,7 @@ body {
   min-height: 100vh;
   text-align: center;
   margin: 0;
-  background-color: #E0E0E0;
+  /* background-color: #E0E0E0; */
 }
 li {
   list-style: none;
