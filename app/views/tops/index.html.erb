@@ -3,8 +3,7 @@
 <div class="zoos_search">
   <ul class="row">
     <h3>動物園検索</h3>
-
-    <%= search_form_for @q, url: tops_path, local: true do |f| %>
+    <%= search_form_for @q, as: :q, url: tops_path, local: true do |f| %>
       <li class="col-md-10">
         <div class="search_column">
           <%= f.label :施設名 %>
@@ -42,7 +41,7 @@
 <div class="animals_search">
   <ul class="row">
     <h3>動物検索</h3>
-    <%= search_form_for @p, url: tops_path do |f| %>
+    <%= search_form_for @p, as: :p, url: tops_path do |f| %>
       <li class="col-md-10">
         <div class="search_column">
           <%= f.label :動物名 %>
