@@ -10,60 +10,54 @@
       </ul>
     </div>
   <% end %>
-  <div class="user_column">
-    *<%= form.label :名前 %>
-    <%= form.text_field :name %>
+
+
+  <div class="edit_photo_area">
+    <%= form.label :アイコン, class: "photo_label" %>
+    <%= image_tag @user.icon.url, class: "show_photo" if @user.icon && @user.icon.url %>
+    <%= form.file_field :icon, class: "edit_photo" %>
   </div>
 
-  <div class="user_column">
-    *<%= form.label :メールアドレス %>
-    <%= form.email_field :email %>
-  </div>
-
-  <div class="user_column">
-    *<%= form.label :パスワード %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div class="user_column">
-    *<%= form.label :確認用パスワード %>
-    <%= form.password_field :password_confirmation %>
-  </div>
-
-  <div class="user_column">
-    <%= form.label :住んでいる県 %>
-    <%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>
-  </div>
-
-  <div class="user_column">
-    <%= form.label :よく行く県 %>
-    <%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>
-  </div>
-
-  <div class="user_column">
-    <%= form.label :自己紹介 %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="user_column">
-    <%= form.label :アイコン %>
-    <%= image_tag(@user.icon.url) if @user.icon && @user.icon.url %>
-    <%= form.file_field :icon %>
-  </div>
-
-  <% if current_user.admin == true %>
-    <div class="user_column">
-      *<%= form.label :オーナー権限 %>
-      <%= form.check_box :owner, {}, true, false %>
+  <div class="edit_name_area">
+    <h2>名前<%= form.text_field :name %></h2>
+    <div class="option_area">
+      <%# if current_user.admin == true %>
+        <%= link_to "マイページにもどる", user_path(@user.id), class: "back_btn" %>
+      <%# end %>
     </div>
+  </div>
 
-    <div class="user_column">
-      *<%= form.label :管理者権限 %>
-      <%= form.check_box :admin, {}, true, false %>
-    </div>
-  <% end %>
+<table class="data_space">
+
+  <tr class="email_area">
+    <th>メールアドレス</th>
+    <td><%= form.email_field :email %></td>
+  </tr>
+
+  <tr class="password_area">
+    <th>パスワード</th>
+    <td>
+      <%= form.email_field :email %>
+      <%= form.password_field :password_confirmation %>
+    </td>
+  </tr>
+
+  <tr class="live_prefecture_area">
+    <th>住んでいる県</th>
+    <td><%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %></td>
+  </tr>
+
+  <tr class="live_prefecture_area">
+    <th>よく行く県</th>
+    <td><%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %></td>
+  </tr>
+
+  <tr class="content_area">
+    <th>自己紹介</th>
+    <td><%= form.text_area :content %></td>
+  </tr>
+
+</table>
 
   <%= form.submit %>
 <% end %>
-
-<%= link_to "一覧画面にもどる", show_user_path %>

@@ -77,6 +77,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+    @zoo = Zoo.find(params[:id])
+    @animal = Animal.find(params[:id])
+    @favorite_zoos = current_user.favorite_zoos
+    @favorite_animals = current_user.favorite_animals
   end
 
   # def admin_user

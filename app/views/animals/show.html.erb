@@ -7,8 +7,8 @@
     <h2><%= @animal.name %></h2>
     <div class="option_area">
       <% if current_user.admin == true %>
-        <%= link_to "一覧画面にもどる", zoos_path, class: "back_btn" %>
-        <%= link_to '編集', edit_zoo_path(@zoo.id), class: "edit_btn" %>
+        <%= link_to "一覧画面にもどる", animals_path, class: "back_btn" %>
+        <%= link_to '編集', edit_animal_path(@animal.id), class: "edit_btn" %>
       <% end %>
       <% if @favorite_animal.present? %>
         <%= link_to 'お気に入り解除する', favorite_animal_path(id: @favorite_animal.id), method: :delete, class: 'no_favorite_btn' %>
