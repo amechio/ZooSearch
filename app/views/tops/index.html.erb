@@ -11,12 +11,12 @@
         </div>
         <div class="search_column">
           <%= f.label :地域 %>
-          <%= f.select :area_eq, Zoo.areas.keys, prompt: "全て", class: "zoo_area" %>
-          = f.select :area_eq, Zoo.areas{|key,value| [Zoo.areas[key],value]}, prompt: "全て", class: "zoo_area"
+          <%#= f.select :area_eq, Zoo.areas.keys, prompt: "全て", class: "zoo_area" %>
+          <%= f.select :area_eq, Zoo.areas{|key,value| [Zoo.areas[key],value]}, prompt: "全て", class: "zoo_area" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= f.label :県 %>
-          <%= f.select :prefecture_eq, Zoo.prefectures.keys, prompt: "全て", class: "zoo_prefecture" %>
+          <%#= f.select :prefecture_eq, Zoo.prefectures.keys, prompt: "全て", class: "zoo_prefecture" %>
           <%= f.select :prefecture_eq, Zoo.prefectures{|key,value| [Zoo.prefectures[key],value]}, prompt: "全て", class: "zoo_prefecture" %>
         </div>
         <div class="search_column">
