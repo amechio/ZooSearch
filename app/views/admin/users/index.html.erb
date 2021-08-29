@@ -1,25 +1,16 @@
-<h1>ユーザ一覧画面</h1>
-<p><%= notice %></p>
-<%= link_to '新規作成', new_admin_user_path %>
+<h1>ユーザ一覧</h1>
 
-<ul class="row">
+<div class="new">
+  <%= link_to '新規作成', new_admin_user_path, class: "new_btn" %>
+</div>
+
+<div class="search_result">
   <% @users.each do |user| %>
-    <li class="col-md-4 col-lg-3">
       <div class="chunk">
+        <%= image_tag user.icon.url, class: "icon" if user.icon && user.icon.url %>
+
         <div class="name">
-          名前:<%= user.name %>
-        </div>
-
-        <div class="email">
-          メールアドレス:<%= user.email %>
-        </div>
-
-        <div class="password">
-          パスワード:<%= user.password %>
-        </div>
-
-        <div class="password_confirmation">
-          確認用パスワード:<%= user.password_confirmation %>
+          <%= link_to user.name, user_path(user.id), id: "show_btn" %>
         </div>
 
         <div class="live_prefecture">
@@ -31,11 +22,7 @@
         </div>
 
         <div class="content">
-          自己紹介:<%= user.content %>
-        </div>
-
-        <div class="icon">
-          アイコン:<%= image_tag user.icon.url, class: "icon" if user.icon && user.icon.url %>
+          <%= user.content %>
         </div>
 
         <div class="owner">
@@ -47,11 +34,9 @@
         </div>
 
         <div class="option">
-          <%= link_to '詳細', admin_user_path(user.id), class: "option_btn", id: "show" %>
           <%= link_to '編集', edit_admin_user_path(user.id), class: "option_btn", id: "edit" %>
           <%= link_to '削除', admin_user_path(user.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete" %>
         </div>
       </div>
-    </li>
   <% end %>
-</ul>
+</div>

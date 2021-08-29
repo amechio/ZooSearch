@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
     favorite_animals = FavoriteAnimal.where(user_id: current_user.id).pluck(:animal_id)
     @favorite_animal_list = Animal.find(favorite_animals)
+
   end
 
   def edit
@@ -77,6 +78,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+    # @zoo = Zoo.find(params[:id])
+    # @animal = Animal.find(params[:id])
+    # @favorite_zoos = current_user.favorite_zoos
+    # @favorite_animals = current_user.favorite_animals
   end
 
   # def admin_user

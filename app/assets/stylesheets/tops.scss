@@ -2,34 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// .row {
+//   padding: 0;
+//   margin: 0;
+// }
+
+.search_space {
+  float: left;
+  width: 80%;
+  padding: 10px;
+  margin-left: 5%;
+  margin-bottom: 10px;
+  background-color: #E0E0E0;
+}
+.search_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  width: 15%;
+  // height: 100%;
+}
+
+
 .zoos_search {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   background-color: #B4E28E;
 }
-
-.animals_search {
-  background-color: #EFC7AA;
+.zoo_name {
+  width: 80%;
 }
-
-.search_result {
-  padding: 0;
-  margin: 0;
+// .zoo_area {
+//   width: 40%;
+// }
+.zoo_animals_name {
+  width: 80%;
 }
-.chunk {
-  // list-style: none;
+.zoo_search_label {
+  width: 60px;
+}
+// .zoo_search_label_price {
+//   padding-left: 40px;
+// }
+.zoo_search_btn {
+  text-decoration: none;
+  width: 100px;
   padding: 5px;
-  margin: 5px;
-  text-decoration: none;
-  // color: #4FD0FF;
-  background-color: #FFE882;
-  text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF,
-               -1px 1px 0 #FFF, 1px -1px 0 #FFF,
-               0px 1px 0 #FFF,  0-1px 0 #FFF,
-               -1px 0 0 #FFF, 1px 0 0 #FFF;  // border: 1px solid;
-  border-radius: 30px;
-}
-
-.option_btn {
-  text-decoration: none;
   // color: #4FD0FF;
   background-color: #B4E28E;
   // text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF,
@@ -37,5 +57,136 @@
   //              0px 1px 0 #FFF,  0-1px 0 #FFF,
   //              -1px 0 0 #FFF, 1px 0 0 #FFF;  // border: 1px solid;
   border-radius: 10px;
+}
+
+
+
+.animals_search {
+  background-color: #EFC7AA;
+}
+.animal_name {
+  width: 40%;
+}
+.animal_english_name {
+  width: 40%;
+}
+
+.animal_search_btn {
+  text-decoration: none;
+  width: 100px;
   padding: 5px;
+  // color: #4FD0FF;
+  background-color: #B4E28E;
+  // text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  //              -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  //              0px 1px 0 #FFF,  0-1px 0 #FFF,
+  //              -1px 0 0 #FFF, 1px 0 0 #FFF;  // border: 1px solid;
+  border-radius: 10px;
+}
+
+
+.search_result {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.chunk {
+  // flex-direction: row;
+  // float: left;
+  // display: flex;
+  // list-style: none;
+  width: 300px;
+  // height: 450px;
+  // padding: 5px;
+  margin: 5px;
+  // text-decoration: none;
+  // // color: #4FD0FF;
+  // background-color: #FFE882;
+  // text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  //              -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  //              0px 1px 0 #FFF,  0-1px 0 #FFF,
+  //              -1px 0 0 #FFF, 1px 0 0 #FFF;
+  // border: 1px solid;
+  // border-radius: 30px;
+  margin: 1rem auto;
+  // width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+}
+.chunk:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 7px 34px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+  transition: all .5s;
+}
+
+.photo_area {
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  // width: auto;
+  height: 200px;
+}
+.photo {
+  max-width: 100%;
+  max-height: 100%;
+}
+.name {
+  padding: 8px 20px;
+}
+.content {
+  height: 150px;
+  overflow:hidden;
+  overflow-y:scroll;
+}
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  // padding: 5px 0;
+}
+.home_page {
+  text-decoration: none;
+  // height: 25px;
+  padding: 5px;
+  margin: 2px;
+  // color: #4FD0FF;
+  background-color: #B4E28E;
+  // text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  //              -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  //              0px 1px 0 #FFF,  0-1px 0 #FFF,
+  //              -1px 0 0 #FFF, 1px 0 0 #FFF;  // border: 1px solid;
+  border-radius: 10px;
+
+}
+.wikipedia {
+  text-decoration: none;
+  // height: 25px;
+  padding: 5px;
+  margin: 2px;
+  // color: #4FD0FF;
+  background-color: #B4E28E;
+  // text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  //              -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  //              0px 1px 0 #FFF,  0-1px 0 #FFF,
+  //              -1px 0 0 #FFF, 1px 0 0 #FFF;  // border: 1px solid;
+  border-radius: 10px;
+
+}
+.option_btn {
+  text-decoration: none;
+  // height: 25px;
+  padding: 5px;
+  margin: 2px;
+  // color: #4FD0FF;
+  background-color: #B4E28E;
+  // text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  //              -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  //              0px 1px 0 #FFF,  0-1px 0 #FFF,
+  //              -1px 0 0 #FFF, 1px 0 0 #FFF;  // border: 1px solid;
+  border-radius: 10px;
 }
