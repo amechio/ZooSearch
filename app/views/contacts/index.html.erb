@@ -1,0 +1,23 @@
+<h1>情報追加依頼一覧</h1>
+
+
+<div class="contacts_list">
+
+  <% @contacts.each do |contact| %>
+    <div class="contact_area">
+      <div class="contact_user">
+        <%= link_to contact.user.name, user_path(contact.id), id: "show_btn" %>
+      </div>
+      <div class="contact_title">
+        <%= contact.title %>
+      </div>
+      <div class="contact_content">
+        <%= contact.content %>
+      </div>
+      <div class="option">
+        <%= link_to "詳細", contact_path(contact.id), class: "show_btn" %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
