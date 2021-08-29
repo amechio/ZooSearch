@@ -8,12 +8,14 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <header>
-      <div class="logo">
-        <%= link_to "Zoo Search", root_path %>
+      <div>
+        <%= link_to "Zoo Search", root_path, class: "logo" %>
       </div>
 
       <% if user_signed_in? %>
@@ -37,8 +39,8 @@
         <div class="menu">
           <%= link_to "ログイン", new_user_session_path, class: "header_btn" %>
           <%= link_to "アカウントをつくる", new_user_registration_path, class: "header_btn" %>
-          <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path, method: :post %>
-          <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post %>
+          <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path, method: :post, class: "guest_btn" %>
+          <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post, class: "guest_btn" %>
         </div>
         <div class="greet">
           ログインしていません
