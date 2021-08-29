@@ -6,24 +6,24 @@
 
 <div class="search_result">
   <% @zoos.each do |zoo| %>
-      <div class="chunk">
-        <%= image_tag zoo.photo.url, class: "photo" if zoo.photo && zoo.photo.url %>
-        <div class="name">
-          <%= link_to "#{zoo.name}", zoo_path(zoo.id), id: "show_btn" %>
-        </div>
-        <div class="address">
-          住所:<%= zoo.address %>
-        </div>
-        <div class="content">
-          概要:<%= zoo.content %>
-        </div>
-        <div class="option">
-          <%= link_to "ホームページをみる", zoo.home_page, class: "home_page" %>
+    <div class="chunk">
+      <%= image_tag zoo.photo.url, class: "photo" if zoo.photo && zoo.photo.url %>
+      <div class="name">
+        <%= link_to zoo.name, zoo_path(zoo.id), id: "show_btn" %>
+      </div>
+      <div class="address">
+        <%= zoo.address %>
+      </div>
+      <div class="content">
+        <%= zoo.content %>
+      </div>
+      <div class="option">
+        <%= link_to "ホームページをみる", zoo.home_page, class: "home_page" %>
         <% if current_user.admin == true %>
-            <%= link_to '編集', edit_zoo_path(zoo.id), class: "option_btn", id: "edit_btn" %>
-            <%= link_to '削除', zoo_path(zoo.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
-          </div>
+          <%= link_to '編集', edit_zoo_path(zoo.id), class: "option_btn", id: "edit_btn" %>
+          <%= link_to '削除', zoo_path(zoo.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
         <% end %>
       </div>
+    </div>
   <% end %>
 </div>

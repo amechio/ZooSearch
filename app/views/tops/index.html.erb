@@ -137,7 +137,7 @@
             <%= link_to "wikipediaで見る", animal.wikipedia, class: "wikipedia" %>
             <% if signed_in? && current_user.admin == true %>
               <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn", id: "edit_btn" %>
-              <%= link_to '削除', animal_path(animal.id), method :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
+              <%= link_to '削除', animal_path(animal.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
             <% end %>
           </div>
         </div>
