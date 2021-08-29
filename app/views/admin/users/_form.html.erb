@@ -28,30 +28,34 @@
 
   <tr class="email_area">
     <th>メールアドレス</th>
-    <td><%= form.email_field :email %></td>
+    <td colspan="2"><%= form.email_field :email %></td>
   </tr>
 
   <tr class="password_area">
     <th>パスワード</th>
-    <td>
-      <%= form.password_field :password %>
-      <%= form.password_field :password_confirmation %>
-    </td>
+    <td><%= form.password_field :password %></td>
+    <td><%= form.password_field :password_confirmation %></td>
   </tr>
 
   <tr class="live_prefecture_area">
     <th>住んでいる県</th>
-    <td><%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %></td>
+    <td colspan="2"><%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %></td>
   </tr>
 
   <tr class="live_prefecture_area">
     <th>よく行く県</th>
-    <td><%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %></td>
+    <td colspan="2"><%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %></td>
   </tr>
 
   <tr class="content_area">
     <th>自己紹介</th>
-    <td><%= form.text_area :content %></td>
+    <td colspan="2"><%= form.text_area :content %></td>
+  </tr>
+
+  <tr class="authority">
+    <th>権限</th>
+    <td>オーナー権限<%= form.check_box :owner, {}, true, false %></td>
+    <td>管理者権限<%= form.check_box :admin, {}, true, false %></td>
   </tr>
 
 </table>
