@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :affiliations
   resources :favorite_zoos
   resources :favorite_animals
+  resources :contacts
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

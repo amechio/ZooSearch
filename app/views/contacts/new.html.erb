@@ -1,0 +1,29 @@
+<h1>情報追加依頼</h1>
+
+
+<%= form_with(model: @contact, local: true ) do |form| %>
+  <%# if @contact.errors.any? %>
+    <div id="error_explanation">
+      <!-- <h2><%#= @contact.errors.count %>件のエラーがあります。</h2> -->
+      <ul>
+      <%# @contact.errors.full_messages.each do |msg| %>
+        <li><%#= msg %></li>
+      <%# end %>
+      </ul>
+    </div>
+  <%# end %>
+
+  <table class="title_area">
+    <tr class="user_name_area">
+      <th>タイトル</th>
+      <td><%= form.text_field :title %></td>
+    </tr>
+
+    <tr class="_area">
+      <th>内容</th>
+      <td><%= form.text_area :content %></td>
+    </tr>
+  </table>
+
+  <%= form.submit "送信", class: "submit_btn" %>
+<% end %>
