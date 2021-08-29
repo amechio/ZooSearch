@@ -1,45 +1,128 @@
-<h1>詳細画面</h1>
+<div class="show_area">
+  <div class="photo_area">
+    <%= image_tag @zoo.photo.url, class: "show_photo" if @zoo.photo && @zoo.photo.url %>
+  </div>
 
-  <% if @favorite_zoo.present? %>
-    <%= link_to 'お気に入り解除する', favorite_zoo_path(id: @favorite_zoo.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'お気に入りする', favorite_zoos_path(zoo_id: @zoo.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
+  <div class="name_area">
+    <h2><%= @zoo.name %></h2>
+    <div class="option_area">
+      <% if current_user.admin == true %>
+        <%= link_to "一覧画面にもどる", zoos_path, class: "back_btn" %>
+        <%= link_to '編集', edit_zoo_path(@zoo.id), class: "edit_btn" %>
+      <% end %>
+    <!-- </div>
+    <div class="favorite"> -->
+      <% if @favorite_zoo.present? %>
+        <%= link_to 'お気に入り解除する', favorite_zoo_path(id: @favorite_zoo.id), method: :delete, class: 'no_favorite_btn' %>
+      <% else %>
+        <%= link_to 'お気に入りする', favorite_zoos_path(zoo_id: @zoo.id), method: :post, class: 'favorite_btn' %>
+      <% end %>
+    </div>
+  </div>
 
-<p>施設名: <%= @zoo.name %></p>
-<p>住所: <%= @zoo.address %></p>
-<p>概要: <%= @zoo.content %></p>
-<p>写真: <%= image_tag @zoo.photo.url if @zoo.photo && @zoo.photo.url %></p>
-<p>開園時間(夏・平日): <%= @zoo.summer_workday_open %></p>
-<p>閉園時間(夏・平日): <%= @zoo.summer_workday_close %></p>
-<p>開園時間(冬・平日): <%= @zoo.winter_workday_open %></p>
-<p>閉園時間(冬・平日): <%= @zoo.winter_workday_close %></p>
-<p>開園時間(夏・休日): <%= @zoo.summer_holiday_open %></p>
-<p>閉園時間(夏・休日): <%= @zoo.summer_holiday_close %></p>
-<p>開園時間(冬・休日): <%= @zoo.winter_holiday_open %></p>
-<p>閉園時間(冬・休日): <%= @zoo.winter_holiday_close %></p>
-<p>入場料（一般）: <%= @zoo.general_price %></p>
-<p>入場料（高校生）: <%= @zoo.high_school_price %></p>
-<p>入場料（中学生）: <%= @zoo.junior_high_school_price %></p>
-<p>入場料（小学生）: <%= @zoo.primary_price %></p>
-<p>入場料（シニア）: <%= @zoo.senior_price %></p>
-<p>入場料（コメント）: <%= @zoo.price_comment %></p>
-<p>休園日: <%= @zoo.holiday %></p>
-<p>地域: <%= @zoo.area %></p>
-<p>県: <%= @zoo.prefecture %></p>
-<p>ホームページ: <%= link_to @zoo.home_page, @zoo.home_page %></p>
+  <table class="data_space">
+    <tr class="address_area">
+      <th>住所:</th>
+      <td><%= @zoo.address %>(地域: <%= @zoo.area %>, 県: <%= @zoo.prefecture %>)</td>
+    </tr>
 
-<p>動物:
-  <ul class="row">
+    <tr class="content_area">
+      <th>この施設について</th>
+      <td><%= @zoo.content %></td>
+    </tr>
+
+    <tr class="time_area">
+      <th>時間</th>
+      <td>
+      <table class="open_close">
+        <tr>
+          <th></th><th>開園時間</th><th>閉園時間</th>
+        </tr>
+        <tr>
+          <th>夏(平日):</th>
+          <td><%= @zoo.summer_workday_open %></td>
+          <td><%= @zoo.summer_workday_close %></td>
+        </tr>
+        <tr>
+          <th>夏(休日):</th>
+          <td><%= @zoo.summer_holiday_open %></td>
+          <td><%= @zoo.summer_holiday_close %></td>
+        </tr>
+        <tr>
+          <th>冬(平日):</th>
+          <td><%= @zoo.winter_workday_open %></td>
+          <td><%= @zoo.winter_workday_close %></td>
+        </tr>
+        <tr>
+          <th>冬(休日):</th>
+          <td><%= @zoo.winter_holiday_open %></td>
+          <td><%= @zoo.winter_holiday_close %></td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+
+    <tr class="price_area">
+      <th>入場料</th>
+      <td>
+        <table class="price_table">
+          <tr>
+            <th></th><th>入場料</th>
+          </tr>
+          <tr>
+            <th>一般</th><td><%= @zoo.general_price %>円</td>
+          </tr>
+          <tr>
+            <th>高校生</th><td><%= @zoo.high_school_price %>円</td>
+          </tr>
+          <tr>
+            <th>中学生</th><td><%= @zoo.junior_high_school_price %>円</td>
+          </tr>
+          <tr>
+            <th>小学生</th><td><%= @zoo.primary_price %>円</td>
+          </tr>
+          <tr>
+            <th>シニア</th><td><%= @zoo.senior_price %>円</td>
+          </tr>
+          <tr>
+            <td colspan="2"><%= @zoo.price_comment %></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr class="holiday_area">
+      <th>休園日: </th>
+      <td><%= @zoo.holiday %></td>
+    </tr>
+
+    <tr class="home_page_area">
+      <th>ホームページ: </th>
+      <td><%= link_to @zoo.home_page, @zoo.home_page %></td>
+    </tr>
+  </table>
+
+  <h3>この動物園にいる動物たち</h3>
+  <div class="search_result">
     <% @zoo.animals.each do |animal| %>
-      <li class="col-sm-3">
-        <%= link_to animal.name, animal_path(animal.id) %>
-      </li>
+      <div class="chunk">
+        <div class="photo_area">
+          <%= image_tag animal.photo.url, class: "photo" if animal.photo && animal.photo.url %>
+        </div>
+        <div class="name">
+          <%= link_to animal.name, animal_path(animal.id) %>
+        </div>
+        <div class="content">
+          <%= animal.content %>
+        </div>
+        <div class="option">
+          <%= link_to "wikipediaで見る", animal.wikipedia, class: "wikipedia" %>
+          <%= link_to '詳細', animal_path(animal.id), class: "option_btn", id: "show_btn" %>
+          <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn", id: "edit_btn" %>
+          <%= link_to '削除', animal_path(animal.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
+        </div>
+      </div>
     <% end %>
-  </ul>
-</p>
+  </div>
 
-<% if current_user.admin == true %>
-  <%= link_to "一覧画面にもどる", zoos_path %>
-  <%= link_to '編集', edit_zoo_path(@zoo.id), class: "option_btn" %>
-<% end %>
+</div>

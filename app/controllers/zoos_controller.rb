@@ -85,6 +85,7 @@ class ZoosController < ApplicationController
 
   def set_zoo
     @zoo = Zoo.find(params[:id])
+    @animal = Animal.find(params[:id])
   end
 
   def admin_user

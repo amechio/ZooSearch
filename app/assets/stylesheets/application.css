@@ -29,6 +29,7 @@ li {
 
 
 header {
+  z-index:9999;
   /* display: table; */
   position: fixed;
   width: 100%;
@@ -36,6 +37,7 @@ header {
   /* padding-top: 10px; */
   margin: 0;
   background-color: #60A850;
+  background-image: url();
   /* line-height: 268px; */
   /* text-align: center; */
   /* display: flex; */
