@@ -40,23 +40,23 @@
         </tr>
         <tr>
           <th>夏(平日):</th>
-          <td><%= @zoo.summer_workday_open %></td>
-          <td><%= @zoo.summer_workday_close %></td>
+          <td><%= @zoo.summer_workday_open.strftime( "%H:%M" ) %></td>
+          <td><%= @zoo.summer_workday_close.strftime( "%H:%M" ) %></td>
         </tr>
         <tr>
           <th>夏(休日):</th>
-          <td><%= @zoo.summer_holiday_open %></td>
-          <td><%= @zoo.summer_holiday_close %></td>
+          <td><%= @zoo.summer_holiday_open.strftime( "%H:%M" ) %></td>
+          <td><%= @zoo.summer_holiday_close.strftime( "%H:%M" ) %></td>
         </tr>
         <tr>
           <th>冬(平日):</th>
-          <td><%= @zoo.winter_workday_open %></td>
-          <td><%= @zoo.winter_workday_close %></td>
+          <td><%= @zoo.winter_workday_open.strftime( "%H:%M" ) %></td>
+          <td><%= @zoo.winter_workday_close.strftime( "%H:%M" ) %></td>
         </tr>
         <tr>
           <th>冬(休日):</th>
-          <td><%= @zoo.winter_holiday_open %></td>
-          <td><%= @zoo.winter_holiday_close %></td>
+          <td><%= @zoo.winter_holiday_open.strftime( "%H:%M" ) %></td>
+          <td><%= @zoo.winter_holiday_close.strftime( "%H:%M" ) %></td>
         </tr>
       </table>
       </td>
