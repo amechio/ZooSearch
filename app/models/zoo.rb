@@ -8,18 +8,10 @@ class Zoo < ApplicationRecord
 
   validates :name, presence: true, length: {in: 1..50}
   validates :address, presence: true
-  validates :summer_workday_open, presence: true
-  validates :summer_workday_close, presence: true
-  validates :winter_workday_open, presence: true
-  validates :winter_workday_close, presence: true
-  validates :summer_holiday_open, presence: true
-  validates :summer_holiday_close, presence: true
-  validates :winter_holiday_open, presence: true
-  validates :winter_holiday_close, presence: true
   validates :general_price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
   validates :area, presence: true
   validates :prefecture, presence: true
-  validates :home_page, format: /\A#{URI::regexp(%w(http https))}\z/
+  validates :home_page, allow_blank: true, format: /\A#{URI::regexp(%w(http https))}\z/
 
 
   validate :summer_workday_close, :start_finish_check1
@@ -37,7 +29,7 @@ class Zoo < ApplicationRecord
 
   def start_finish_check1
     unless summer_workday_close == nil
-      if self.summer_workday_open > self.summer_workday_close
+      if self.summer_workday_open.strftime( "%H%M" ) >= self.summer_workday_close.strftime( "%H%M" )
         errors.add(:summer_workday_close, "閉園時間は開園時間より遅い時間を選択してください")
       end
     end
@@ -45,7 +37,7 @@ class Zoo < ApplicationRecord
 
   def start_finish_check2
     unless winter_workday_close == nil
-      if self.winter_workday_open > self.winter_workday_close
+      if self.winter_workday_open >= self.winter_workday_close
         errors.add(:winter_workday_close, "閉園時間は開園時間より遅い時間を選択してください")
       end
     end
@@ -53,7 +45,7 @@ class Zoo < ApplicationRecord
 
   def start_finish_check3
     unless summer_holiday_close == nil
-      if self.summer_holiday_open > self.summer_holiday_close
+      if self.summer_holiday_open >= self.summer_holiday_close
         errors.add(:summer_holiday_close, "閉園時間は開園時間より遅い時間を選択してください")
       end
     end
@@ -61,7 +53,7 @@ class Zoo < ApplicationRecord
 
   def start_finish_check4
     unless winter_holiday_close == nil
-      if self.winter_holiday_open > self.winter_holiday_close
+      if self.winter_holiday_open >= self.winter_holiday_close
         errors.add(:winter_holiday_close, "閉園時間は開園時間より遅い時間を選択してください")
       end
     end
