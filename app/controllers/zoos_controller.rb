@@ -12,7 +12,9 @@ class ZoosController < ApplicationController
 
   def create
     @zoo = current_user.zoos.build(zoo_params)
+    # binding.irb
     if params[:back]
+
       render :new
     else
       if @zoo.save
@@ -85,7 +87,7 @@ class ZoosController < ApplicationController
 
   def set_zoo
     @zoo = Zoo.find(params[:id])
-    @animal = Animal.find(params[:id])
+    # @animal = Animal.find(params[:id])
   end
 
   def admin_user

@@ -34,13 +34,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    unless current_user.id == @user.id
+    unless current_user.id == @user.id || current_user.admin == true
       redirect_to user_path(id: @user.id), notice: "権限がありません！"
     end
   end
 
   def update
-    unless current_user.id == @user.id
+    unless current_user.id == @user.id || current_user.admin == true
       redirect_to user_path(id: @user.id), notice: "権限がありません！"
     else
       if @user.update(user_params)

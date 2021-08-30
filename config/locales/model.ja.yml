@@ -7,22 +7,44 @@ ja:
       post: ニュース
       tag: タグ
       character: 特徴
-      event: イベんと
-      contact: お問い合わせ
+      event: イベント
+      contact: 情報更新依頼
+      favorite_zoos: お気に入りの動物園
+      favorite_animals: お気に入りの動物
+
     attributes:
       zoo:
         name: 施設名
         address: 住所
+        content: 説明
+        photo : 写真
+        summer_workday_open: 開園時間（夏・平日）
+        summer_workday_close: 閉園時間（夏・平日）
+        winter_workday_open: 開園時間（冬・平日）
+        winter_workday_close: 閉園時間（冬・平日）
+        summer_holiday_open: 開園時間（夏・休日）
+        summer_holiday_close: 閉園時間（夏・休日）
+        winter_holiday_open: 開園時間（冬・休日）
+        winter_holiday_close: 閉園時間（冬・休日）
+        general_price: 入場料（一般）
+        high_school_price: 入場料（高校生）
+        junior_high_school_price: 入場料（中学生）
+        primary_price: 入場料（小学生）
+        senior_price: 入場料（シニア）
+        price_comment: 入場料（コメント）
         holiday: 休園日
         area: 地域
         prefecture: 県
+        home_page: ホームページ
 
       animal:
-        name: 名前
+        name: 動物名
         english_name: 英名
         scientific_name: 学名
-        distribution: 分布
+        distribution: 生息地
         endangered_specy: 絶滅危惧種
+        content: 説明
+        photo : 写真
         kingdom: 界
         phylum: 門
         class: 網
@@ -31,6 +53,7 @@ ja:
         genus: 属
         specy: 種
         subspecy: 亜種
+        wikipedia: ウィキペディア
 
       user:
         name: 名前
@@ -38,6 +61,12 @@ ja:
         current_password: 現在のパスワード
         password: パスワード
         password_confirmation: 確認用パスワード
+        live_prefecture: 住んでいる県
+        favorite_prefecture: よく行く県
+        content: 自己紹介
+        icon: アイコン
+        owner: オーナー権限
+        admin: 管理者権限
         remember_me: ログインを記憶
 
       post:

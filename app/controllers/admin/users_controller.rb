@@ -12,8 +12,9 @@ class Admin::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    # binding.irb
     if @user.save
-      redirect_to admin_user_path(@user.id), notice: "ユーザを登録しました！"
+      redirect_to user_path(id: @user.id), notice: "ユーザを登録しました！"
     else
       render :new
     end

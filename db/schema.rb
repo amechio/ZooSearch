@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_29_142954) do
+ActiveRecord::Schema.define(version: 2021_08_30_091517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,14 +102,6 @@ ActiveRecord::Schema.define(version: 2021_08_29_142954) do
     t.string "address"
     t.text "content"
     t.string "photo"
-    t.time "summer_workday_open"
-    t.time "summer_workday_close"
-    t.time "winter_workday_open"
-    t.time "winter_workday_close"
-    t.time "summer_holiday_open"
-    t.time "summer_holiday_close"
-    t.time "winter_holiday_open"
-    t.time "winter_holiday_close"
     t.integer "general_price"
     t.integer "high_school_price"
     t.integer "junior_high_school_price"
@@ -123,6 +115,14 @@ ActiveRecord::Schema.define(version: 2021_08_29_142954) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "home_page"
+    t.datetime "summer_workday_open"
+    t.datetime "summer_workday_close"
+    t.datetime "winter_workday_open"
+    t.datetime "winter_workday_close"
+    t.datetime "summer_holiday_open"
+    t.datetime "summer_holiday_close"
+    t.datetime "winter_holiday_open"
+    t.datetime "winter_holiday_close"
     t.index ["user_id"], name: "index_zoos_on_user_id"
   end
 

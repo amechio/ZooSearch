@@ -64,12 +64,12 @@ RSpec.describe 'ユーザ機能', type: :system do
         fill_in 'user[password]', with: 'password2'
         find('.btn').click
         visit admin_users_path
-        expect(page).to have_content 'トップページ'
+        expect(page).to have_content 'Zoo Searchは動物園を動物名や展示方法などから検索できるサービスです。'
       end
 
       it '管理者ユーザはユーザ一覧画面にアクセスできる' do
         click_on 'ユーザ一覧'
-        expect(page).to have_content 'ユーザ一覧画面'
+        expect(page).to have_content 'ユーザ一覧'
       end
 
       it '管理者ユーザはユーザの新規登録ができる' do
@@ -84,12 +84,15 @@ RSpec.describe 'ユーザ機能', type: :system do
       end
 
       it '管理者ユーザはユーザの編集画面からユーザを編集できる' do
+        # binding.irb
         click_on 'ユーザ一覧'
-        all('#edit')[2].click  #user3の編集ボタン
+        all('#edit')[1].click  #user3の編集ボタン
+        # click_on '編集'
         fill_in 'user[name]', with: '新しい名前'
         fill_in 'user[password]', with: 'password'
         fill_in 'user[password_confirmation]', with: 'password'
         click_on '更新する'
+        # click_button 'commit'
         expect(page).to have_content '新しい名前 さんのページ'
       end
 

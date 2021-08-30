@@ -35,7 +35,7 @@ RSpec.describe '動物機能', type: :system do
         fill_in 'animal[specy]', with: '種'
         click_on '登録' # ボタンがない
         expect(page).to have_content '新しい動物を登録しました！'
-        expect(page).to have_content '詳細画面'
+        expect(page).to have_content '名前'
       end
     end
   end
@@ -45,7 +45,7 @@ RSpec.describe '動物機能', type: :system do
       it '作成済みの動物一覧が表示される' do
         # binding.irb
         click_on '動物一覧'
-        expect(page).to have_content '動物一覧画面'
+        expect(page).to have_content '動物一覧'
         expect(page).to have_content 'テスト動物1'
         expect(page).to have_content 'テスト動物2'
         expect(page).to have_content 'テスト動物3'
@@ -59,7 +59,7 @@ RSpec.describe '動物機能', type: :system do
         # binding.irb
         # all('.option_btn')[0].click  #テスト動物1の詳細ボタン
         all('#show_btn')[0].click  #テスト動物1の詳細ボタン
-        expect(page).to have_content '詳細画面'
+        # expect(page).to have_content '詳細画面'
         expect(page).to have_content 'テスト動物1'
       end
     end
