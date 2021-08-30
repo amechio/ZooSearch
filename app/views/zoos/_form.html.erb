@@ -28,7 +28,7 @@
 
   <table class="data_space">
     <tr class="address_area">
-      <th>住所:</th>
+      <th>住所</th>
       <td>
         <%= form.text_field :address %>
         (地域: <%= form.select :area, Zoo.areas.keys, prompt: "選択してください" %>,
@@ -50,23 +50,23 @@
         </tr>
         <tr>
           <th>夏(平日):</th>
-          <td><%= form.time_select :summer_workday_open %></td>
-          <td><%= form.time_select :summer_workday_close %></td>
+          <td><%= form.time_select :summer_workday_open, ignore_data:true %></td>
+          <td><%= form.time_select :summer_workday_close, ignore_data:true %></td>
         </tr>
         <tr>
           <th>夏(休日):</th>
-          <td><%= form.time_select :summer_holiday_open %></td>
-          <td><%= form.time_select :summer_holiday_close %></td>
+          <td><%= form.time_select :summer_holiday_open, ignore_data:true %></td>
+          <td><%= form.time_select :summer_holiday_close, ignore_data:true %></td>
         </tr>
         <tr>
           <th>冬(平日):</th>
-          <td><%= form.time_select :winter_workday_open %></td>
-          <td><%= form.time_select :winter_workday_close %></td>
+          <td><%= form.time_select :winter_workday_open, ignore_data:true %></td>
+          <td><%= form.time_select :winter_workday_close, ignore_data:true %></td>
         </tr>
         <tr>
           <th>冬(休日):</th>
-          <td><%= form.time_select :winter_holiday_open %></td>
-          <td><%= form.time_select :winter_holiday_close %></td>
+          <td><%= form.time_select :winter_holiday_open, ignore_data:true %></td>
+          <td><%= form.time_select :winter_holiday_close, ignore_data:true %></td>
         </tr>
       </table>
       </td>
@@ -95,19 +95,21 @@
             <th>シニア</th><td><%= form.number_field :senior_price %>円</td>
           </tr>
           <tr>
-            <td colspan="2">コメント<%= form.text_field :price_comment %></td>
+            <td colspan="2">コメント
+              <%= form.text_field :price_comment, placeholder:"例) 小学生以下は無料です。年間パスポートは○○円です。" %>
+            </td>
           </tr>
         </table>
       </td>
     </tr>
 
     <tr class="holiday_area">
-      <th>休園日: </th>
+      <th>休園日</th>
       <td><%= form.text_field :holiday %></td>
     </tr>
 
     <tr class="home_page_area">
-      <th>ホームページ: </th>
+      <th>ホームページ</th>
       <td><%= form.text_field :home_page %></td>
     </tr>
   </table>
