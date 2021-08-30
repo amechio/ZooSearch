@@ -1,5 +1,5 @@
 class ChangeDataTimeToZoo < ActiveRecord::Migration[5.2]
-  def down
+  def change
     remove_column :zoos, :summer_workday_open, :time
     remove_column :zoos, :summer_workday_close, :time
     remove_column :zoos, :winter_workday_open, :time
