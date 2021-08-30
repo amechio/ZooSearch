@@ -100,11 +100,11 @@
         </div>
         <div class="option">
           <%= link_to "ホームページをみる", zoo.home_page, class: "home_page" %>
-        <% if signed_in? && current_user.admin == true %>
-            <%= link_to '編集', edit_zoo_path(zoo.id), class: "option_btn", id: "edit_btn" %>
-            <%= link_to '削除', zoo_path(zoo.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
-          </div>
-        <% end %>
+          <% if signed_in? && current_user.admin == true %>
+              <%= link_to '編集', edit_zoo_path(zoo.id), class: "option_btn", id: "edit_btn" %>
+              <%= link_to '削除', zoo_path(zoo.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>

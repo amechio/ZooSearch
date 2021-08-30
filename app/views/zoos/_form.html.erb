@@ -18,8 +18,8 @@
 
 
   <div class="edit_name_area">
-    <h2>施設名<%= form.text_field :name %></h2>
-    <div class="option_area">
+    <h2 style = "color:#3399FF; display: inline-block;">*施設名<%= form.text_field :name %></h2>
+    <div class="option_area" style="display: inline-block;">
       <% if current_user.admin == true %>
         <%= link_to "一覧画面にもどる", zoos_path, class: "back_btn" %>
       <% end %>
@@ -28,11 +28,11 @@
 
   <table class="data_space">
     <tr class="address_area">
-      <th>住所</th>
-      <td>
-        <%= form.text_field :address %>
-        (地域: <%= form.select :area, Zoo.areas.keys, prompt: "選択してください" %>,
-        県: <%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>)
+      <th style = "color:#3399FF">*住所</th>
+      <td style = "color:#3399FF">
+        <%= form.text_field :address, placeholder:"例) \ 〒000-0000 ○○県○○市○○区1-23-456" %>
+        (*地域: <%= form.select :area, Zoo.areas.keys, prompt: "選択してください" %>,
+        *県: <%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %>)
       </td>
     </tr>
 
@@ -80,7 +80,7 @@
             <th></th><th>入場料</th>
           </tr>
           <tr>
-            <th>一般</th><td><%= form.number_field :general_price %>円</td>
+            <th style = "color:#3399FF">*一般</th><td style = "color:#3399FF"><%= form.number_field :general_price %>円</td>
           </tr>
           <tr>
             <th>高校生</th><td><%= form.number_field :high_school_price %>円</td>
@@ -105,19 +105,21 @@
 
     <tr class="holiday_area">
       <th>休園日</th>
-      <td><%= form.text_field :holiday %></td>
+      <td><%= form.text_field :holiday, placeholder:"例) 年末年始  不定休" %></td>
     </tr>
 
     <tr class="home_page_area">
       <th>ホームページ</th>
-      <td><%= form.text_field :home_page %></td>
+      <td><%= form.text_field :home_page, placeholder:"例) URLを貼り付けてください。" %></td>
     </tr>
+
+    <div class="animal_column">
+      <th><%= form.label :動物 %></th>
+      <td><%= form.collection_check_boxes(:animal_ids, Animal.all, :id, :name) %></td>
+    </div>
+
   </table>
 
-  <div class="animal_column">
-    <%= form.label :動物 %>
-    <%= form.collection_check_boxes(:animal_ids, Animal.all, :id, :name) %>
-  </div>
 
   <%= form.submit "登録", class: "submit_btn" %>
 <% end %>

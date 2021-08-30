@@ -18,7 +18,7 @@
 
 
   <div class="edit_name_area">
-    <h2>動物名<%= form.text_field :name %></h2>
+    <h2 style = "color:#3399FF">*動物名<%= form.text_field :name %></h2>
     <div class="option_area">
       <% if current_user.admin == true %>
         <%= link_to "一覧画面にもどる", zoos_path, class: "back_btn" %>
@@ -29,22 +29,22 @@
 
   <table class="data_space">
     <tr class="english_name_area">
-      <th>英名</th>
-      <td><%= form.text_field :english_name %></td>
+      <th style = "color:#3399FF">*英名</th>
+      <td style = "color:#3399FF"><%= form.text_field :english_name %></td>
     </tr>
     <tr class="scientific_name_area">
-      <th>学名</th>
-      <td><%= form.text_field :scientific_name %></td>
+      <th style = "color:#3399FF">*学名</th>
+      <td style = "color:#3399FF"><%= form.text_field :scientific_name %></td>
     </tr>
 
     <tr class="scientific_name_area">
-      <th>絶滅危惧種</th>
+      <th style = "color:#3399FF">*絶滅危惧種</th>
       <td><%= form.select :endangered_specy, Animal.endangered_species.keys, prompt: "選択してください" %></td>
     </tr>
 
     <tr class="content_area">
-      <th>この動物について</th>
-      <td><%= form.text_area :content %></td>
+      <th style = "color:#3399FF">*この動物について</th>
+      <td style = "color:#3399FF"><%= form.text_area :content %></td>
     </tr>
 
     <tr class="english_name_area">
@@ -53,35 +53,35 @@
     </tr>
 
     <tr class="grouping_area">
-      <th>分類</th>
+      <th style = "color:#3399FF">分類</th>
       <td>
         <table class="grouping_table">
           <tr>
             <th>階級</th><th></th>
           </tr>
           <tr>
-            <th>界</th><td><%= form.text_field :kingdom %></td>
+            <th style = "color:#3399FF">*界</th><td><%= form.text_field :kingdom, placeholder:"例) 動物" %></td>
           </tr>
           <tr>
-            <th>門</th><td><%= form.text_field :phylum %></td>
+            <th style = "color:#3399FF">*門</th><td><%= form.text_field :phylum, placeholder:"例) 脊椎動物" %></td>
           </tr>
           <tr>
-            <th>網</th><td><%= form.text_field :animal_class %></td>
+            <th style = "color:#3399FF">*網</th><td><%= form.text_field :animal_class, placeholder:"例) 哺乳" %></td>
           </tr>
           <tr>
-            <th>目</th><td><%= form.text_field :order %></td>
+            <th style = "color:#3399FF">*目</th><td><%= form.text_field :order, placeholder:"例) 霊長" %></td>
           </tr>
           <tr>
-            <th>科</th><td><%= form.text_field :family %></td>
+            <th style = "color:#3399FF">*科</th><td><%= form.text_field :family, placeholder:"例) ヒト" %></td>
           </tr>
           <tr>
-            <th>属</th><td><%= form.text_field :genus %></td>
+            <th style = "color:#3399FF">*属</th><td><%= form.text_field :genus, placeholder:"例) ヒト" %></td>
           </tr>
           <tr>
-            <th>種</th><td><%= form.text_field :specy %></td>
+            <th style = "color:#3399FF">*種</th><td><%= form.text_field :specy, placeholder:"例) ヒト" %></td>
           </tr>
           <tr>
-            <th>亜種</th><td><%= form.text_field :subspecy %></td>
+            <th>亜種</th><td><%= form.text_field :subspecy, placeholder:"例) ホモ・サピエンス・サピエンス" %></td>
           </tr>
         </table>
       </td>
@@ -89,7 +89,7 @@
 
     <tr class="wikipedia_area">
       <th>Wikipedia</th>
-      <td><%= form.text_field :wikipedia %></td>
+      <td><%= form.text_field :wikipedia, placeholder:"例) URLを貼り付けてください。" %></td>
     </tr>
   </table>
 

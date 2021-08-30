@@ -22,7 +22,7 @@
 
   <table class="data_space">
     <tr class="address_area">
-      <th>住所:</th>
+      <th>住所</th>
       <td><%= @zoo.address %>(地域: <%= @zoo.area %>, 県: <%= @zoo.prefecture %>)</td>
     </tr>
 
@@ -120,7 +120,6 @@
         </div>
         <div class="option">
           <%= link_to "wikipediaをみる", animal.wikipedia, class: "wikipedia" %>
-          <%= link_to '詳細', animal_path(animal.id), class: "option_btn", id: "show_btn" %>
           <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn", id: "edit_btn" %>
           <%= link_to '削除', animal_path(animal.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
         </div>

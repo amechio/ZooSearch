@@ -18,8 +18,8 @@
   </div>
 
   <div class="edit_name_area">
-    <h2>名前<%= form.text_field :name %></h2>
-    <div class="option_area">
+    <h2 style = "color:#3399FF">*名前<%= form.text_field :name %></h2>
+    <div class="option_area" style = "color:#3399FF">
       <%= link_to "一覧画面にもどる", admin_users_path, class: "back_btn" %>
     </div>
   </div>
@@ -27,14 +27,14 @@
 <table class="data_space">
 
   <tr class="email_area">
-    <th>メールアドレス</th>
-    <td colspan="2"><%= form.email_field :email %></td>
+    <th style = "color:#3399FF">*メールアドレス</th>
+    <td colspan="2" style = "color:#3399FF"><%= form.email_field :email %></td>
   </tr>
 
   <tr class="password_area">
-    <th>パスワード</th>
-    <td><%= form.password_field :password %></td>
-    <td><%= form.password_field :password_confirmation %></td>
+    <th style = "color:#3399FF">*パスワード</th>
+    <td style = "color:#3399FF"><%= form.password_field :password, placeholder:"パスワードを入力してください" %></td>
+    <td><%= form.password_field :password_confirmation, placeholder:"もう一度入力してください" %></td>
   </tr>
 
   <tr class="live_prefecture_area">
@@ -53,7 +53,7 @@
   </tr>
 
   <tr class="authority">
-    <th>権限</th>
+    <th style = "color:#3399FF">*権限</th>
     <td>オーナー権限<%= form.check_box :owner, {}, true, false %></td>
     <td>管理者権限<%= form.check_box :admin, {}, true, false %></td>
   </tr>

@@ -15,12 +15,12 @@
 
         <div class="search_column">
           <%= f.label :施設名, class: "zoo_search_label" %>
-          <%= f.search_field :name_cont, class: "zoo_name" %>
+          <%= f.search_field :name_cont, class: "zoo_name", placeholder:"例) ○○動物園" %>
         </div>
         <div class="search_column">
 
           <%= f.label :動物, class: "zoo_search_label" %>
-          <%= f.search_field :animals_name_cont, class: "zoo_animals_name" %>
+          <%= f.search_field :animals_name_cont, class: "zoo_animals_name", placeholder:"例) ライオン  と入力するとライオンに会える動物園が表示されます" %>
         </div>
 
         <div class="search_column">
@@ -56,7 +56,7 @@
 
         <div class="search_column">
           <%= s.label :動物名 %>
-          <%= s.search_field :name_cont, class: "animal_name" %>
+          <%= s.search_field :name_cont, class: "animal_name", placeholder:"例) ヒト" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= s.label :英名 %>
@@ -68,31 +68,31 @@
         </div>
         <div class="search_column">
           <%= s.label :門 %>
-          <%= s.search_field :phylum_lteq, class: "animal_phylum" %>
+          <%= s.search_field :phylum_lteq, class: "animal_phylum", placeholder:"例) 脊椎動物" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= s.label :網 %>
-          <%= s.search_field :animal_class_cont, class: "animal_class" %>
+          <%= s.search_field :animal_class_cont, class: "animal_class", placeholder:"例) 哺乳" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= s.label :目 %>
-          <%= s.search_field :order_cont, class: "animal_order" %>
+          <%= s.search_field :order_cont, class: "animal_order", placeholder:"例) 霊長" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= s.label :科 %>
-          <%= s.search_field :family_cont, class: "animal_family" %>
+          <%= s.search_field :family_cont, class: "animal_family", placeholder:"例) ヒト" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= s.label :属 %>
-          <%= s.search_field :genus_cont, class: "animal_genus" %>
+          <%= s.search_field :genus_cont, class: "animal_genus", placeholder:"例) ヒト" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= s.label :種 %>
-          <%= s.search_field :specy_cont, class: "animal_specy" %>
+          <%= s.search_field :specy_cont, class: "animal_specy", placeholder:"例) ヒト" %>
         <!-- </div>
         <div class="search_column"> -->
           <%= s.label :亜種 %>
-          <%= s.search_field :subspecy_cont, class: "animal_subspecy" %>
+          <%= s.search_field :subspecy_cont, class: "animal_subspecy", placeholder:"例) ホモ・サピエンス・サピエンス" %>
         </div>
       </div>
 

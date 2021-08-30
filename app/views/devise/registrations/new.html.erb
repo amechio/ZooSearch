@@ -16,14 +16,14 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+    <!-- <em><%#= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em> -->
     <% end %>
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder:"パスワードを入力してください" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"もう一度入力してください" %>
   </div>
 
   <div class="actions">
