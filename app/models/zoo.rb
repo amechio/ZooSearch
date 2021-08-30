@@ -16,9 +16,83 @@ class Zoo < ApplicationRecord
   validates :summer_holiday_close, presence: true
   validates :winter_holiday_open, presence: true
   validates :winter_holiday_close, presence: true
-  validates :general_price, presence: true
+  validates :general_price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
   validates :area, presence: true
   validates :prefecture, presence: true
+  validates :home_page, format: /\A#{URI::regexp(%w(http https))}\z/
+
+
+  validate :summer_workday_close, :start_finish_check1
+  validate :winter_workday_close, :start_finish_check2
+  validate :summer_holiday_close, :start_finish_check3
+  validate :winter_holiday_close, :start_finish_check4
+#     def day_after_today
+#       # unless summer_workday_open == nil
+#         errors.add(:summer_workday_open, 'は今日を入れて過去の日付を入力して下さい') if summer_workday_open(4i) > summer_workday_close(4i)
+#       # end
+#     end
+#
+# first?
+
+
+  def start_finish_check1
+    unless summer_workday_close == nil
+      if self.summer_workday_open > self.summer_workday_close
+        errors.add(:summer_workday_close, "閉園時間は開園時間より遅い時間を選択してください")
+      end
+    end
+  end
+
+  def start_finish_check2
+    unless winter_workday_close == nil
+      if self.winter_workday_open > self.winter_workday_close
+        errors.add(:winter_workday_close, "閉園時間は開園時間より遅い時間を選択してください")
+      end
+    end
+  end
+
+  def start_finish_check3
+    unless summer_holiday_close == nil
+      if self.summer_holiday_open > self.summer_holiday_close
+        errors.add(:summer_holiday_close, "閉園時間は開園時間より遅い時間を選択してください")
+      end
+    end
+  end
+
+  def start_finish_check4
+    unless winter_holiday_close == nil
+      if self.winter_holiday_open > self.winter_holiday_close
+        errors.add(:winter_holiday_close, "閉園時間は開園時間より遅い時間を選択してください")
+      end
+    end
+  end
+
+#
+#   # def start_check
+#   #   errors.add(:summer_workday_open, "は現在の日時より遅い時間を選択してください") if self.summer_workday_open < Time.now
+#   # end
+#
+#
+#   # summer_workday_open < Time.now
+#
+#
+#   validate :test
+# def test
+#   # errors.add(:summer_workday_open,"エラー") if 10 > 5
+#   errors.add(:summer_workday_open,"エラー") if params[:zoo][:summer_workday_open(4i)]
+#  > params[:zoo][:summer_workday_close(4i)]
+#
+# end
+
+# params[:zoo][:summer_workday_open(4i)]
+
+
+
+
+
+
+
+
 
   enum area: {
     北海道・東北:1,

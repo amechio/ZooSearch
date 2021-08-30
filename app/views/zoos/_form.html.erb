@@ -112,5 +112,10 @@
     </tr>
   </table>
 
+  <div class="animal_column">
+    <%= form.label :動物 %>
+    <%= form.collection_check_boxes(:animal_ids, Animal.all, :id, :name) %>
+  </div>
+
   <%= form.submit "登録", class: "submit_btn" %>
 <% end %>
