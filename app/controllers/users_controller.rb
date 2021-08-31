@@ -25,12 +25,12 @@ class UsersController < ApplicationController
   # end
 
   def show
+    binding.irb
     favorite_zoos = FavoriteZoo.where(user_id: current_user.id).pluck(:zoo_id)
     @favorite_zoo_list = Zoo.find(favorite_zoos)
 
     favorite_animals = FavoriteAnimal.where(user_id: current_user.id).pluck(:animal_id)
     @favorite_animal_list = Animal.find(favorite_animals)
-
   end
 
   def edit
@@ -41,9 +41,11 @@ class UsersController < ApplicationController
 
   def update
     unless current_user.id == @user.id || current_user.admin == true
+      binding.irb
       redirect_to user_path(id: @user.id), notice: "権限がありません！"
     else
       if @user.update(user_params)
+        binding.irb
         redirect_to user_path(id: @user.id), notice: "プロフィールを編集しました！"
       else
         render :edit
