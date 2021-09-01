@@ -93,7 +93,7 @@ RSpec.describe 'ユーザ機能', type: :system do
         fill_in 'user[password_confirmation]', with: 'password'
         click_on '更新する'
         # click_button 'commit'
-        expect(page).to have_content '新しい名前 さんのページ'
+        expect(page).to have_content 'プロフィールを編集しました！もう一度ログインしてください'
       end
 
       it '管理者ユーザはユーザの削除をできる' do
