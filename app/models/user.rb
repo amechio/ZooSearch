@@ -6,12 +6,14 @@ class User < ApplicationRecord
 
   mount_uploader :icon, ImageUploader
 
-  before_validation { email.downcase! }
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :validatable
+
+  before_validation { email.downcase! }
 
   validates :name, presence: true
   validates :email, uniqueness: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :password, presence: true, length: { minimum: 6 }
+
 
   def self.guest
     find_or_create_by!(email: 'guest@email.com') do |user|
