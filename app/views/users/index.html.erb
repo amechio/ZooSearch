@@ -1,0 +1,42 @@
+<h1>ユーザ一覧</h1>
+
+<!-- <div class="new">
+  <%#= link_to '新規作成', new_admin_user_path, class: "new_btn" %>
+</div> -->
+
+<div class="search_result">
+  <% @users.each do |user| %>
+      <div class="chunk">
+        <%= image_tag user.icon.url, class: "icon" if user.icon && user.icon.url %>
+
+        <div class="name">
+          <%= link_to user.name, user_path(user.id), id: "show_btn" %>
+        </div>
+
+        <div class="live_prefecture">
+          住んでいる県:<%= user.live_prefecture %>
+        </div>
+
+        <div class="favorite_prefecture">
+          よく行く県:<%= user.favorite_prefecture %>
+        </div>
+
+        <div class="content">
+          <%= user.content %>
+        </div>
+
+        <div class="owner">
+          オーナー権限:<%= user.owner %>
+        </div>
+
+        <div class="admin">
+          管理者権限:<%= user.admin %>
+        </div>
+
+        <div class="option">
+          <%= link_to '編集', edit_user_path(user.id), class: "option_btn", id: "edit" %>
+          <%#= link_to '削除', admin_user_path(user.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete" %>
+        </div>
+      </div>
+  <% end %>
+</div>

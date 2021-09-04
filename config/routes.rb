@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       match 'search' => 'animals#search', via: [:get, :post], as: :search
     end
   end
-  # resources :users
+  resources :users
   namespace :admin do
     resources :users
   end

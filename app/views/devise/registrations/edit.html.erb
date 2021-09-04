@@ -1,43 +1,70 @@
-<h2><%= t('.title', resource: resource.model_name.human) %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+<h1>マイページ編集</h1>
+<%= form_with(model: @user, local: true ) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @user.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %>
+
+  <div class="edit_photo_area">
+    <%= form.label :アイコン, class: "photo_label" %>
+    <%= image_tag @user.icon.url, class: "show_photo" if @user.icon && @user.icon.url %>
+    <%= form.file_field :icon, class: "edit_photo" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="edit_name_area">
+    <h2 style = "color:#3399FF">*名前<%= form.text_field :name %></h2>
+    <div class="option_area">
+      <%# if current_user.admin == true %>
+        <%= link_to "マイページにもどる", user_path(@user.id), class: "back_btn" %>
+      <%# end %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit t('.update') %>
-  </div>
+<table class="data_space">
+
+  <tr class="email_area">
+    <th style = "color:#3399FF">*メールアドレス</th>
+    <td colspan="2"><%= form.email_field :email %></td>
+  </tr>
+
+  <tr class="password_area">
+    <th style = "color:#3399FF">*パスワード</th>
+    <td><%= form.password_field :password, placeholder:"パスワードを入力してください" %></td>
+    <td><%= form.password_field :password_confirmation, placeholder:"もう一度入力してください" %></td>
+  </tr>
+
+  <tr class="live_prefecture_area">
+    <th>住んでいる県</th>
+    <td colspan="2"><%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %></td>
+  </tr>
+
+  <tr class="live_prefecture_area">
+    <th>よく行く県</th>
+    <td colspan="2"><%= form.select :prefecture, Zoo.prefectures.keys.to_a, prompt: "選択してください" %></td>
+  </tr>
+
+  <tr class="content_area">
+    <th>自己紹介</th>
+    <td colspan="2"><%= form.text_area :content %></td>
+  </tr>
+
+  <% if current_user.admin == true %>
+    <tr class="authority">
+      <th>権限</th>
+      <td>オーナー権限<%= form.check_box :owner, {}, true, false %></td>
+      <td>管理者権限<%= form.check_box :admin, {}, true, false %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+  <%= form.submit %>
 <% end %>
-
-<h3><%= t('.cancel_my_account') %></h3>
-
-<p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
-
-<%= link_to t('devise.shared.links.back'), :back %>
