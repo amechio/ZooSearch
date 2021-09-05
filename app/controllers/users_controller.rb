@@ -83,9 +83,9 @@ class UsersController < ApplicationController
     # @favorite_animals = current_user.favorite_animals
   end
 
-  # def admin_user
-  #   if current_user.admin != true
-  #     redirect_to new_user_session_path, notice: "権限がありません！"
-  #   end
-  # end
+  def admin_user
+    if current_user.admin != true
+      redirect_to new_user_session_path, notice: "権限がありません！"
+    end
+  end
 end
