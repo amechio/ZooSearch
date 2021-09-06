@@ -7,7 +7,7 @@
     <h2><%= @user.name %> さんのページ</h2>
     <div class="option_area">
       <% if current_user.admin == true %>
-        <%= link_to "一覧画面にもどる", admin_users_path, class: "back_btn" %>
+        <%= link_to "一覧画面にもどる", users_path, class: "back_btn" %>
       <% end %>
         <%= link_to '編集', edit_user_registration_path(id: @user.id), class: "edit_btn" %>
     </div>

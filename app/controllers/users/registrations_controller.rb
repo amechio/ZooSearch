@@ -19,8 +19,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  # def update_resource(resource, params)
-  #   resource.update_without_password(params)
-  # end
+  def configure_account_update_params
+   devise_parameter_sanitizer.permit(:account_update, keys: [
+     :name,
+     :email,
+     :password,
+     :password_confirmation,
+     :live_prefecture,
+     :favorite_prefecture,
+     :content,
+     :icon,
+     :owner,
+     :admin
+     ])
+  end
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
 end
