@@ -7,26 +7,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def profile_edit
+  def edit
   end
 
-  def profile_update
+  def update
     current_user.assign_attributes(account_update_params)
     if current_user.save
-	  redirect_to my_page_path, notice: 'プロフィールを更新しました'
+	  redirect_to user_path(id: @user.id), notice: 'プロフィールを更新しました'
     else
-      render "profile_edit"
+      render "edit"
     end
   end
 
   protected
 
-  def configure_account_update_params
-   devise_parameter_sanitizer.permit(:account_update, keys: [
+  def update_params
+   params.require(:user).permit(:update, keys: [
      :name,
      :email,
-     :password,
-     :password_confirmation,
+     # :password,
+     # :password_confirmation,
      :live_prefecture,
      :favorite_prefecture,
      :content,
