@@ -25,11 +25,15 @@ class UsersController < ApplicationController
   # end
 
   def show
-    favorite_zoos = FavoriteZoo.where(user_id: current_user.id).pluck(:zoo_id)
-    @favorite_zoo_list = Zoo.find(favorite_zoos)
+    # unless favorite_zoo == nil
+      favorite_zoos = FavoriteZoo.where(user_id: current_user.id).pluck(:zoo_id)
+      @favorite_zoo_list = Zoo.find(favorite_zoos)
+    # end
 
-    favorite_animals = FavoriteAnimal.where(user_id: current_user.id).pluck(:animal_id)
-    @favorite_animal_list = Animal.find(favorite_animals)
+    # unless favorite_animal == nil
+      favorite_animals = FavoriteAnimal.where(user_id: current_user.id).pluck(:animal_id)
+      @favorite_animal_list = Animal.find(favorite_animals)
+    # end
   end
 
   # def edit
