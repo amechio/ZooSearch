@@ -8,11 +8,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
-    current_user.assign_attributes(account_update_params)
-    if current_user.save
+    @user.assign_attributes(account_update_params)
+    if @user.save
       bypass_sign_in(@user)
 	    redirect_to user_path(id: @user.id), notice: 'プロフィールを更新しました'
       # redirect_to root_path, notice: "プロフィールを編集しました！もう一度ログインしてください"
