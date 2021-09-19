@@ -30,6 +30,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     # super
+
+    original_user = current_user
+
     if by_admin_user?(params)
       self.resource = resource_class.to_adapter.get!(params[:id])
     else
@@ -45,6 +48,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     yield resource if block_given?
+
     if resource_updated
       if is_flashing_format?
         flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
@@ -52,7 +56,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         set_flash_message :notice, flash_key
       end
       if !by_admin_user?(params)
-        bypass_sign_in resource, scope: resource_name
+        # bypass_sign_in resource, scope: resource_name
+        sign_in(resource_name, original_user)
+        respond_with resource, location: after_sign_up_path_for(resource)
       end
       respond_with resource, location: after_update_path_for(resource)
     else
