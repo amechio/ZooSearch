@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  before_action :ensure_normal_user, only: [:destroy, :destroy]
+  before_action :ensure_normal_user, only: [:update, :destroy]
 
   def ensure_normal_user
     if resource.email == 'guest@example.com' || resource.email == 'admin@example.com'
@@ -113,6 +113,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def by_admin_user?(params)
     params[:id].present? && current_user_is_admin?
+  end
+
+  def after_update_path_for(resource)
+    user_path(@user.id)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
