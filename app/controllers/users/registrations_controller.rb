@@ -96,7 +96,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update_params
    params.require(:user).permit(:update, keys: [
      :name,
-     :email,
+     # :email,
      # :password,
      # :password_confirmation,
      :live_prefecture,
