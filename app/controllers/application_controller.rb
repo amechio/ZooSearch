@@ -8,10 +8,10 @@ class ApplicationController < ActionController::Base
         :name,
         :live_prefecture,
         :favorite_prefecture,
-        :content,
-        :icon,
-        :owner,
-        :admin
+        # :content,
+        # :icon,
+        # :owner,
+        # :admin
         ]
       )
     devise_parameter_sanitizer.permit(
