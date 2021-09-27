@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(
       :sign_up, keys: [
         :name,
-        :live_prefecture,
-        :favorite_prefecture,
+        # :live_prefecture,
+        # :favorite_prefecture,
         # :content,
         # :icon,
         # :owner,
