@@ -93,20 +93,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  def update_params
-   params.require(:user).permit(:update, keys: [
-     :name,
-     # :email,
-     # :password,
-     # :password_confirmation,
-     :live_prefecture,
-     :favorite_prefecture,
-     :content,
-     :icon,
-     :owner,
-     :admin
-     ])
-  end
+  # def update_params
+  #  params.require(:user).permit(:update, keys: [
+  #    :name,
+  #    # :email,
+  #    # :password,
+  #    # :password_confirmation,
+  #    :live_prefecture,
+  #    :favorite_prefecture,
+  #    :content,
+  #    :icon,
+  #    :owner,
+  #    :admin
+  #    ])
+  # end
 
   def update_resource(resource, params)
     if params[:password].present? && params[:password_confirmation].present?
