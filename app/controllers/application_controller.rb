@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(
       :account_update, keys: [
         :name,
+        :email,
         :live_prefecture,
         :favorite_prefecture,
         :content,
