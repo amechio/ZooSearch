@@ -22,13 +22,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  def edit
+  # def edit
+  def profile_edit
     # super
     @user = User.find(params[:id])
   end
 
   # PUT /resource
-  def update
+  # def update
+  def profile_update
     # super
 
     @user.assign_attributes(account_update_params)
