@@ -22,11 +22,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
+  def edit
   # def profile_edit
-  #   # super
-  #   @user = User.find(params[:id])
-  # end
+    # super
+    @user = User.find(params[:id])
+  end
   #
   # # PUT /resource
   # # def update
