@@ -114,7 +114,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if params[:password].present? && params[:password_confirmation].present?
       resource.update_attributes(params)
     else
-      resource.update_without_password(params)
+      # resource.update_without_password(params)
     end
   end
 
