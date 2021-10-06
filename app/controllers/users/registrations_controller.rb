@@ -27,9 +27,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # super
     @user = User.find(params[:id])
   end
-  #
-  # # PUT /resource
-  # # def update
+
+  # PUT /resource
+  def update
   # def profile_update
   #   # super
   #
@@ -77,7 +77,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #     set_minimum_password_length
   #     respond_with resource
   #   end
-  # end
+  end
   #
   # # DELETE /resource
   # def destroy
@@ -113,8 +113,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update_resource(resource, params)
     if params[:password].present? && params[:password_confirmation].present?
       resource.update_attributes(params)
-    else
-      # resource.update_without_password(params)
+    # else
+    #   resource.update_without_password(params)
     end
   end
 
