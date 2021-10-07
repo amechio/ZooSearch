@@ -42,7 +42,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   #   render "edit"
   #   # end
   #
-  #   original_user = current_user
+    original_user = current_user
   #
   #   if by_admin_user?(params)
   #     self.resource = resource_class.to_adapter.get!(params[:id])
