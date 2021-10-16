@@ -8,7 +8,7 @@ class FavoriteZoosController < ApplicationController
       favorite_zoo = current_user.favorite_zoos.create(zoo_id: params[:zoo_id])
       redirect_to zoo_path(favorite_zoo.zoo.id), notice: "#{favorite_zoo.zoo.name}をお気に入り登録しました"
     else
-      redirect_to new_user_session_path, notice: " ログインしてください！"
+      redirect_to new_user_session_path, notice: "ログインしてください！"
     end
   end
 
@@ -17,7 +17,7 @@ class FavoriteZoosController < ApplicationController
       favorite_zoo = current_user.favorite_zoos.find_by(id: params[:id]).destroy
       redirect_to zoo_path(favorite_zoo.zoo.id), notice: "#{favorite_zoo.zoo.name}をお気に入り解除しました"
     else
-      redirect_to new_user_session_path, notice: " ログインしてください！"
+      redirect_to new_user_session_path, notice: "ログインしてください！"
     end
   end
 end

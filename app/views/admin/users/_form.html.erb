@@ -1,4 +1,4 @@
-<%= form_with(model: @user, url: admin_users_path, local: true ) do |form| %>
+<%# <%= form_with(model: @user, url: admin_users_path, local: true ) do |form| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= @user.errors.count %>件のエラーがあります。</h2>
@@ -61,4 +61,4 @@
 </table>
 
   <%= form.submit %>
-<% end %>
+<% end %> %>
