@@ -105,6 +105,7 @@
 
 <ul class="row">
   <li class="col-lg-6">
+  <div class="zoo_result">
     <h2>動物園の検索結果</h2>
     <div class="search_result">
         <% @zoos.each do |zoo| %>
@@ -131,34 +132,37 @@
           </div>
         <% end %>
       </div>
-    </li>
+    </div>
+  </li>
 
   <li class="col-lg-6">
-    <h2>動物の検索結果</h2>
-    <div class="search_result">
-      <% @animals.each do |animal| %>
-        <div class="chunk">
-          <div class="photo_area">
-            <%= image_tag animal.photo.url, class: "photo" if animal.photo && animal.photo.url %>
+    <div class="animal_result">
+      <h2>動物の検索結果</h2>
+      <div class="search_result">
+        <% @animals.each do |animal| %>
+          <div class="chunk">
+            <div class="photo_area">
+              <%= image_tag animal.photo.url, class: "photo" if animal.photo && animal.photo.url %>
+            </div>
+            <div class="name">
+              <%= link_to animal.name, animal_path(animal.id), id: "show_btn" %>
+            </div>
+            <div class="english_name">
+              <%= animal.english_name %>
+            </div>
+            <div class="content">
+              <%= animal.content %>
+            </div>
+            <div class="option">
+              <%= link_to "wikipediaをみる", animal.wikipedia, class: "wikipedia" %>
+              <% if signed_in? && current_user.admin == true %>
+                <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn", id: "edit_btn" %>
+                <%= link_to '削除', animal_path(animal.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
+              <% end %>
+            </div>
           </div>
-          <div class="name">
-            <%= link_to animal.name, animal_path(animal.id), id: "show_btn" %>
-          </div>
-          <div class="english_name">
-            <%= animal.english_name %>
-          </div>
-          <div class="content">
-            <%= animal.content %>
-          </div>
-          <div class="option">
-            <%= link_to "wikipediaをみる", animal.wikipedia, class: "wikipedia" %>
-            <% if signed_in? && current_user.admin == true %>
-              <%= link_to '編集', edit_animal_path(animal.id), class: "option_btn", id: "edit_btn" %>
-              <%= link_to '削除', animal_path(animal.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </li>
 </ul>

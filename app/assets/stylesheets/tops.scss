@@ -95,6 +95,10 @@ p {
   padding: 0;
   margin: 0;
 }
+.col-lg-6 {
+  padding: 5px;
+  // margin: 0;
+}
 
 .search_result {
   display: flex;
@@ -103,6 +107,12 @@ p {
   // display: inline-block;
   padding: 0;
   margin: 0;
+}
+.zoo_result {
+  background-color: #D9EFCE;
+}
+.animal_result {
+  background-color: #FFEFDD;
 }
 
 .chunk {
