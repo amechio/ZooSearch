@@ -7,7 +7,13 @@
 <div class="search_result">
   <% @zoos.each do |zoo| %>
     <div class="chunk">
-      <%= image_tag zoo.photo.url, class: "photo" if zoo.photo && zoo.photo.url %>
+      <div class="photo_area">
+        <% if zoo.photo? %>
+          <%= image_tag zoo.photo.url, class: "photo" if zoo.photo && zoo.photo.url %>
+        <% else %>
+          <%= image_tag "zoo_doubutsuen.png", class:"photo"%>
+        <% end %>
+      </div>
       <div class="name">
         <%= link_to zoo.name, zoo_path(zoo.id), id: "show_btn" %>
       </div>
