@@ -24,3 +24,36 @@
   background-color: #eee;
   padding: 10px 0;
 }
+
+#animal_english_name {
+  width: 40%;
+}
+
+#animal_scientific_name {
+  width: 40%;
+}
+
+#animal_content {
+  width: 85%;
+}
+
+#animal_distribution {
+  width: 85%;
+}
+
+#animal_wikipedia {
+  width: 85%;
+}
+
+.submit_btn {
+  text-decoration: none;
+  width: 60px;
+  padding: 5px;
+  // color: #4FD0FF;
+  background-color: #B4E28E;
+  // text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF,
+  //              -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  //              0px 1px 0 #FFF,  0-1px 0 #FFF,
+  //              -1px 0 0 #FFF, 1px 0 0 #FFF;  // border: 1px solid;
+  border-radius: 10px;
+}

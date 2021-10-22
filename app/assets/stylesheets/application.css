@@ -39,8 +39,9 @@ header {
   height: 110px;
   /* padding-top: 10px; */
   margin: 0;
-  background-color: #91BA6F;
-  background-image: url();
+  /* background-color: #91BA6F; */
+  background: rgba(145,186,111,0.7);
+  /* background-image: url(); */
   /* line-height: 268px; */
   /* text-align: center; */
   /* display: flex; */
