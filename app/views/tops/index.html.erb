@@ -6,7 +6,7 @@
   <p>このアプリで自分の求めている動物園をみつけて、動物園をより楽しんでください！</p>
 </div>
 
-<div class="zoos_search">
+  <div class="zoos_search">
 
     <h3 class="search_title">動物園検索</h3>
 
@@ -46,9 +46,9 @@
           <%= f.submit "動物園を検索", class: "zoo_search_btn" %>
         </div>
     <% end %>
-</div>
+  </div>
 
-<div class="animals_search">
+  <div class="animals_search">
 
     <h3 class="search_title">動物検索</h3>
     <%= search_form_for @p, as: :p, url: tops_path do |s| %>
@@ -100,7 +100,7 @@
           <%= s.submit "動物を検索", class: "animal_search_btn" %>
         </div>
     <% end %>
-</div>
+  </div>
 
 
 <ul class="row">
