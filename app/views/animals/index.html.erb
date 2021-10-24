@@ -8,7 +8,11 @@
   <% @animals.each do |animal| %>
     <div class="chunk">
       <div class="photo_area">
-        <%= image_tag animal.photo.url, class: "photo" if animal.photo && animal.photo.url %>
+        <% if animal.photo? %>
+          <%= image_tag animal.photo.url, class: "photo" if animal.photo && animal.photo.url %>
+        <% else %>
+          <%= image_tag "mark_nikukyu.png", class:"photo"%>
+        <% end %>
       </div>
       <div class="name">
         <%= link_to animal.name, animal_path(animal.id), id: "show_btn" %>

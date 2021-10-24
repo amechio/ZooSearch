@@ -20,7 +20,7 @@ p {
   padding: 10px;
   margin-left: 5%;
   margin-bottom: 10px;
-  background-color: #E0E0E0;
+  // background-color: #E0E0E0;
 }
 .search_btn {
   display: flex;
@@ -31,12 +31,8 @@ p {
   // height: 100%;
 }
 
-
 .zoos_search {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  background-color: #B4E28E;
+  background-color: rgba(217, 239, 206, 0.7);
 }
 .zoo_name {
   width: 80%;
@@ -69,7 +65,7 @@ p {
 
 
 .animals_search {
-  background-color: #EFC7AA;
+  background-color: rgba(255, 230, 204, 0.7);
 }
 .animal_name {
   width: 40%;
@@ -83,7 +79,7 @@ p {
   width: 100px;
   padding: 5px;
   // color: #4FD0FF;
-  background-color: #B4E28E;
+  background-color: #FFC689;
   // text-shadow: 1px 1px 0 #FFF, -1px -1px 0 #FFF,
   //              -1px 1px 0 #FFF, 1px -1px 0 #FFF,
   //              0px 1px 0 #FFF,  0-1px 0 #FFF,
@@ -95,6 +91,10 @@ p {
   padding: 0;
   margin: 0;
 }
+.col-lg-6 {
+  padding: 5px;
+  // margin: 0;
+}
 
 .search_result {
   display: flex;
@@ -103,6 +103,12 @@ p {
   // display: inline-block;
   padding: 0;
   margin: 0;
+}
+.zoo_result {
+  background-color: rgba(217, 239, 206, 0.7);
+}
+.animal_result {
+  background-color: rgba(255, 230, 204, 0.7);
 }
 
 .chunk {

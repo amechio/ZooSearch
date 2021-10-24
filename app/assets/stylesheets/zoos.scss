@@ -29,7 +29,8 @@
   // font-size: 32px;
 }
 h2 {
-  margin: 10px auto;
+  margin: 0 auto;
+  padding: 10px;
 }
 .option_area {
   // display: flex;
@@ -139,7 +140,7 @@ h2 {
   position: relative;
   text-align: left;
   width: 15%;
-  background-color: #52c2d0;
+  background-color: #92C976;
   color: white;
   text-align: center;
   padding: 10px 0;
@@ -164,6 +165,10 @@ h2 {
   padding: 10px 20px;
 }
 
+#zoo_content {
+  width: 80%;
+}
+
 .open_close {
   width: 60%;
   margin: auto;
@@ -179,7 +184,7 @@ h2 {
   position: relative;
   text-align: left;
   width: 20%;
-  background-color: #52c2d0;
+  background-color: #92C976;
   color: white;
   text-align: center;
   padding: 10px 0;
@@ -201,7 +206,7 @@ h2 {
   position: relative;
   text-align: left;
   width: 30%;
-  background-color: #52c2d0;
+  background-color: #92C976;
   color: white;
   text-align: center;
   padding: 10px 0;
@@ -212,4 +217,19 @@ h2 {
   text-align: center;
   background-color: #eee;
   padding: 10px 0;
+}
+#zoo_price_comment {
+  width: 85%;
+}
+
+#zoo_holiday {
+  width: 80%;
+}
+
+#zoo_home_page {
+  width: 80%;
+}
+
+label {
+  margin-right : 10px;
 }

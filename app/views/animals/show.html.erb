@@ -1,6 +1,10 @@
 <div class="show_area">
   <div class="photo_area">
-    <%= image_tag @animal.photo.url, class: "show_photo" if @animal.photo && @animal.photo.url %>
+    <% if @animal.photo? %>
+      <%= image_tag @animal.photo.url, class: "show_photo" if @animal.photo && @animal.photo.url %>
+    <% else %>
+      <%= image_tag "mark_nikukyu.png", class:"show_photo"%>
+    <% end %>
   </div>
 
   <div class="name_area">

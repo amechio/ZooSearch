@@ -7,7 +7,13 @@
 <div class="search_result">
   <% @users.each do |user| %>
       <div class="chunk">
-        <%= image_tag user.icon.url, class: "icon" if user.icon && user.icon.url %>
+        <div class="photo_area">
+          <% if user.icon? %>
+            <%= image_tag user.icon.url, class: "icon" if user.icon && user.icon.url %>
+          <% else %>
+            <%= image_tag "flower_tanpopo_watage_solo.png", class:"photo"%>
+          <% end %>
+        </div>
 
         <div class="name">
           <%= link_to user.name, user_path(user.id), id: "show_btn" %>
