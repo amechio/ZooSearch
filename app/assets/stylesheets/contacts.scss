@@ -2,13 +2,55 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+a {
+  color: black;
+}
 
 .contacts_list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
 }
-.contact_area {
-  display: flex;
-  margin: auto;
+.contact_chunk {
+  width: 600px;
+  margin: 5px auto;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+}
+.contact_chunk:hover {
+  // text-decoration: none;
+  transform: translateY(-5px);
+  box-shadow: 0 7px 34px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+  transition: all .5s;
+}
+// .contact_area {
+//   display: flex;
+//   margin: auto;
+// }
+
+.contact_title {
+  font-size: 1.7rem;
+  height: 2.2rem;
+  overflow:hidden;
+}
+.contact_content {
+  height: 20px;
+  overflow:hidden;
+  // overflow-y:scroll;
+}
+
+
+
+#contact_title {
+  width: 80%;
+}
+#contact_content {
+  width: 80%;
+}
+
+#error_explanation {
+  color: red;
 }

@@ -2,24 +2,24 @@
 
 
 <%= form_with(model: @contact, local: true ) do |form| %>
-  <%# if @contact.errors.any? %>
+  <% if @contact.errors.any? %>
     <div id="error_explanation">
-      <!-- <h2><%#= @contact.errors.count %>件のエラーがあります。</h2> -->
+      <h2><%= @contact.errors.count %>件のエラーがあります。</h2>
       <ul>
-      <%# @contact.errors.full_messages.each do |msg| %>
-        <li><%#= msg %></li>
-      <%# end %>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
       </ul>
     </div>
-  <%# end %>
+  <% end %>
 
-  <table class="title_area">
-    <tr class="user_name_area">
+  <table class="data_space">
+    <tr class="title_area">
       <th>タイトル</th>
       <td><%= form.text_field :title %></td>
     </tr>
 
-    <tr class="_area">
+    <tr class="content_area">
       <th>内容</th>
       <td><%= form.text_area :content %></td>
     </tr>

@@ -1,0 +1,29 @@
+<div class="show_area">
+  <h2>情報更新依頼</h2>
+  <div class="name_area">
+    <h2><%= @contact.user.name %> さんからの依頼</h2>
+    <div class="option_area">
+      <%= link_to "一覧画面にもどる", contacts_path, class: "back_btn" %>
+    </div>
+  </div>
+
+  <table class="data_space">
+    <tr class="title_area">
+      <th>タイトル</th>
+      <td><%= @contact.title %></td>
+    </tr>
+
+    <tr class="content_area">
+      <th>内容</th>
+      <td><%= @contact.content %></td>
+    </tr>
+
+    <tr class="user_area">
+      <th>依頼人</th>
+      <td>
+        <%= link_to @contact.user.name, user_path(@user.id) %>
+      </td>
+    </tr>
+  </table>
+
+</div>

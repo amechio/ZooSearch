@@ -20,7 +20,7 @@
 
       <% if user_signed_in? %>
         <div class="menu">
-          <%#= link_to "情報更新依頼", new_contact_path, class: "header_btn" %>
+          <%= link_to "情報更新依頼", new_contact_path, class: "header_btn" %>
           <%= link_to "マイページ", user_path(current_user.id), class: "header_btn" %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header_btn" %>
         </div>
@@ -29,7 +29,7 @@
             <%= link_to "動物園一覧", zoos_path, class: "admin_btn" %>
             <%= link_to "動物一覧", animals_path, class: "admin_btn" %>
             <%= link_to "ユーザ一覧", users_path, class: "admin_btn" %>
-            <%#= link_to "情報更新依頼一覧", contacts_path, class: "admin_btn" %>
+            <%= link_to "情報更新依頼一覧", contacts_path, class: "admin_btn" %>
           <% end %>
         </div>
         <div class="greet">
