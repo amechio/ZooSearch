@@ -21,7 +21,8 @@
     <tr class="user_area">
       <th>依頼人</th>
       <td>
-        <%= link_to @contact.user.name, user_path(@user.id) %>
+        <%#= link_to @contact.user.name, user_path(@contact.user.id) %>
+        <%= @contact.user.name %>
       </td>
     </tr>
   </table>

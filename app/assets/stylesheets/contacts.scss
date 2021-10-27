@@ -5,17 +5,21 @@
 a {
   color: black;
 }
+// .contact_area {
+//   display: flex;
+//   margin: auto;
+// }
 
 .contacts_list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
   padding: 0;
   margin: 0;
 }
 .contact_chunk {
-  width: 600px;
-  margin: 5px auto;
+  width: 60%;
+  margin: 10px auto;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
@@ -26,10 +30,6 @@ a {
   box-shadow: 0 7px 34px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
   transition: all .5s;
 }
-// .contact_area {
-//   display: flex;
-//   margin: auto;
-// }
 
 .contact_title {
   font-size: 1.7rem;

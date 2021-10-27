@@ -13,7 +13,8 @@
           <%= contact.content %>
         </div>
         <div class="contact_user">
-          <%= link_to contact.user.name, user_path(contact.id), id: "show_btn" %>
+          <%#= link_to contact.user.name, user_path(contact.id), id: "show_btn" %>
+          <%= contact.user.name %>
         </div>
       </div>
     <% end %>
