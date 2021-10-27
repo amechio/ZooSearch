@@ -2,9 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-a {
-  color: black;
-}
+// a {
+//   color: black;
+// }
 // .contact_area {
 //   display: flex;
 //   margin: auto;
@@ -32,14 +32,16 @@ a {
 }
 
 .contact_title {
+  color: black;
   font-size: 1.7rem;
   height: 2.2rem;
   overflow:hidden;
 }
 .contact_content {
-  height: 20px;
+  color: black;
+  height: 40px;
   overflow:hidden;
-  // overflow-y:scroll;
+  overflow-y:scroll;
 }
 
 

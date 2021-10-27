@@ -91,25 +91,36 @@
   <h3>この動物に会える動物園</h3>
   <div class="search_result">
     <% @animal.zoos.each do |zoo| %>
-      <div class="chunk">
-        <%= image_tag zoo.photo.url, class: "photo" if zoo.photo && zoo.photo.url %>
-        <div class="name">
-          <%= link_to "#{zoo.name}", zoo_path(zoo.id), id: "show_btn" %>
+      <%= link_to zoo_path(zoo.id) do %>
+
+        <div class="chunk">
+          <div class="photo_area">
+            <% if zoo.photo? %>
+              <%= image_tag zoo.photo.url, class: "photo" if zoo.photo && zoo.photo.url %>
+            <% else %>
+              <%= image_tag "zoo_doubutsuen.png", class:"photo"%>
+            <% end %>
+          </div>
+          <div class="name">
+            <%#= link_to "#{zoo.name}", zoo_path(zoo.id), id: "show_btn" %>
+            <%= zoo.name %>
+          </div>
+          <div class="address">
+            住所:<%= zoo.address %>
+          </div>
+          <div class="content">
+            概要:<%= zoo.content %>
+          </div>
+          <div class="option">
+            <%= link_to "ホームページをみる", zoo.home_page, class: "home_page" %>
+            <% if signed_in? && current_user.admin == true %>
+                <%= link_to '編集', edit_zoo_path(zoo.id), class: "option_btn", id: "edit_btn" %>
+                <%= link_to '削除', zoo_path(zoo.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
+            <% end %>
+          </div>
         </div>
-        <div class="address">
-          住所:<%= zoo.address %>
-        </div>
-        <div class="content">
-          概要:<%= zoo.content %>
-        </div>
-        <div class="option">
-          <%= link_to "ホームページをみる", zoo.home_page, class: "home_page" %>
-          <% if signed_in? && current_user.admin == true %>
-              <%= link_to '編集', edit_zoo_path(zoo.id), class: "option_btn", id: "edit_btn" %>
-              <%= link_to '削除', zoo_path(zoo.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class: "option_btn", id: "delete_btn" %>
-          <% end %>
-        </div>
-      </div>
+
+      <% end %>
     <% end %>
   </div>
 
