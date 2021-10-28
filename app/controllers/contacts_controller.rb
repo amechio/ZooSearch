@@ -36,7 +36,7 @@ class ContactsController < ApplicationController
 
   def show
     if signed_in? && current_user.admin == true
-      @contact = current_user.contacts.find_by(user_id: @contact.id)
+      # @user = current_user.contacts.find_by(user_id: @contact.id)
     end
   end
 

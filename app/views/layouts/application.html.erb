@@ -14,49 +14,59 @@
 
   <body>
     <header>
-      <div>
+      <div class="left_area">
+        <% if user_signed_in? %>
+          <div class="admin_menu">
+            <% if current_user.admin == true %>
+              <%= link_to "動物園一覧", zoos_path, class: "admin_btn" %>
+              <%= link_to "動物一覧", animals_path, class: "admin_btn" %>
+              <%= link_to "ユーザ一覧", users_path, class: "admin_btn" %>
+              <%= link_to "情報更新依頼一覧", contacts_path, class: "admin_btn" %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="admin_menu">
+            <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path, method: :post, class: "guest_btn" %>
+            <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post, class: "guest_btn" %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="logo_area">
         <%= link_to "Zoo Search", root_path, class: "logo" %>
       </div>
 
-      <% if user_signed_in? %>
-        <div class="menu">
-          <%#= link_to "情報更新依頼", new_contact_path, class: "header_btn" %>
-          <%= link_to "マイページ", user_path(current_user.id), class: "header_btn" %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header_btn" %>
-        </div>
-        <div class="admin_menu">
-          <% if current_user.admin == true %>
-            <%= link_to "動物園一覧", zoos_path, class: "admin_btn" %>
-            <%= link_to "動物一覧", animals_path, class: "admin_btn" %>
-            <%= link_to "ユーザ一覧", users_path, class: "admin_btn" %>
+      <div class="raight_area">
+        <% if user_signed_in? %>
+          <div class="menu">
+            <%= link_to "情報更新依頼", new_contact_path, class: "header_btn" %>
+            <%= link_to "マイページ", user_path(current_user.id), class: "header_btn" %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header_btn" %>
+          </div>
+          <div class="greet">
+            ようこそ <%= current_user.name %> さん
+          </div>
+        <% else %>
+
+          <div class="menu">
             <%#= link_to "情報更新依頼一覧", contacts_path, class: "admin_btn" %>
-          <% end %>
-        </div>
-        <div class="greet">
-          ようこそ <%= current_user.name %> さん
-        </div>
-      <% else %>
+            <%= link_to "ログイン", new_user_session_path, class: "header_btn" %>
+            <%= link_to "アカウントをつくる", new_user_registration_path, class: "header_btn" %>
+          </div>
+          <div class="greet">
+            ログインしていません
+          </div>
+        <% end %>
 
-        <div class="menu">
-          <%#= link_to "情報更新依頼一覧", contacts_path, class: "admin_btn" %>
-          <%= link_to "ログイン", new_user_session_path, class: "header_btn" %>
-          <%= link_to "アカウントをつくる", new_user_registration_path, class: "header_btn" %>
-          <%= link_to 'ゲストログイン(一般)', users_guest_sign_in_path, method: :post, class: "guest_btn" %>
-          <%= link_to 'ゲストログイン(管理者)', users_guest_admin_sign_in_path, method: :post, class: "guest_btn" %>
+        <% if notice %>
+        <div class="information">
+          お知らせ：
+          『<% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "#{key}") %>
+          <% end %>』
         </div>
-        <div class="greet">
-          ログインしていません
-        </div>
-      <% end %>
-
-      <% if notice %>
-      <div class="information">
-        お知らせ：
-        『<% flash.each do |key, value| %>
-          <%= content_tag(:div, value, class: "#{key}") %>
-        <% end %>』
+        <% end %>
       </div>
-      <% end %>
     </header>
 
     <main>

@@ -4,20 +4,22 @@
 <div class="contacts_list">
 
   <% @contacts.each do |contact| %>
-    <div class="contact_area">
-      <div class="contact_user">
-        <%= link_to contact.user.name, user_path(contact.id), id: "show_btn" %>
+    <%= link_to contact_path(contact.id) do %>
+
+      <div class="contact_chunk">
+        <div class="contact_title">
+          <%= contact.title %>
+        </div>
+        <div class="contact_content">
+          <%= contact.content %>
+        </div>
+        <div class="contact_user">
+          <%= link_to contact.user.name, user_path(contact.user.id), id: "show_btn" %>
+          <%#= contact.user.name %>
+        </div>
       </div>
-      <div class="contact_title">
-        <%= contact.title %>
-      </div>
-      <div class="contact_content">
-        <%= contact.content %>
-      </div>
-      <div class="option">
-        <%= link_to "詳細", contact_path(contact.id), class: "show_btn" %>
-      </div>
-    </div>
+
+    <% end %>
   <% end %>
 
 </div>
