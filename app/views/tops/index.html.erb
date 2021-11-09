@@ -40,6 +40,9 @@
           <%= f.label :入場料（一般）, class: "zoo_search_label_price" %>
           <%= f.number_field :general_price_lteq, class: "zoo_general_price" %>円以下
         </div>
+        <div class="sort_area">
+          <%= sort_link(@q, :general_price, "入場料（一般）") %>
+        </div>
       </div>
 
         <div class="search_btn">
