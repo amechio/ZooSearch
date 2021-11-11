@@ -42,6 +42,8 @@
         </div>
         <div class="sort_area">
           <%= sort_link(@q, :general_price, "入場料（一般）") %>
+          <%= sort_link(@q, :name, "五十音") %>
+          <%= sort_link(@q, :prefecture, "県") %>
         </div>
       </div>
 
@@ -96,6 +98,9 @@
         <div class="search_column"> -->
           <%= s.label :亜種 %>
           <%= s.search_field :subspecy_cont, class: "animal_subspecy", placeholder:"例) ホモ・サピエンス・サピエンス" %>
+        </div>
+        <div class="sort_area">
+          <%= sort_link(@p, :name, "五十音") %>
         </div>
       </div>
 
